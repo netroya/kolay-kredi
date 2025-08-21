@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigorta Karşılaştırma - Kolay Kredi</title>
+    <meta name="description" content="Kasko, trafik sigortası, sağlık sigortası hesaplama ve karşılaştırma araçları. En uygun sigorta poliçesini bulun.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40X5D8K6WH');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-9023802833968711" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f8fafc;
+            --border-gray: #e5e7eb;
+            --shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .insurance-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .calculator-tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.5rem;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .calc-button {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calc-button:hover {
+            background: #2563eb;
+        }
+
+        .result-panel {
+            background: #ecfdf5;
+            border: 2px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #a7f3d0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .company-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-gray);
+            align-items: center;
+        }
+
+        .company-row:last-child {
+            border-bottom: none;
+        }
+
+        .company-row.header {
+            background: var(--bg-light);
+            font-weight: 600;
+        }
+
+        .company-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .company-name {
+            font-weight: 600;
+        }
+
+        .price-good {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .price-medium {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .price-high {
+            color: var(--danger-color);
+            font-weight: 700;
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .coverage-card {
+            background: white;
+            border: 2px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .coverage-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .coverage-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .coverage-list {
+            list-style: none;
+        }
+
+        .coverage-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .coverage-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--secondary-color);
+        }
+
+        .cross-icon {
+            color: var(--danger-color);
+        }
+
+        .alert-box {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .alert-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-tabs {
+                flex-direction: column;
+            }
+            
+            .company-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-calculator"></i>
+                    Kolay Kredi
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                <li><a href="mevduat.html">Mevduat</a></li>
+                <li><a href="sigorta.html" class="active">Sigorta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0; text-align: center; color: white;">
+            <h1><i class="fas fa-shield-alt"></i> Sigorta Karşılaştırma</h1>
+            <p>Kasko, trafik sigortası ve sağlık sigortası hesaplama araçları</p>
+        </div>
+
+        <div class="insurance-container">
+            <div class="calculator-tabs">
+                <button class="tab-button active" onclick="showTab('kasko')">
+                    <i class="fas fa-car"></i>
+                    Kasko Sigortası
+                </button>
+                <button class="tab-button" onclick="showTab('trafik')">
+                    <i class="fas fa-road"></i>
+                    Trafik Sigortası
+                </button>
+                <button class="tab-button" onclick="showTab('saglik')">
+                    <i class="fas fa-heartbeat"></i>
+                    Sağlık Sigortası
+                </button>
+            </div>
+
+            <!-- Kasko Sigortası -->
+            <div id="kasko-tab" class="tab-content active">
+                <div class="calc-grid">
+                    <div class="form-section">
+                        <h3>Araç Bilgileri</h3>
+                        <div class="form-group">
+                            <label class="form-label">Araç Markası</label>
+                            <select class="form-select" id="kasko-marka">
+                                <option value="toyota">Toyota</option>
+                                <option value="honda">Honda</option>
+                                <option value="bmw">BMW</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                                <option value="volkswagen">Volkswagen</option>
+                                <option value="ford">Ford</option>
+                                <option value="opel">Opel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Araç Modeli</label>
+                            <input type="text" class="form-input" id="kasko-model" placeholder="Örn: Corolla">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Model Yılı</label>
+                            <select class="form-select" id="kasko-yil">
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Araç Değeri (TL)</label>
+                            <input type="number" class="form-input" id="kasko-deger" placeholder="500000">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Sürücü Bilgileri</h3>
+                        <div class="form-group">
+                            <label class="form-label">Yaş</label>
+                            <input type="number" class="form-input" id="kasko-yas" placeholder="35">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ehliyet Yılı</label>
+                            <input type="number" class="form-input" id="kasko-ehliyet" placeholder="15">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hasar Geçmişi</label>
+                            <select class="form-select" id="kasko-hasar">
+                                <option value="0">Hasar yok</option>
+                                <option value="1">1 Hasar</option>
+                                <option value="2">2 Hasar</option>
+                                <option value="3">3+ Hasar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Şehir</label>
+                            <select class="form-select" id="kasko-sehir">
+                                <option value="istanbul">İstanbul</option>
+                                <option value="ankara">Ankara</option>
+                                <option value="izmir">İzmir</option>
+                                <option value="bursa">Bursa</option>
+                                <option value="antalya">Antalya</option>
+                                <option value="adana">Adana</option>
+                                <option value="konya">Konya</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="calc-button" onclick="calculateKasko()">
+                    <i class="fas fa-calculator"></i> Kasko Primini Hesapla
+                </button>
+
+                <div id="kasko-result" class="result-panel" style="display: none;">
+                    <div class="result-item">
+                        <span>Yıllık Prim (Temel):</span>
+                        <span id="kasko-temel">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Yıllık Prim (Kapsamlı):</span>
+                        <span id="kasko-kapsamli">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Önerilen Prim:</span>
+                        <span id="kasko-onerilen">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trafik Sigortası -->
+            <div id="trafik-tab" class="tab-content">
+                <div class="calc-grid">
+                    <div class="form-section">
+                        <h3>Araç Bilgileri</h3>
+                        <div class="form-group">
+                            <label class="form-label">Araç Tipi</label>
+                            <select class="form-select" id="trafik-tip">
+                                <option value="otomobil">Otomobil</option>
+                                <option value="motosiklet">Motosiklet</option>
+                                <option value="minibus">Minibüs</option>
+                                <option value="kamyon">Kamyon</option>
+                                <option value="traktor">Traktör</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Motor Hacmi (cc)</label>
+                            <input type="number" class="form-input" id="trafik-hacim" placeholder="1600">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Model Yılı</label>
+                            <select class="form-select" id="trafik-yil">
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="diger">2020 ve öncesi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Polis Bilgileri</h3>
+                        <div class="form-group">
+                            <label class="form-label">İl</label>
+                            <select class="form-select" id="trafik-il">
+                                <option value="34">İstanbul (34)</option>
+                                <option value="06">Ankara (06)</option>
+                                <option value="35">İzmir (35)</option>
+                                <option value="16">Bursa (16)</option>
+                                <option value="07">Antalya (07)</option>
+                                <option value="01">Adana (01)</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hasar Durumu</label>
+                            <select class="form-select" id="trafik-hasar">
+                                <option value="0">Hasarsız</option>
+                                <option value="1">1 Yıl Hasarlı</option>
+                                <option value="2">2 Yıl Hasarlı</option>
+                                <option value="3">3+ Yıl Hasarlı</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="calc-button" onclick="calculateTrafik()">
+                    <i class="fas fa-calculator"></i> Trafik Sigortası Primini Hesapla
+                </button>
+
+                <div id="trafik-result" class="result-panel" style="display: none;">
+                    <div class="result-item">
+                        <span>Temel Prim:</span>
+                        <span id="trafik-temel">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Vergiler:</span>
+                        <span id="trafik-vergi">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Toplam Prim:</span>
+                        <span id="trafik-toplam">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağlık Sigortası -->
+            <div id="saglik-tab" class="tab-content">
+                <div class="calc-grid">
+                    <div class="form-section">
+                        <h3>Kişisel Bilgiler</h3>
+                        <div class="form-group">
+                            <label class="form-label">Yaş</label>
+                            <input type="number" class="form-input" id="saglik-yas" placeholder="30">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cinsiyet</label>
+                            <select class="form-select" id="saglik-cinsiyet">
+                                <option value="erkek">Erkek</option>
+                                <option value="kadin">Kadın</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Medeni Durum</label>
+                            <select class="form-select" id="saglik-medeni">
+                                <option value="bekar">Bekar</option>
+                                <option value="evli">Evli</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Çocuk Sayısı</label>
+                            <select class="form-select" id="saglik-cocuk">
+                                <option value="0">Yok</option>
+                                <option value="1">1 Çocuk</option>
+                                <option value="2">2 Çocuk</option>
+                                <option value="3">3+ Çocuk</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Sigorta Tercihleri</h3>
+                        <div class="form-group">
+                            <label class="form-label">Teminat Türü</label>
+                            <select class="form-select" id="saglik-teminat">
+                                <option value="temel">Temel Teminat</option>
+                                <option value="orta">Orta Teminat</option>
+                                <option value="kapsamli">Kapsamlı Teminat</option>
+                                <option value="premium">Premium Teminat</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Yıllık Teminat Limiti</label>
+                            <select class="form-select" id="saglik-limit">
+                                <option value="100000">₺100.000</option>
+                                <option value="250000">₺250.000</option>
+                                <option value="500000">₺500.000</option>
+                                <option value="1000000">₺1.000.000</option>
+                                <option value="sinir">Sınırsız</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Muafiyet</label>
+                            <select class="form-select" id="saglik-muafiyet">
+                                <option value="0">Muafiyet Yok</option>
+                                <option value="500">₺500</option>
+                                <option value="1000">₺1.000</option>
+                                <option value="2000">₺2.000</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="calc-button" onclick="calculateSaglik()">
+                    <i class="fas fa-calculator"></i> Sağlık Sigortası Primini Hesapla
+                </button>
+
+                <div id="saglik-result" class="result-panel" style="display: none;">
+                    <div class="result-item">
+                        <span>Bireysel Prim:</span>
+                        <span id="saglik-bireysel">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Aile Primi:</span>
+                        <span id="saglik-aile">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Önerilen Prim:</span>
+                        <span id="saglik-onerilen">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AdSense Reklam -->
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="pub-9023802833968711"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <!-- Sigorta Şirketleri Karşılaştırma -->
+            <div class="comparison-table">
+                <div class="table-header">
+                    <h3>Sigorta Şirketleri Karşılaştırması</h3>
+                    <p>En popüler sigorta şirketleri ve ortalama primleri</p>
+                </div>
+                
+                <div class="company-row header">
+                    <div>Sigorta Şirketi</div>
+                    <div>Kasko</div>
+                    <div>Trafik</div>
+                    <div>Sağlık</div>
+                    <div>Değerlendirme</div>
+                </div>
+                
+                <div class="company-row">
+                    <div class="company-info">
+                        <div class="company-logo">A</div>
+                        <div>
+                            <div class="company-name">Aksigorta</div>
+                        </div>
+                    </div>
+                    <div class="price-good">%3.2</div>
+                    <div class="price-good">₺850</div>
+                    <div class="price-medium">₺1.200</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <div class="company-row">
+                    <div class="company-info">
+                        <div class="company-logo">A</div>
+                        <div>
+                            <div class="company-name">Anadolu Sigorta</div>
+                        </div>
+                    </div>
+                    <div class="price-medium">%3.5</div>
+                    <div class="price-good">₺820</div>
+                    <div class="price-good">₺1.150</div>
+                    <div>⭐⭐⭐⭐☆</div>
+                </div>
+                
+                <div class="company-row">
+                    <div class="company-info">
+                        <div class="company-logo">G</div>
+                        <div>
+                            <div class="company-name">Güneş Sigorta</div>
+                        </div>
+                    </div>
+                    <div class="price-good">%3.1</div>
+                    <div class="price-medium">₺880</div>
+                    <div class="price-medium">₺1.250</div>
+                    <div>⭐⭐⭐⭐☆</div>
+                </div>
+                
+                <div class="company-row">
+                    <div class="company-info">
+                        <div class="company-logo">M</div>
+                        <div>
+                            <div class="company-name">Mapfre Sigorta</div>
+                        </div>
+                    </div>
+                    <div class="price-medium">%3.4</div>
+                    <div class="price-high">₺920</div>
+                    <div class="price-high">₺1.300</div>
+                    <div>⭐⭐⭐☆☆</div>
+                </div>
+                
+                <div class="company-row">
+                    <div class="company-info">
+                        <div class="company-logo">Z</div>
+                        <div>
+                            <div class="company-name">Zurich Sigorta</div>
+                        </div>
+                    </div>
+                    <div class="price-high">%3.8</div>
+                    <div class="price-medium">₺890</div>
+                    <div class="price-good">₺1.180</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <!-- Sigorta Kapsamları -->
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Kasko Sigortası Kapsamı</h3>
+                    </div>
+                    <ul class="coverage-list">
+                        <li>Çarpışma <i class="fas fa-check check-icon"></i></li>
+                        <li>Devrilme <i class="fas fa-check check-icon"></i></li>
+                        <li>Yangın <i class="fas fa-check check-icon"></i></li>
+                        <li>Hırsızlık <i class="fas fa-check check-icon"></i></li>
+                        <li>Doğal Afetler <i class="fas fa-check check-icon"></i></li>
+                        <li>Cam Kırılması <i class="fas fa-check check-icon"></i></li>
+                        <li>Ferdi Kaza <i class="fas fa-times cross-icon"></i></li>
+                    </ul>
+                </div>
+                
+                <div class="coverage-card">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Trafik Sigortası Kapsamı</h3>
+                    </div>
+                    <ul class="coverage-list">
+                        <li>Maddi Hasar ₺200.000 <i class="fas fa-check check-icon"></i></li>
+                        <li>Tedavi ₺100.000 <i class="fas fa-check check-icon"></i></li>
+                        <li>Sakatlanma ₺350.000 <i class="fas fa-check check-icon"></i></li>
+                        <li>Ölüm ₺200.000 <i class="fas fa-check check-icon"></i></li>
+                        <li>Manevi Tazminat <i class="fas fa-times cross-icon"></i></li>
+                        <li>Araç Hasarı <i class="fas fa-times cross-icon"></i></li>
+                    </ul>
+                </div>
+                
+                <div class="coverage-card">
+                    <div class="coverage-header">
+                        <div class="coverage-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Sağlık Sigortası Kapsamı</h3>
+                    </div>
+                    <ul class="coverage-list">
+                        <li>Poliklinik <i class="fas fa-check check-icon"></i></li>
+                        <li>Yatarak Tedavi <i class="fas fa-check check-icon"></i></li>
+                        <li>Ameliyat <i class="fas fa-check check-icon"></i></li>
+                        <li>Diş Tedavisi <i class="fas fa-check check-icon"></i></li>
+                        <li>Gözlük/Lens <i class="fas fa-times cross-icon"></i></li>
+                        <li>Estetik <i class="fas fa-times cross-icon"></i></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Önemli Uyarı</h4>
+                <p>Bu hesaplamalar tahmini olup, gerçek primler sigorta şirketinin risk değerlendirmesine göre değişiklik gösterebilir. 
+                Kesin prim için sigorta şirketinden teklif alınız.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: #1f2937; color: white; padding: 60px 0 30px; margin-top: 60px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+            <div>
+                <h4 style="margin-bottom: 1rem;">Kolay Kredi</h4>
+                <p>Türkiye'nin en kapsamlı finansal hesaplama platformu</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Hızlı Erişim</h4>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.5rem;"><a href="kredi-hesaplama.html" style="color: #d1d5db; text-decoration: none;">Kredi Hesaplama</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="kredi-kartlari.html" style="color: #d1d5db; text-decoration: none;">Kredi Kartları</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="mevduat.html" style="color: #d1d5db; text-decoration: none;">Mevduat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #374151; color: #9ca3af;">
+            <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Tüm tab butonları ve içerikleri gizle
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Seçili tab'ı göster
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        function calculateKasko() {
+            const deger = parseFloat(document.getElementById('kasko-deger').value) || 500000;
+            const yas = parseInt(document.getElementById('kasko-yas').value) || 35;
+            const yil = parseInt(document.getElementById('kasko-yil').value) || 2024;
+            const hasar = parseInt(document.getElementById('kasko-hasar').value) || 0;
+            const sehir = document.getElementById('kasko-sehir').value;
+            
+            // Temel prim hesaplama
+            let temelOran = 0.032; // %3.2 temel oran
+            
+            // Yaş faktörü
+            if (yas < 25) temelOran += 0.008;
+            else if (yas > 60) temelOran += 0.005;
+            
+            // Model yılı faktörü
+            const currentYear = new Date().getFullYear();
+            if (currentYear - yil > 10) temelOran += 0.01;
+            
+            // Hasar geçmişi faktörü
+            temelOran += (hasar * 0.005);
+            
+            // Şehir faktörü
+            if (sehir === 'istanbul') temelOran += 0.01;
+            else if (sehir === 'ankara' || sehir === 'izmir') temelOran += 0.005;
+            
+            const temelPrim = deger * temelOran;
+            const kapsamliPrim = temelPrim * 1.35;
+            const onerilen = temelPrim * 1.15;
+            
+            document.getElementById('kasko-temel').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(temelPrim);
+            document.getElementById('kasko-kapsamli').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(kapsamliPrim);
+            document.getElementById('kasko-onerilen').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(onerilen);
+            
+            document.getElementById('kasko-result').style.display = 'block';
+            
+            gtag('event', 'calculate_insurance', {
+                'event_category': 'Insurance',
+                'event_label': 'kasko',
+                'value': deger
+            });
+        }
+
+        function calculateTrafik() {
+            const tip = document.getElementById('trafik-tip').value;
+            const hacim = parseInt(document.getElementById('trafik-hacim').value) || 1600;
+            const yil = parseInt(document.getElementById('trafik-yil').value) || 2024;
+            const hasar = parseInt(document.getElementById('trafik-hasar').value) || 0;
+            
+            let temelPrim = 850; // Temel prim
+            
+            // Araç tipi faktörü
+            if (tip === 'motosiklet') temelPrim = 650;
+            else if (tip === 'minibus') temelPrim = 1200;
+            else if (tip === 'kamyon') temelPrim = 1800;
+            
+            // Motor hacmi faktörü
+            if (hacim > 2000) temelPrim *= 1.2;
+            else if (hacim < 1200) temelPrim *= 0.9;
+            
+            // Model yılı faktörü
+            if (yil === '2025') temelPrim *= 1.1;
+            else if (yil === 'diger') temelPrim *= 0.85;
+            
+            // Hasar geçmişi faktörü
+            temelPrim *= (1 + (hasar * 0.15));
+            
+            const vergiler = temelPrim * 0.25; // %25 vergi
+            const toplam = temelPrim + vergiler;
+            
+            document.getElementById('trafik-temel').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(temelPrim);
+            document.getElementById('trafik-vergi').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(vergiler);
+            document.getElementById('trafik-toplam').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(toplam);
+            
+            document.getElementById('trafik-result').style.display = 'block';
+            
+            gtag('event', 'calculate_insurance', {
+                'event_category': 'Insurance',
+                'event_label': 'trafik',
+                'value': toplam
+            });
+        }
+
+        function calculateSaglik() {
+            const yas = parseInt(document.getElementById('saglik-yas').value) || 30;
+            const cinsiyet = document.getElementById('saglik-cinsiyet').value;
+            const cocuk = parseInt(document.getElementById('saglik-cocuk').value) || 0;
+            const teminat = document.getElementById('saglik-teminat').value;
+            const limit = document.getElementById('saglik-limit').value;
+            const muafiyet = parseInt(document.getElementById('saglik-muafiyet').value) || 0;
+            
+            let temelPrim = 1200; // Temel yıllık prim
+            
+            // Yaş faktörü
+            if (yas < 30) temelPrim *= 0.8;
+            else if (yas > 50) temelPrim *= 1.5;
+            else if (yas > 40) temelPrim *= 1.2;
+            
+            // Cinsiyet faktörü
+            if (cinsiyet === 'kadin') temelPrim *= 0.95;
+            
+            // Teminat seviyesi
+            if (teminat === 'orta') temelPrim *= 1.3;
+            else if (teminat === 'kapsamli') temelPrim *= 1.8;
+            else if (teminat === 'premium') temelPrim *= 2.5;
+            
+            // Limit faktörü
+            if (limit === '250000') temelPrim *= 1.2;
+            else if (limit === '500000') temelPrim *= 1.5;
+            else if (limit === '1000000') temelPrim *= 2.0;
+            else if (limit === 'sinir') temelPrim *= 3.0;
+            
+            // Muafiyet indirimi
+            if (muafiyet > 0) temelPrim *= (1 - (muafiyet / 10000));
+            
+            const bireyselPrim = temelPrim;
+            const ailePrimi = bireyselPrim * (1.5 + (cocuk * 0.3));
+            const onerilen = cocuk > 0 ? ailePrimi : bireyselPrim;
+            
+            document.getElementById('saglik-bireysel').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(bireyselPrim);
+            document.getElementById('saglik-aile').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(ailePrimi);
+            document.getElementById('saglik-onerilen').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(onerilen);
+            
+            document.getElementById('saglik-result').style.display = 'block';
+            
+            gtag('event', 'calculate_insurance', {
+                'event_category': 'Insurance',
+                'event_label': 'saglik',
+                'value': onerilen
+            });
+        }
+    </script>
+</body>
+</html>
