@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mevduat ve Yatırım Hesaplama - Kolay Kredi</title>
+    <meta name="description" content="Vadeli mevduat faiz hesaplama, döviz çevirici ve altın fiyatları takibi. En güncel oranlarla hesaplayın.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40X5D8K6WH');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-9023802833968711" crossorigin="anonymous"></script>
+    
+    <style>
+        .investment-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .rates-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .rate-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            align-items: center;
+        }
+        
+        .rate-grid:last-child {
+            border-bottom: none;
+        }
+        
+        .rate-grid.header {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .bank-logo {
+            width: 40px;
+            height: 40px;
+            background: #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .bank-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .currency-converter {
+            background: #f0f9ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .converter-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .swap-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .swap-button:hover {
+            background: #2563eb;
+            transform: rotate(180deg);
+        }
+        
+        .gold-prices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gold-card {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .gold-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .price-change {
+            font-size: 0.9rem;
+        }
+        
+        .price-up {
+            color: #10b981;
+        }
+        
+        .price-down {
+            color: #ef4444;
+        }
+        
+        .compound-result {
+            background: #ecfdf5;
+            border: 2px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .compound-chart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .chart-item {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .rate-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .converter-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-calculator"></i>
+                    Kolay Kredi
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                <li><a href="mevduat.html" class="active">Mevduat</a></li>
+                <li><a href="sigorta.html">Sigorta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0; text-align: center; color: white;">
+            <h1><i class="fas fa-piggy-bank"></i> Mevduat ve Yatırım Araçları</h1>
+            <p>Vadeli mevduat hesaplama, döviz çevirici ve altın fiyatları</p>
+        </div>
+
+        <div class="investment-container">
+            <div class="tools-grid">
+                <!-- Vadeli Mevduat Hesaplama -->
+                <div class="calculator-card">
+                    <div class="calc-header">
+                        <div class="calc-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div>
+                            <h3>Vadeli Mevduat Hesaplama</h3>
+                            <p>Faiz gelirinizi hesaplayın</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Ana Para (TL)</label>
+                        <input type="number" id="anapara" class="form-input" placeholder="100000" value="100000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Vade (Ay)</label>
+                        <select id="vade" class="form-input">
+                            <option value="1">1 Ay</option>
+                            <option value="3">3 Ay</option>
+                            <option value="6">6 Ay</option>
+                            <option value="12" selected>12 Ay</option>
+                            <option value="24">24 Ay</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Yıllık Faiz Oranı (%)</label>
+                        <input type="number" id="faiz-orani" class="form-input" step="0.01" placeholder="45.00" value="45.00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bileşik Faiz</label>
+                        <select id="bilesik" class="form-input">
+                            <option value="true">Evet (Faiz üzerine faiz)</option>
+                            <option value="false">Hayır (Basit faiz)</option>
+                        </select>
+                    </div>
+                    <button class="calc-button" onclick="calculateDeposit()">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="mevduat-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Brüt Gelir:</span>
+                            <span id="brut-gelir">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Stopaj (%20):</span>
+                            <span id="stopaj">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Net Gelir:</span>
+                            <span id="net-gelir">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Tutar:</span>
+                            <span id="toplam-tutar">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yatırım Karşılaştırma -->
+                <div class="calculator-card">
+                    <div class="calc-header">
+                        <div class="calc-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Yatırım Karşılaştırma</h3>
+                            <p>Farklı yatırım seçeneklerini karşılaştırın</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Yatırım Tutarı (TL)</label>
+                        <input type="number" id="yatirim-tutar" class="form-input" placeholder="50000" value="50000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Yatırım Süresi (Yıl)</label>
+                        <input type="number" id="yatirim-sure" class="form-input" placeholder="5" value="5">
+                    </div>
+                    <button class="calc-button" onclick="compareInvestments()">
+                        <i class="fas fa-balance-scale"></i> Karşılaştır
+                    </button>
+                    <div id="karsilastirma-result" class="compound-result" style="display: none;">
+                        <h4>Yatırım Seçenekleri Karşılaştırması</h4>
+                        <div class="compound-chart" id="investment-chart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Döviz Çevirici -->
+            <div class="currency-converter">
+                <h3><i class="fas fa-exchange-alt"></i> Döviz Çevirici</h3>
+                <div class="converter-grid">
+                    <div>
+                        <label class="form-label">Çevrilecek Tutar</label>
+                        <input type="number" id="cevirici-tutar" class="form-input" placeholder="1000" value="1000">
+                        <select id="kaynak-para" class="form-input" style="margin-top: 0.5rem;">
+                            <option value="TRY">TRY - Türk Lirası</option>
+                            <option value="USD">USD - Amerikan Doları</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - İngiliz Sterlini</option>
+                        </select>
+                    </div>
+                    <button class="swap-button" onclick="swapCurrencies()">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <div>
+                        <label class="form-label">Sonuç</label>
+                        <input type="text" id="cevirici-sonuc" class="form-input" readonly>
+                        <select id="hedef-para" class="form-input" style="margin-top: 0.5rem;">
+                            <option value="USD">USD - Amerikan Doları</option>
+                            <option value="TRY">TRY - Türk Lirası</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - İngiliz Sterlini</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="calc-button" onclick="convertCurrency()" style="margin-top: 1rem;">
+                    <i class="fas fa-calculator"></i> Çevir
+                </button>
+            </div>
+
+            <!-- AdSense Reklam -->
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="pub-9023802833968711"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <!-- Güncel Altın Fiyatları -->
+            <div class="calculator-card">
+                <h3><i class="fas fa-coins"></i> Güncel Altın Fiyatları</h3>
+                <div class="gold-prices">
+                    <div class="gold-card">
+                        <div class="gold-type">Gram Altın</div>
+                        <div class="gold-price">₺2.450</div>
+                        <div class="price-change price-up">+₺25 (%1.03)</div>
+                    </div>
+                    <div class="gold-card">
+                        <div class="gold-type">Çeyrek Altın</div>
+                        <div class="gold-price">₺3.920</div>
+                        <div class="price-change price-up">+₺40 (%1.03)</div>
+                    </div>
+                    <div class="gold-card">
+                        <div class="gold-type">Yarım Altın</div>
+                        <div class="gold-price">₺7.840</div>
+                        <div class="price-change price-up">+₺80 (%1.03)</div>
+                    </div>
+                    <div class="gold-card">
+                        <div class="gold-type">Tam Altın</div>
+                        <div class="gold-price">₺15.680</div>
+                        <div class="price-change price-up">+₺160 (%1.03)</div>
+                    </div>
+                </div>
+                <p><small>* Fiyatlar anlık değişebilir, yatırım kararlarınızı güncel verilerle destekleyin.</small></p>
+            </div>
+
+            <!-- Banka Mevduat Faiz Oranları -->
+            <div class="rates-table">
+                <div class="table-header">
+                    <h3>Güncel Mevduat Faiz Oranları</h3>
+                    <p>En güncel banka faiz oranları</p>
+                </div>
+                
+                <div class="rate-grid header">
+                    <div>Banka</div>
+                    <div>1 Ay</div>
+                    <div>6 Ay</div>
+                    <div>12 Ay</div>
+                </div>
+                
+                <div class="rate-grid">
+                    <div class="bank-info">
+                        <div class="bank-logo">Z</div>
+                        <div>Ziraat Bankası</div>
+                    </div>
+                    <div>%42.00</div>
+                    <div>%44.00</div>
+                    <div>%45.00</div>
+                </div>
+                
+                <div class="rate-grid">
+                    <div class="bank-info">
+                        <div class="bank-logo">V</div>
+                        <div>Vakıfbank</div>
+                    </div>
+                    <div>%41.50</div>
+                    <div>%43.50</div>
+                    <div>%44.50</div>
+                </div>
+                
+                <div class="rate-grid">
+                    <div class="bank-info">
+                        <div class="bank-logo">H</div>
+                        <div>Halkbank</div>
+                    </div>
+                    <div>%42.50</div>
+                    <div>%44.50</div>
+                    <div>%45.50</div>
+                </div>
+                
+                <div class="rate-grid">
+                    <div class="bank-info">
+                        <div class="bank-logo">İ</div>
+                        <div>İş Bankası</div>
+                    </div>
+                    <div>%41.00</div>
+                    <div>%43.00</div>
+                    <div>%44.00</div>
+                </div>
+                
+                <div class="rate-grid">
+                    <div class="bank-info">
+                        <div class="bank-logo">A</div>
+                        <div>Akbank</div>
+                    </div>
+                    <div>%40.50</div>
+                    <div>%42.50</div>
+                    <div>%43.50</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kolay Kredi</h3>
+                <p>Türkiye'nin en kapsamlı finansal hesaplama platformu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Erişim</h4>
+                <ul>
+                    <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                    <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                    <li><a href="mevduat.html">Mevduat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Güncel döviz kurları (örnek)
+        const exchangeRates = {
+            'TRY': { 'USD': 0.030, 'EUR': 0.027, 'GBP': 0.023, 'TRY': 1 },
+            'USD': { 'TRY': 33.50, 'EUR': 0.92, 'GBP': 0.79, 'USD': 1 },
+            'EUR': { 'TRY': 36.20, 'USD': 1.08, 'GBP': 0.86, 'EUR': 1 },
+            'GBP': { 'TRY': 42.15, 'USD': 1.26, 'EUR': 1.16, 'GBP': 1 }
+        };
+
+        function calculateDeposit() {
+            const principal = parseFloat(document.getElementById('anapara').value);
+            const months = parseInt(document.getElementById('vade').value);
+            const annualRate = parseFloat(document.getElementById('faiz-orani').value) / 100;
+            const isCompound = document.getElementById('bilesik').value === 'true';
+            
+            if (!principal || !months || !annualRate) {
+                alert('Lütfen tüm alanları doldurun');
+                return;
+            }
+            
+            let grossIncome;
+            if (isCompound) {
+                // Bileşik faiz
+                const monthlyRate = annualRate / 12;
+                grossIncome = principal * (Math.pow(1 + monthlyRate, months) - 1);
+            } else {
+                // Basit faiz
+                grossIncome = principal * (annualRate * months / 12);
+            }
+            
+            const tax = grossIncome * 0.20; // %20 stopaj
+            const netIncome = grossIncome - tax;
+            const totalAmount = principal + netIncome;
+            
+            document.getElementById('brut-gelir').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(grossIncome);
+            document.getElementById('stopaj').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(tax);
+            document.getElementById('net-gelir').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(netIncome);
+            document.getElementById('toplam-tutar').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(totalAmount);
+            
+            document.getElementById('mevduat-result').classList.add('show');
+            
+            gtag('event', 'calculate_deposit', {
+                'event_category': 'Investment',
+                'event_label': 'deposit',
+                'value': principal
+            });
+        }
+
+        function compareInvestments() {
+            const amount = parseFloat(document.getElementById('yatirim-tutar').value);
+            const years = parseInt(document.getElementById('yatirim-sure').value);
+            
+            if (!amount || !years) {
+                alert('Lütfen tüm alanları doldurun');
+                return;
+            }
+            
+            const investments = [
+                { name: 'Vadeli Mevduat', rate: 0.45, risk: 'Düşük' },
+                { name: 'Devlet Tahvili', rate: 0.48, risk: 'Düşük' },
+                { name: 'Borsa Yatırımı', rate: 0.12, risk: 'Yüksek' },
+                { name: 'Altın', rate: 0.08, risk: 'Orta' },
+                { name: 'Döviz', rate: 0.06, risk: 'Yüksek' }
+            ];
+            
+            const chart = document.getElementById('investment-chart');
+            chart.innerHTML = '';
+            
+            investments.forEach(inv => {
+                const finalAmount = amount * Math.pow(1 + inv.rate, years);
+                const gain = finalAmount - amount;
+                
+                const item = document.createElement('div');
+                item.className = 'chart-item';
+                item.innerHTML = `
+                    <h5>${inv.name}</h5>
+                    <div style="font-size: 1.2rem; font-weight: 600; color: #059669;">
+                        ${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(finalAmount)}
+                    </div>
+                    <div>Kazanç: ${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(gain)}</div>
+                    <div style="color: #6b7280;">Risk: ${inv.risk}</div>
+                `;
+                chart.appendChild(item);
+            });
+            
+            document.getElementById('karsilastirma-result').style.display = 'block';
+        }
+
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('cevirici-tutar').value);
+            const fromCurrency = document.getElementById('kaynak-para').value;
+            const toCurrency = document.getElementById('hedef-para').value;
+            
+            if (!amount) {
+                alert('Lütfen tutar girin');
+                return;
+            }
+            
+            const rate = exchangeRates[fromCurrency][toCurrency];
+            const result = amount * rate;
+            
+            document.getElementById('cevirici-sonuc').value = 
+                new Intl.NumberFormat('tr-TR', { 
+                    minimumFractionDigits: 2, 
+                    maximumFractionDigits: 2 
+                }).format(result);
+        }
+
+        function swapCurrencies() {
+            const fromSelect = document.getElementById('kaynak-para');
+            const toSelect = document.getElementById('hedef-para');
+            
+            const tempValue = fromSelect.value;
+            fromSelect.value = toSelect.value;
+            toSelect.value = tempValue;
+            
+            convertCurrency();
+        }
+
+        // Sayfa yüklendiğinde ilk hesaplamaları yap
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateDeposit();
+            convertCurrency();
+        });
+
+        // Döviz çevirici input değişikliklerini dinle
+        document.getElementById('cevirici-tutar').addEventListener('input', convertCurrency);
+        document.getElementById('kaynak-para').addEventListener('change', convertCurrency);
+        document.getElementById('hedef-para').addEventListener('change', convertCurrency);
+    </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredi Kartı Hesaplama - Kolay Kredi</title>
+    <meta name="description" content="Kredi kartı taksit hesaplama, asgari ödeme hesaplama ve kredi kartı karşılaştırma araçları.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40X5D8K6WH');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-9023802833968711" crossorigin="anonymous"></script>
+    
+    <style>
+        .card-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        
+        .calc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-icon {
+            background: #3b82f6;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .table-header {
+            background: #f8fafc;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .card-row {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .card-row:last-child {
+            border-bottom: none;
+        }
+        
+        .card-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .card-bank {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .rate-good {
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .rate-medium {
+            color: #d97706;
+            font-weight: 600;
+        }
+        
+        .rate-high {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background: #f0f9ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .benefit-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid,
+            .card-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .card-row {
+                padding: 1rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-calculator"></i>
+                    Kolay Kredi
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                <li><a href="kredi-kartlari.html" class="active">Kredi Kartları</a></li>
+                <li><a href="mevduat.html">Mevduat</a></li>
+                <li><a href="sigorta.html">Sigorta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0; text-align: center; color: white;">
+            <h1><i class="fas fa-credit-card"></i> Kredi Kartı Hesaplama Araçları</h1>
+            <p>Taksit hesaplama, asgari ödeme ve kredi kartı karşılaştırma</p>
+        </div>
+
+        <div class="card-container">
+            <div class="calculator-grid">
+                <!-- Taksit Hesaplama -->
+                <div class="calculator-card">
+                    <div class="calc-header">
+                        <div class="calc-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Taksit Hesaplama</h3>
+                            <p>Kredi kartı taksit tutarını hesaplayın</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Harcama Tutarı (TL)</label>
+                        <input type="number" id="taksit-tutar" class="form-input" placeholder="5000" value="5000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Taksit Sayısı</label>
+                        <select id="taksit-sayi" class="form-input">
+                            <option value="3">3 Taksit</option>
+                            <option value="6">6 Taksit</option>
+                            <option value="9">9 Taksit</option>
+                            <option value="12">12 Taksit</option>
+                            <option value="18">18 Taksit</option>
+                            <option value="24">24 Taksit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Aylık Faiz Oranı (%)</label>
+                        <input type="number" id="taksit-faiz" class="form-input" step="0.01" placeholder="3.50" value="3.50">
+                    </div>
+                    <button class="calc-button" onclick="calculateInstallment()">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="taksit-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Aylık Taksit:</span>
+                            <span id="aylik-taksit">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Ödeme:</span>
+                            <span id="toplam-odeme">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Faiz:</span>
+                            <span id="toplam-faiz">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asgari Ödeme Hesaplama -->
+                <div class="calculator-card">
+                    <div class="calc-header">
+                        <div class="calc-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div>
+                            <h3>Asgari Ödeme</h3>
+                            <p>Kredi kartı asgari ödeme tutarını hesaplayın</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Toplam Borç (TL)</label>
+                        <input type="number" id="borc-tutar" class="form-input" placeholder="10000" value="10000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Asgari Ödeme Oranı (%)</label>
+                        <input type="number" id="asgari-oran" class="form-input" step="0.01" placeholder="3.00" value="3.00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Aylık Faiz Oranı (%)</label>
+                        <input type="number" id="borc-faiz" class="form-input" step="0.01" placeholder="3.50" value="3.50">
+                    </div>
+                    <button class="calc-button" onclick="calculateMinimumPayment()">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="asgari-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Asgari Ödeme:</span>
+                            <span id="asgari-tutar">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kalan Borç:</span>
+                            <span id="kalan-borc">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Ek Faiz:</span>
+                            <span id="ek-faiz">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AdSense Reklam -->
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="pub-9023802833968711"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <!-- Kredi Kartı Karşılaştırma -->
+            <div class="comparison-table">
+                <div class="table-header">
+                    <h3><i class="fas fa-balance-scale"></i> Kredi Kartı Karşılaştırma</h3>
+                    <div class="comparison-grid" style="font-weight: 600; color: #374151;">
+                        <div>Kredi Kartı</div>
+                        <div>Aylık Faiz</div>
+                        <div>Gecikme Faizi</div>
+                        <div>Yıllık Aidat</div>
+                        <div>Avantajlar</div>
+                    </div>
+                </div>
+                
+                <div class="card-row">
+                    <div>
+                        <div class="card-name">Maximum Kart</div>
+                        <div class="card-bank">İş Bankası</div>
+                    </div>
+                    <div class="rate-good">%3.25</div>
+                    <div class="rate-medium">%3.75</div>
+                    <div>₺350</div>
+                    <div>Mil, WorldCard</div>
+                </div>
+                
+                <div class="card-row">
+                    <div>
+                        <div class="card-name">Axess Kart</div>
+                        <div class="card-bank">Akbank</div>
+                    </div>
+                    <div class="rate-good">%3.15</div>
+                    <div class="rate-medium">%3.65</div>
+                    <div>₺400</div>
+                    <div>Chip-para, İndirimler</div>
+                </div>
+                
+                <div class="card-row">
+                    <div>
+                        <div class="card-name">Paraf Kart</div>
+                        <div class="card-bank">Ziraat Bankası</div>
+                    </div>
+                    <div class="rate-good">%3.05</div>
+                    <div class="rate-medium">%3.55</div>
+                    <div>₺300</div>
+                    <div>ParafPuan, Kampanyalar</div>
+                </div>
+                
+                <div class="card-row">
+                    <div>
+                        <div class="card-name">World Kart</div>
+                        <div class="card-bank">Yapı Kredi</div>
+                    </div>
+                    <div class="rate-medium">%3.45</div>
+                    <div class="rate-high">%3.95</div>
+                    <div>₺450</div>
+                    <div>World, Lounge</div>
+                </div>
+                
+                <div class="card-row">
+                    <div>
+                        <div class="card-name">Bonus Kart</div>
+                        <div class="card-bank">Garanti BBVA</div>
+                    </div>
+                    <div class="rate-good">%3.35</div>
+                    <div class="rate-medium">%3.85</div>
+                    <div>₺375</div>
+                    <div>BonusPuan, Cashback</div>
+                </div>
+            </div>
+
+            <!-- Avantajlar -->
+            <div class="calculator-card">
+                <h3><i class="fas fa-gift"></i> Kredi Kartı Avantajları</h3>
+                <div class="benefits-list">
+                    <div class="benefit-card">
+                        <div class="benefit-title">Puan Programları</div>
+                        <p>Harcamalarınızla puan kazanın, hediye ve indirimlerle kullanın.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Taksit İmkanları</div>
+                        <p>Büyük alışverişlerinizi uygun faiz oranlarıyla taksitlendirin.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Kampanyalar</div>
+                        <p>Belirli mağaza ve kategorilerde özel indirimlerden yararlanın.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Sigorta Koruması</div>
+                        <p>Alışveriş sigortası ve seyahat sigortası imkanları.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kolay Kredi</h3>
+                <p>Türkiye'nin en kapsamlı finansal hesaplama platformu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Erişim</h4>
+                <ul>
+                    <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                    <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                    <li><a href="mevduat.html">Mevduat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateInstallment() {
+            const principal = parseFloat(document.getElementById('taksit-tutar').value);
+            const months = parseInt(document.getElementById('taksit-sayi').value);
+            const monthlyRate = parseFloat(document.getElementById('taksit-faiz').value) / 100;
+            
+            if (!principal || !months || !monthlyRate) {
+                alert('Lütfen tüm alanları doldurun');
+                return;
+            }
+            
+            const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                                 (Math.pow(1 + monthlyRate, months) - 1);
+            
+            const totalPayment = monthlyPayment * months;
+            const totalInterest = totalPayment - principal;
+            
+            document.getElementById('aylik-taksit').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(monthlyPayment);
+            document.getElementById('toplam-odeme').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(totalPayment);
+            document.getElementById('toplam-faiz').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(totalInterest);
+            
+            document.getElementById('taksit-result').classList.add('show');
+            
+            gtag('event', 'calculate_installment', {
+                'event_category': 'CreditCard',
+                'event_label': 'installment',
+                'value': principal
+            });
+        }
+
+        function calculateMinimumPayment() {
+            const debt = parseFloat(document.getElementById('borc-tutar').value);
+            const minRate = parseFloat(document.getElementById('asgari-oran').value) / 100;
+            const monthlyRate = parseFloat(document.getElementById('borc-faiz').value) / 100;
+            
+            if (!debt || !minRate || !monthlyRate) {
+                alert('Lütfen tüm alanları doldurun');
+                return;
+            }
+            
+            const minimumPayment = debt * minRate;
+            const remainingDebt = debt - minimumPayment;
+            const additionalInterest = remainingDebt * monthlyRate;
+            
+            document.getElementById('asgari-tutar').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(minimumPayment);
+            document.getElementById('kalan-borc').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(remainingDebt);
+            document.getElementById('ek-faiz').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(additionalInterest);
+            
+            document.getElementById('asgari-result').classList.add('show');
+            
+            gtag('event', 'calculate_minimum_payment', {
+                'event_category': 'CreditCard',
+                'event_label': 'minimum_payment',
+                'value': debt
+            });
+        }
+
+        // Sayfa yüklendiğinde ilk hesaplamaları yap
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateInstallment();
+            calculateMinimumPayment();
+        });
+    </script>
+</body>
+</html>

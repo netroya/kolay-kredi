@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredi Hesaplama Araçları - Kolay Kredi</title>
+    <meta name="description" content="İhtiyaç kredisi, konut kredisi ve taşıt kredisi hesaplama araçları. Aylık taksit tutarınızı hemen hesaplayın.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40X5D8K6WH');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-9023802833968711" crossorigin="anonymous"></script>
+    
+    <style>
+        .calculator-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .calc-tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+        
+        .calc-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 500;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .calc-tab.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+        
+        .calc-form {
+            display: none;
+        }
+        
+        .calc-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .calc-button {
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .calc-button:hover {
+            background: #2563eb;
+        }
+        
+        .result-panel {
+            background: #f0f9ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+        
+        .result-panel.show {
+            display: block;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #bfdbfe;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .bank-rates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .bank-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow 0.3s;
+        }
+        
+        .bank-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .bank-name {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bank-rate {
+            color: #059669;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-calculator"></i>
+                    Kolay Kredi
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kredi-hesaplama.html" class="active">Kredi Hesaplama</a></li>
+                <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                <li><a href="mevduat.html">Mevduat</a></li>
+                <li><a href="sigorta.html">Sigorta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0; text-align: center; color: white;">
+            <h1><i class="fas fa-calculator"></i> Kredi Hesaplama Araçları</h1>
+            <p>İhtiyaç, konut ve taşıt kredisi hesaplamaları</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="calculator-card">
+                <div class="calc-tabs">
+                    <button class="calc-tab active" onclick="showCalculator('ihtiyac')">
+                        <i class="fas fa-money-bill-wave"></i> İhtiyaç Kredisi
+                    </button>
+                    <button class="calc-tab" onclick="showCalculator('konut')">
+                        <i class="fas fa-home"></i> Konut Kredisi
+                    </button>
+                    <button class="calc-tab" onclick="showCalculator('tasit')">
+                        <i class="fas fa-car"></i> Taşıt Kredisi
+                    </button>
+                </div>
+
+                <!-- İhtiyaç Kredisi Hesaplama -->
+                <div id="ihtiyac-calc" class="calc-form active">
+                    <h3>İhtiyaç Kredisi Hesaplama</h3>
+                    <div class="form-group">
+                        <label class="form-label">Kredi Tutarı (TL)</label>
+                        <input type="number" id="ihtiyac-tutar" class="form-input" placeholder="50000" value="50000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Vade (Ay)</label>
+                        <input type="number" id="ihtiyac-vade" class="form-input" placeholder="12" value="12">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Faiz Oranı (Aylık %)</label>
+                        <input type="number" id="ihtiyac-faiz" class="form-input" step="0.01" placeholder="2.50" value="2.50">
+                    </div>
+                    <button class="calc-button" onclick="calculateLoan('ihtiyac')">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="ihtiyac-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Aylık Taksit:</span>
+                            <span id="ihtiyac-taksit">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Geri Ödeme:</span>
+                            <span id="ihtiyac-toplam">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Faiz:</span>
+                            <span id="ihtiyac-faiz-toplam">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Konut Kredisi Hesaplama -->
+                <div id="konut-calc" class="calc-form">
+                    <h3>Konut Kredisi Hesaplama</h3>
+                    <div class="form-group">
+                        <label class="form-label">Kredi Tutarı (TL)</label>
+                        <input type="number" id="konut-tutar" class="form-input" placeholder="500000" value="500000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Vade (Ay)</label>
+                        <input type="number" id="konut-vade" class="form-input" placeholder="120" value="120">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Faiz Oranı (Aylık %)</label>
+                        <input type="number" id="konut-faiz" class="form-input" step="0.01" placeholder="1.75" value="1.75">
+                    </div>
+                    <button class="calc-button" onclick="calculateLoan('konut')">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="konut-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Aylık Taksit:</span>
+                            <span id="konut-taksit">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Geri Ödeme:</span>
+                            <span id="konut-toplam">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Faiz:</span>
+                            <span id="konut-faiz-toplam">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taşıt Kredisi Hesaplama -->
+                <div id="tasit-calc" class="calc-form">
+                    <h3>Taşıt Kredisi Hesaplama</h3>
+                    <div class="form-group">
+                        <label class="form-label">Kredi Tutarı (TL)</label>
+                        <input type="number" id="tasit-tutar" class="form-input" placeholder="200000" value="200000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Vade (Ay)</label>
+                        <input type="number" id="tasit-vade" class="form-input" placeholder="60" value="60">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Faiz Oranı (Aylık %)</label>
+                        <input type="number" id="tasit-faiz" class="form-input" step="0.01" placeholder="2.25" value="2.25">
+                    </div>
+                    <button class="calc-button" onclick="calculateLoan('tasit')">
+                        <i class="fas fa-calculator"></i> Hesapla
+                    </button>
+                    <div id="tasit-result" class="result-panel">
+                        <div class="result-item">
+                            <span>Aylık Taksit:</span>
+                            <span id="tasit-taksit">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Geri Ödeme:</span>
+                            <span id="tasit-toplam">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Faiz:</span>
+                            <span id="tasit-faiz-toplam">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AdSense Reklam -->
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="pub-9023802833968711"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <!-- Güncel Banka Faiz Oranları -->
+            <div class="calculator-card">
+                <h3><i class="fas fa-chart-line"></i> Güncel Banka Faiz Oranları</h3>
+                <div class="bank-rates">
+                    <div class="bank-card">
+                        <div class="bank-name">Ziraat Bankası</div>
+                        <div class="bank-rate">%2.49</div>
+                        <small>İhtiyaç kredisi aylık faiz oranı</small>
+                    </div>
+                    <div class="bank-card">
+                        <div class="bank-name">Vakıfbank</div>
+                        <div class="bank-rate">%2.55</div>
+                        <small>İhtiyaç kredisi aylık faiz oranı</small>
+                    </div>
+                    <div class="bank-card">
+                        <div class="bank-name">Halkbank</div>
+                        <div class="bank-rate">%2.45</div>
+                        <small>İhtiyaç kredisi aylık faiz oranı</small>
+                    </div>
+                    <div class="bank-card">
+                        <div class="bank-name">İş Bankası</div>
+                        <div class="bank-rate">%2.65</div>
+                        <small>İhtiyaç kredisi aylık faiz oranı</small>
+                    </div>
+                </div>
+                <p><small>* Oranlar güncel piyasa verilerine dayanmaktadır ve değişiklik gösterebilir.</small></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kolay Kredi</h3>
+                <p>Türkiye'nin en kapsamlı finansal hesaplama platformu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Erişim</h4>
+                <ul>
+                    <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                    <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                    <li><a href="mevduat.html">Mevduat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showCalculator(type) {
+            // Tüm tab'ları pasif yap
+            document.querySelectorAll('.calc-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.calc-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Seçili tab'ı aktif yap
+            event.target.classList.add('active');
+            document.getElementById(type + '-calc').classList.add('active');
+        }
+
+        function calculateLoan(type) {
+            const principal = parseFloat(document.getElementById(type + '-tutar').value);
+            const months = parseInt(document.getElementById(type + '-vade').value);
+            const monthlyRate = parseFloat(document.getElementById(type + '-faiz').value) / 100;
+            
+            if (!principal || !months || !monthlyRate) {
+                alert('Lütfen tüm alanları doldurun');
+                return;
+            }
+            
+            // Aylık taksit hesaplama formülü
+            const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                                 (Math.pow(1 + monthlyRate, months) - 1);
+            
+            const totalPayment = monthlyPayment * months;
+            const totalInterest = totalPayment - principal;
+            
+            // Sonuçları göster
+            document.getElementById(type + '-taksit').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(monthlyPayment);
+            document.getElementById(type + '-toplam').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(totalPayment);
+            document.getElementById(type + '-faiz-toplam').textContent = 
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(totalInterest);
+            
+            document.getElementById(type + '-result').classList.add('show');
+            
+            // Google Analytics event
+            gtag('event', 'calculate_loan', {
+                'event_category': 'Calculator',
+                'event_label': type,
+                'value': principal
+            });
+        }
+
+        // Sayfa yüklendiğinde ilk hesaplamayı yap
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateLoan('ihtiyac');
+        });
+    </script>
+</body>
+</html>
