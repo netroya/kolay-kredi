@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://netroya.github.io/kolay-kredi/sitemap.xml

@@ -1,0 +1,57 @@
+{
+  "timestamp": "2025-08-21T20:27:29.458Z",
+  "siteInfo": {
+    "title": "Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu",
+    "url": "https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu",
+    "contentLength": {
+      "characters": 7391,
+      "words": 875,
+      "paragraphs": 11
+    },
+    "readingTime": 5,
+    "mobileScore": 50
+  },
+  "placements": [
+    {
+      "type": "header",
+      "position": "after_title",
+      "format": "responsive",
+      "priority": "high",
+      "reasoning": "Header ads have high visibility and engagement"
+    },
+    {
+      "type": "footer",
+      "position": "before_footer",
+      "format": "horizontal",
+      "priority": "low",
+      "reasoning": "Footer ads capture exit intent"
+    }
+  ],
+  "optimization": {
+    "totalAds": 2,
+    "expectedCTR": "1.60%",
+    "revenueProjection": {
+      "daily": "$1.60",
+      "monthly": "$48.00",
+      "yearly": "$576.00"
+    },
+    "userExperienceScore": 85,
+    "recommendations": [
+      "Mobile optimizasyonu geliştirin - mobile trafikten daha fazla gelir elde edebilirsiniz",
+      "In-content reklamlar eklemeyi düşünün - genellikle en yüksek CTR'ye sahiptir"
+    ]
+  },
+  "abTesting": {
+    "enabled": true,
+    "variants": [
+      "A",
+      "B"
+    ],
+    "testDuration": "14 days",
+    "metrics": [
+      "CTR",
+      "Revenue",
+      "User Engagement"
+    ]
+  }
+}

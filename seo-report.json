@@ -1,0 +1,157 @@
+{
+  "timestamp": "2025-08-21T20:27:29.448Z",
+  "before": {
+    "title": {
+      "exists": true,
+      "content": "Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu",
+      "length": 65,
+      "score": 7.5,
+      "recommendations": [
+        "Title çok uzun (65 karakter). En fazla 60 karakter olmalı."
+      ]
+    },
+    "metaDescription": {
+      "exists": true,
+      "content": "Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu hakkında kapsamlı bilgiler, ipuçları ve öneriler.",
+      "length": 115,
+      "score": 7.5,
+      "recommendations": [
+        "Meta description çok kısa (115 karakter). En az 120 karakter olmalı."
+      ]
+    },
+    "headings": {
+      "h1Count": 1,
+      "h2Count": 6,
+      "h3Count": 7,
+      "score": 18,
+      "recommendations": []
+    },
+    "content": {
+      "wordCount": 530,
+      "keywordDensity": "49.81",
+      "score": 10,
+      "recommendations": [
+        "Anahtar kelime yoğunluğu yüksek (%49.81132075471698). %1-3 arası olmalı."
+      ]
+    },
+    "images": {
+      "totalImages": 0,
+      "imagesWithAlt": 0,
+      "coverage": "100.0",
+      "score": 8,
+      "recommendations": []
+    },
+    "links": {
+      "internalLinks": 6,
+      "externalLinks": 0,
+      "score": 10,
+      "recommendations": []
+    },
+    "structuredData": {
+      "hasStructuredData": true,
+      "score": 12,
+      "recommendations": []
+    },
+    "performance": {
+      "cssFiles": 3,
+      "jsFiles": 3,
+      "htmlSize": 17251,
+      "score": 10,
+      "recommendations": []
+    },
+    "mobile": {
+      "hasViewport": true,
+      "hasResponsiveCSS": true,
+      "score": 10,
+      "recommendations": []
+    },
+    "score": {
+      "total": 93,
+      "max": 120,
+      "percentage": 78,
+      "grade": "B"
+    }
+  },
+  "after": {
+    "title": {
+      "exists": true,
+      "content": "Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu",
+      "length": 65,
+      "score": 7.5,
+      "recommendations": [
+        "Title çok uzun (65 karakter). En fazla 60 karakter olmalı."
+      ]
+    },
+    "metaDescription": {
+      "exists": true,
+      "content": "Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu hakkında kapsamlı bilgiler, ipuçları ve öneriler.",
+      "length": 115,
+      "score": 7.5,
+      "recommendations": [
+        "Meta description çok kısa (115 karakter). En az 120 karakter olmalı."
+      ]
+    },
+    "headings": {
+      "h1Count": 1,
+      "h2Count": 6,
+      "h3Count": 9,
+      "score": 18,
+      "recommendations": []
+    },
+    "content": {
+      "wordCount": 875,
+      "keywordDensity": "51.77",
+      "score": 10,
+      "recommendations": [
+        "Anahtar kelime yoğunluğu yüksek (%51.771428571428565). %1-3 arası olmalı."
+      ]
+    },
+    "images": {
+      "totalImages": 0,
+      "imagesWithAlt": 0,
+      "coverage": "100.0",
+      "score": 8,
+      "recommendations": []
+    },
+    "links": {
+      "internalLinks": 14,
+      "externalLinks": 0,
+      "score": 5,
+      "recommendations": []
+    },
+    "structuredData": {
+      "hasStructuredData": true,
+      "score": 12,
+      "recommendations": []
+    },
+    "performance": {
+      "cssFiles": 3,
+      "jsFiles": 3,
+      "htmlSize": 23021,
+      "score": 10,
+      "recommendations": []
+    },
+    "mobile": {
+      "hasViewport": true,
+      "hasResponsiveCSS": true,
+      "score": 10,
+      "recommendations": []
+    },
+    "score": {
+      "total": 88,
+      "max": 120,
+      "percentage": 73,
+      "grade": "B"
+    }
+  },
+  "improvements": {
+    "scoreIncrease": -5,
+    "optimizations": [
+      "Schema markup eklendi",
+      "Meta tag optimizasyonu yapıldı",
+      "Internal linkler iyileştirildi",
+      "Image alt tagları eklendi",
+      "Content structure optimize edildi"
+    ]
+  }
+}
