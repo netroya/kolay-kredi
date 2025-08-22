@@ -1,22 +1,28 @@
-<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+<svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="ziraatGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    <linearGradient id="ziraatGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00A651;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7CB518;stop-opacity:1" />
     </linearGradient>
   </defs>
   
-  <rect width="120" height="40" fill="url(#ziraatGrad)" rx="4"/>
+  <!-- Logo Background -->
+  <rect width="140" height="35" fill="white" rx="4"/>
   
-  <!-- Z harfi -->
-  <path d="M10 12 L24 12 L12 22 L24 22 L24 28 L10 28 L22 18 L10 18 Z" fill="white" fill-rule="evenodd"/>
+  <!-- Ziraat Logo Circle -->
+  <circle cx="17.5" cy="17.5" r="15" fill="url(#ziraatGreen)"/>
   
-  <!-- Yazı -->
-  <text x="30" y="16" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">ZİRAAT</text>
-  <text x="30" y="26" fill="white" font-family="Arial, sans-serif" font-size="6">BANKASI</text>
+  <!-- Z Letter inside circle -->
+  <path d="M9 11 L26 11 L26 13.5 L14.5 13.5 L26 23 L26 25.5 L9 25.5 L9 23 L20.5 23 L9 13.5 Z" fill="white"/>
   
-  <!-- Yaprak simgesi -->
-  <ellipse cx="100" cy="20" rx="8" ry="12" fill="white" opacity="0.8"/>
-  <ellipse cx="100" cy="20" rx="6" ry="10" fill="url(#ziraatGrad)"/>
-  <line x1="100" y1="8" x2="100" y2="32" stroke="white" stroke-width="1"/>
+  <!-- Bank Name -->
+  <text x="40" y="14" fill="url(#ziraatGreen)" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ZİRAAT BANKASI</text>
+  <text x="40" y="24" fill="#666" font-family="Arial, sans-serif" font-size="8">T.C.</text>
+  
+  <!-- Wheat/Agriculture symbol -->
+  <path d="M120 8 C122 8 124 10 124 12 C124 14 122 16 120 16 C118 16 116 14 116 12 C116 10 118 8 120 8 Z M120 16 L120 26" stroke="url(#ziraatGreen)" stroke-width="2" fill="none"/>
+  <circle cx="122" cy="10" r="1" fill="#7CB518"/>
+  <circle cx="118" cy="10" r="1" fill="#7CB518"/>
+  <circle cx="122" cy="14" r="1" fill="#7CB518"/>
+  <circle cx="118" cy="14" r="1" fill="#7CB518"/>
 </svg>
