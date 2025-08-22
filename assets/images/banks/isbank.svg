@@ -1,29 +1,15 @@
 <svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="isbankRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#B22222"/>
-      <stop offset="100%" style="stop-color:#DC143C"/>
-    </linearGradient>
-  </defs>
+  <!-- White background -->
+  <rect width="140" height="35" fill="white" rx="4"/>
   
   <!-- İş Bankası Logo -->
-  <g transform="translate(5, 2.5)">
-    <!-- Red circle -->
-    <circle cx="15" cy="15" r="15" fill="url(#isbankRed)" stroke="#8B0000" stroke-width="0.5"/>
-    
-    <!-- White İŞ inside -->
-    <text x="15" y="19" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">İŞ</text>
+  <g transform="translate(5, 5)">
+    <!-- Red circle with İŞ -->
+    <circle cx="12.5" cy="12.5" r="12" fill="#C41E3A"/>
+    <text x="12.5" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">İŞ</text>
     
     <!-- İŞ BANKASI text -->
-    <g font-family="Arial, sans-serif" font-weight="bold">
-      <text x="35" y="13" fill="url(#isbankRed)" font-size="11">İŞ BANKASI</text>
-      <text x="35" y="23" fill="#666" font-size="8">T.C.</text>
-    </g>
-    
-    <!-- Stylized diamond -->
-    <g transform="translate(110, 8)">
-      <path d="M4 0 L8 4 L4 8 L0 4 Z" fill="url(#isbankRed)"/>
-      <path d="M4 1.5 L6.5 4 L4 6.5 L1.5 4 Z" fill="white"/>
-    </g>
+    <text x="30" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#C41E3A">İŞ BANKASI</text>
+    <text x="30" y="22" font-family="Arial, sans-serif" font-size="7" fill="#666">T.C.</text>
   </g>
 </svg>
