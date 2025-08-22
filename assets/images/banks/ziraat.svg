@@ -1,0 +1,22 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ziraatGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="120" height="40" fill="url(#ziraatGrad)" rx="4"/>
+  
+  <!-- Z harfi -->
+  <path d="M10 12 L24 12 L12 22 L24 22 L24 28 L10 28 L22 18 L10 18 Z" fill="white" fill-rule="evenodd"/>
+  
+  <!-- Yazı -->
+  <text x="30" y="16" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">ZİRAAT</text>
+  <text x="30" y="26" fill="white" font-family="Arial, sans-serif" font-size="6">BANKASI</text>
+  
+  <!-- Yaprak simgesi -->
+  <ellipse cx="100" cy="20" rx="8" ry="12" fill="white" opacity="0.8"/>
+  <ellipse cx="100" cy="20" rx="6" ry="10" fill="url(#ziraatGrad)"/>
+  <line x1="100" y1="8" x2="100" y2="32" stroke="white" stroke-width="1"/>
+</svg>

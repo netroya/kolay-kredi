@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"C:\\Web Projelerim\\kolay-kredi\\sigorta.html\")",
+      "Bash(rm:*)",
+      "WebSearch",
+      "WebFetch(domain:www.hangikredi.com)",
+      "WebFetch(domain:www.enuygunfinans.com)",
+      "Bash(python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Döviz Çevirici | Kolay Kredi</title>
+    <meta name="description" content="Güncel kurlarla döviz çevirici. USD, EUR ve diğer dövizleri TL'ye çevirin.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #059669;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        h1 {
+            color: #059669;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        .converter-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .currency-input {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .currency-input input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .currency-input select {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+        
+        .currency-input input:focus,
+        .currency-input select:focus {
+            outline: none;
+            border-color: #059669;
+        }
+        
+        .swap-btn {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .swap-btn button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .swap-btn button:hover {
+            background: #0d9488;
+        }
+        
+        .result {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        .rates-info {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+        
+        <h1>💱 Döviz Çevirici</h1>
+        
+        <div class="converter-box">
+            <div class="input-group">
+                <label>Çevrilecek Miktar</label>
+                <div class="currency-input">
+                    <input type="number" id="fromAmount" placeholder="0.00" value="1">
+                    <select id="fromCurrency">
+                        <option value="USD">🇺🇸 USD</option>
+                        <option value="EUR">🇪🇺 EUR</option>
+                        <option value="GBP">🇬🇧 GBP</option>
+                        <option value="TRY" selected>🇹🇷 TRY</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="swap-btn">
+                <button onclick="swapCurrencies()">⇅</button>
+            </div>
+            
+            <div class="input-group">
+                <label>Sonuç</label>
+                <div class="currency-input">
+                    <input type="number" id="toAmount" readonly>
+                    <select id="toCurrency">
+                        <option value="USD" selected>🇺🇸 USD</option>
+                        <option value="EUR">🇪🇺 EUR</option>
+                        <option value="GBP">🇬🇧 GBP</option>
+                        <option value="TRY">🇹🇷 TRY</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="result" id="result">
+                1 TRY = 0.037 USD
+            </div>
+            
+            <div class="rates-info">
+                📊 Kurlar anlık değil, yaklaşık değerlerdir.<br>
+                Gerçek işlemler için bankanızla iletişime geçin.
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Yaklaşık döviz kurları (gerçek API kullanmıyoruz)
+        const rates = {
+            USD: { TRY: 27.50, EUR: 0.92, GBP: 0.79 },
+            EUR: { TRY: 30.00, USD: 1.09, GBP: 0.86 },
+            GBP: { TRY: 35.00, USD: 1.27, EUR: 1.16 },
+            TRY: { USD: 0.036, EUR: 0.033, GBP: 0.029 }
+        };
+        
+        function convert() {
+            const fromAmount = parseFloat(document.getElementById('fromAmount').value) || 0;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            
+            if (fromCurrency === toCurrency) {
+                document.getElementById('toAmount').value = fromAmount.toFixed(2);
+                document.getElementById('result').textContent = `${fromAmount} ${fromCurrency} = ${fromAmount} ${toCurrency}`;
+                return;
+            }
+            
+            let rate = 1;
+            if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
+                rate = rates[fromCurrency][toCurrency];
+            } else if (rates[toCurrency] && rates[toCurrency][fromCurrency]) {
+                rate = 1 / rates[toCurrency][fromCurrency];
+            }
+            
+            const result = fromAmount * rate;
+            document.getElementById('toAmount').value = result.toFixed(2);
+            document.getElementById('result').textContent = `${fromAmount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+        }
+        
+        function swapCurrencies() {
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            
+            document.getElementById('fromCurrency').value = toCurrency;
+            document.getElementById('toCurrency').value = fromCurrency;
+            
+            convert();
+        }
+        
+        // Event listeners
+        document.getElementById('fromAmount').addEventListener('input', convert);
+        document.getElementById('fromCurrency').addEventListener('change', convert);
+        document.getElementById('toCurrency').addEventListener('change', convert);
+        
+        // İlk hesaplama
+        convert();
+    </script>
+</body>
+</html>
