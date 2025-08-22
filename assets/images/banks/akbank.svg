@@ -1,26 +1,29 @@
 <svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- Akbank Professional Logo -->
-  <rect width="140" height="35" fill="white" rx="2"/>
+  <defs>
+    <linearGradient id="akbankRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E60012"/>
+      <stop offset="100%" style="stop-color:#B8001A"/>
+    </linearGradient>
+  </defs>
   
-  <!-- Logo Group -->
-  <g transform="translate(8, 4)">
-    <!-- Red Rectangle Background -->
-    <rect x="0" y="0" width="24" height="27" fill="#DA020E" rx="3"/>
+  <!-- Akbank Logo -->
+  <g transform="translate(5, 2.5)">
+    <!-- Red square -->
+    <rect x="0" y="0" width="30" height="30" fill="url(#akbankRed)" rx="3" stroke="#990011" stroke-width="0.5"/>
     
-    <!-- White AK Letters Inside -->
-    <text x="12" y="18" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">AK</text>
+    <!-- White AK -->
+    <text x="15" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AK</text>
     
-    <!-- AKBANK Text -->
-    <text x="30" y="12" fill="#DA020E" font-family="Arial, sans-serif" font-size="11" font-weight="bold">AKBANK</text>
-    <text x="30" y="22" fill="#666" font-family="Arial, sans-serif" font-size="8">T.A.Ş.</text>
+    <!-- AKBANK text -->
+    <g font-family="Arial, sans-serif" font-weight="bold">
+      <text x="35" y="13" fill="url(#akbankRed)" font-size="11">AKBANK</text>
+      <text x="35" y="23" fill="#666" font-size="8">T.A.Ş.</text>
+    </g>
     
-    <!-- Professional styling line -->
-    <rect x="30" y="14" width="60" height="0.5" fill="#DA020E" opacity="0.4"/>
-    
-    <!-- Stylized A Symbol -->
-    <g transform="translate(95, 5)">
-      <path d="M5 0 L10 17 L15 0 L13 0 L10 12 L7 0 Z" fill="#DA020E"/>
-      <rect x="8" y="10" width="4" height="1.5" fill="#DA020E"/>
+    <!-- Stylized A -->
+    <g transform="translate(100, 5)">
+      <path d="M5 0 L10 20 L15 0 L12 0 L10 15 L8 0 Z" fill="url(#akbankRed)"/>
+      <rect x="8.5" y="12" width="3" height="2" fill="url(#akbankRed)"/>
     </g>
   </g>
 </svg>

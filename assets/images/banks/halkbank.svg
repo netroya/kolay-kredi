@@ -1,33 +1,36 @@
 <svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- Halkbank Professional Logo -->
-  <rect width="140" height="35" fill="white" rx="2"/>
+  <defs>
+    <radialGradient id="halkSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF4444"/>
+      <stop offset="100%" style="stop-color:#CC2222"/>
+    </radialGradient>
+  </defs>
   
-  <!-- Logo Group -->
-  <g transform="translate(8, 4)">
-    <!-- Red Circle Background -->
-    <circle cx="13" cy="13.5" r="13" fill="#C41E3A"/>
+  <!-- Halkbank Logo -->
+  <g transform="translate(5, 2.5)">
+    <!-- Red circle -->
+    <circle cx="15" cy="15" r="15" fill="url(#halkSun)" stroke="#990000" stroke-width="0.5"/>
     
-    <!-- White Sun Symbol -->
-    <circle cx="13" cy="13.5" r="7" fill="white"/>
-    <circle cx="13" cy="13.5" r="4" fill="#C41E3A"/>
+    <!-- Sun symbol -->
+    <circle cx="15" cy="15" r="8" fill="#FFE600" stroke="#CC2222" stroke-width="1"/>
+    <circle cx="15" cy="15" r="4" fill="url(#halkSun)"/>
     
-    <!-- Sun Rays -->
-    <g stroke="white" stroke-width="1.5" stroke-linecap="round">
-      <line x1="13" y1="2" x2="13" y2="6"/>
-      <line x1="13" y1="21" x2="13" y2="25"/>
-      <line x1="2" y1="13.5" x2="6" y2="13.5"/>
-      <line x1="20" y1="13.5" x2="24" y2="13.5"/>
-      <line x1="6.5" y1="6.5" x2="9" y2="9"/>
-      <line x1="17" y1="18" x2="19.5" y2="20.5"/>
-      <line x1="19.5" y1="6.5" x2="17" y2="9"/>
-      <line x1="9" y1="18" x2="6.5" y2="20.5"/>
+    <!-- Sun rays -->
+    <g stroke="#FFE600" stroke-width="2" stroke-linecap="round">
+      <line x1="15" y1="3" x2="15" y2="7"/>
+      <line x1="15" y1="23" x2="15" y2="27"/>
+      <line x1="3" y1="15" x2="7" y2="15"/>
+      <line x1="23" y1="15" x2="27" y2="15"/>
+      <line x1="7.5" y1="7.5" x2="10" y2="10"/>
+      <line x1="20" y1="20" x2="22.5" y2="22.5"/>
+      <line x1="22.5" y1="7.5" x2="20" y2="10"/>
+      <line x1="10" y1="20" x2="7.5" y2="22.5"/>
     </g>
     
-    <!-- HALKBANK Text -->
-    <text x="32" y="12" fill="#C41E3A" font-family="Arial, sans-serif" font-size="11" font-weight="bold">HALKBANK</text>
-    <text x="32" y="22" fill="#666" font-family="Arial, sans-serif" font-size="8">T.C.</text>
-    
-    <!-- Professional styling line -->
-    <rect x="32" y="14" width="65" height="0.5" fill="#C41E3A" opacity="0.4"/>
+    <!-- Text -->
+    <g font-family="Arial, sans-serif" font-weight="bold">
+      <text x="35" y="13" fill="url(#halkSun)" font-size="11">HALKBANK</text>
+      <text x="35" y="23" fill="#666" font-size="8">T.C.</text>
+    </g>
   </g>
 </svg>
