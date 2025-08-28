@@ -1,19 +1,53 @@
-<svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background -->
-  <rect width="140" height="35" fill="white" rx="4"/>
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
   
-  <!-- ING Bank Logo -->
-  <g transform="translate(8, 8)">
-    <!-- ING text in orange -->
-    <text x="0" y="12" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FF6200">ING</text>
+  <!-- ING Professional Logo -->
+  <defs>
+    <linearGradient id="ingOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6200;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E85A00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+  
+  <!-- Logo Symbol -->
+  <g transform="translate(6, 6)">
+    <!-- Lion silhouette background -->
+    <rect x="0" y="0" width="28" height="28" rx="4" fill="url(#ingOrange)" filter="url(#shadow)"/>
     
-    <!-- Simple lion circle -->
-    <g transform="translate(80, -3)">
-      <circle cx="10" cy="10" r="10" fill="#FF6200"/>
-      <circle cx="10" cy="8" r="6" fill="white"/>
-      <circle cx="8" cy="6.5" r="1" fill="#FF6200"/>
-      <circle cx="12" cy="6.5" r="1" fill="#FF6200"/>
-      <path d="M10 8.5 C9 9 9 10.5 10 10 C11 10.5 11 9 10 8.5" fill="#FF6200"/>
+    <!-- Stylized ING lion -->
+    <g fill="white" transform="translate(14, 14)">
+      <!-- Lion head and mane -->
+      <circle cx="0" cy="0" r="8" opacity="0.3"/>
+      <circle cx="0" cy="0" r="5" opacity="0.8"/>
+      
+      <!-- Lion features -->
+      <ellipse cx="0" cy="-1" rx="7" ry="4" opacity="0.6"/>
+      <circle cx="0" cy="1" r="3"/>
     </g>
+    
+    <!-- Modern accent -->
+    <rect x="2" y="24" width="24" height="2" fill="white" opacity="0.5"/>
   </g>
+  
+  <!-- Typography -->
+  <g transform="translate(38, 12)">
+    <text font-family="Arial, sans-serif" font-size="12" font-weight="900" fill="#FF6200">
+      <tspan x="0" y="0">ING</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="5.5" fill="#666" font-weight="500">
+      <tspan x="0" y="12">BANK</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="4.5" fill="#999" font-weight="400">
+      <tspan x="0" y="20">NETHERLANDS</tspan>
+    </text>
+  </g>
+  
+  <!-- Brand accent -->
+  <rect x="5" y="36" width="20" height="1.5" fill="#FF6200" opacity="0.4"/>
 </svg>

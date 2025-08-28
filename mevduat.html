@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mevduat ve Yatırım Hesaplama - Kolay Kredi</title>
     <meta name="description" content="Vadeli mevduat faiz hesaplama, döviz çevirici ve altın fiyatları takibi. En güncel oranlarla hesaplayın.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -72,19 +75,32 @@
         }
         
         .bank-logo {
-            width: 40px;
-            height: 40px;
-            background: #e5e7eb;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
+            width: 140px !important;
+            height: 85px !important;
+            object-fit: fill !important;
+            border-radius: 12px;
+            margin-right: 1.5rem;
+            background: white;
+            padding: 8px;
+            border: 2px solid #f0f0f0;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
         }
         
         .bank-info {
             display: flex;
             align-items: center;
+        }
+        
+        /* Tüm logoları tam eşit boyutta göster - yükseklik zorlaması */
+        .bank-logo,
+        img.bank-logo {
+            width: 140px !important;
+            height: 85px !important;
+            min-height: 85px !important;
+            max-height: 85px !important;
+            object-fit: fill !important;
+            transform: none !important;
+        }
         }
         
         .currency-converter {
@@ -187,30 +203,62 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Ana navigasyon">
         <div class="nav-container">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <i class="fas fa-calculator"></i>
-                    Kolay Kredi
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
-                <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
-                <li><a href="mevduat.html" class="active">Mevduat</a></li>
+            <a href="index.html" class="nav-brand" aria-label="Kolay Kredi ana sayfa">
+                <svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="16" cy="16" r="15" fill="url(#navGradient)"/>
+                    <rect x="6" y="10" width="20" height="12" rx="2" fill="url(#cardGradient)" opacity="0.95"/>
+                    <rect x="6" y="13" width="20" height="2" fill="#ffffff" opacity="0.3"/>
+                    <rect x="8" y="15" width="3" height="2.5" rx="0.3" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="14" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="16" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="18" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="20" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <text x="22.5" y="19" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="3" font-weight="bold">₺</text>
+                    <circle cx="8" cy="8" r="0.8" fill="#fbbf24" opacity="0.8"/>
+                    <circle cx="24" cy="24" r="0.8" fill="#fbbf24" opacity="0.8"/>
+                    <circle cx="26" cy="10" r="0.6" fill="#ffffff" opacity="0.6"/>
+                </svg>
+                Kolay Kredi
+            </a>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Ana Sayfa</a></li>
+                <li role="none"><a href="kredi-hesaplama.html" role="menuitem">Kredi Hesaplama</a></li>
+                <li role="none"><a href="kredi-kartlari.html" role="menuitem">Kredi Kartları</a></li>
+                <li role="none"><a href="mevduat.html" class="active" role="menuitem" aria-current="page">Mevduat</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="main-content">
-        <div class="hero-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0; text-align: center; color: white;">
-            <h1><i class="fas fa-piggy-bank"></i> Mevduat ve Yatırım Araçları</h1>
-            <p>Vadeli mevduat hesaplama, döviz çevirici ve altın fiyatları</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-piggy-bank"></i>
+                Mevduat ve Yatırım Araçları
+            </div>
+            <h1>Yatırımınızı Planlayın</h1>
+            <h2>Mevduat Getiri Hesaplama ve Karşılaştırma</h2>
+            <p>Vadeli mevduat getirilerini hesaplayın, bankalardaki güncel faiz oranlarını karşılaştırın ve en kazançlı yatırımı seçin.</p>
         </div>
+    </section>
 
-        <div class="investment-container">
+    <!-- Calculator Section -->
+    <section class="calculator-section" style="padding: 4rem 0; background: #f8fafc;">
+        <div class="container">
             <div class="tools-grid">
                 <!-- Vadeli Mevduat Hesaplama -->
                 <div class="calculator-card">
@@ -390,7 +438,7 @@
                 
                 <div class="rate-grid">
                     <div class="bank-info">
-                        <div class="bank-logo">Z</div>
+                        <img src="assets/images/banks/real-logos/ziraat.png" alt="Ziraat Bankası - Resmi Logo" class="bank-logo real-logo-loaded">
                         <div>Ziraat Bankası</div>
                     </div>
                     <div>%42.00</div>
@@ -400,7 +448,7 @@
                 
                 <div class="rate-grid">
                     <div class="bank-info">
-                        <div class="bank-logo">V</div>
+                        <img src="assets/images/banks/vakifbank.svg" alt="Vakıfbank" class="bank-logo">
                         <div>Vakıfbank</div>
                     </div>
                     <div>%41.50</div>
@@ -410,7 +458,7 @@
                 
                 <div class="rate-grid">
                     <div class="bank-info">
-                        <div class="bank-logo">H</div>
+                        <img src="assets/images/banks/halkbank.svg" alt="Halkbank" class="bank-logo">
                         <div>Halkbank</div>
                     </div>
                     <div>%42.50</div>
@@ -420,7 +468,7 @@
                 
                 <div class="rate-grid">
                     <div class="bank-info">
-                        <div class="bank-logo">İ</div>
+                        <img src="assets/images/banks/isbank.svg" alt="İş Bankası" class="bank-logo">
                         <div>İş Bankası</div>
                     </div>
                     <div>%41.00</div>
@@ -430,7 +478,7 @@
                 
                 <div class="rate-grid">
                     <div class="bank-info">
-                        <div class="bank-logo">A</div>
+                        <img src="assets/images/banks/akbank.svg" alt="Akbank" class="bank-logo">
                         <div>Akbank</div>
                     </div>
                     <div>%40.50</div>
@@ -439,25 +487,47 @@
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Kolay Kredi</h3>
-                <p>Türkiye'nin en kapsamlı finansal hesaplama platformu</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kolay Kredi</h4>
+                    <p>Türkiye'nin en kapsamlı finansal hesaplama ve karşılaştırma platformu. Güvenilir ve profesyonel hizmet.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                        <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                        <li><a href="mevduat.html">Mevduat Hesaplama</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Araçlar</h4>
+                    <ul>
+                        <li><a href="doviz-cevirici.html">Döviz Çevirici</a></li>
+                        <li><a href="#">Altın Fiyatları (Yakında)</a></li>
+                        <li><a href="#hizli-hesaplama">Faiz Hesaplama</a></li>
+                        <li><a href="#banka-oranlar">Banka Karşılaştırma</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+                        <li><a href="kullanim-sartlari.html">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Hızlı Erişim</h4>
-                <ul>
-                    <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
-                    <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
-                    <li><a href="mevduat.html">Mevduat</a></li>
-                </ul>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır. | Finansal kararlarınızı alırken dikkatli olun.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
@@ -477,7 +547,7 @@
             const isCompound = document.getElementById('bilesik').value === 'true';
             
             if (!principal || !months || !annualRate) {
-                alert('Lütfen tüm alanları doldurun');
+                toast.error('Lütfen tüm alanları doldurun');
                 return;
             }
             
@@ -518,7 +588,7 @@
             const years = parseInt(document.getElementById('yatirim-sure').value);
             
             if (!amount || !years) {
-                alert('Lütfen tüm alanları doldurun');
+                toast.error('Lütfen tüm alanları doldurun');
                 return;
             }
             
@@ -559,7 +629,7 @@
             const toCurrency = document.getElementById('hedef-para').value;
             
             if (!amount) {
-                alert('Lütfen tutar girin');
+                toast.error('Lütfen tutar girin');
                 return;
             }
             
@@ -594,6 +664,25 @@
         document.getElementById('cevirici-tutar').addEventListener('input', convertCurrency);
         document.getElementById('kaynak-para').addEventListener('change', convertCurrency);
         document.getElementById('hedef-para').addEventListener('change', convertCurrency);
+    </script>
+    <!-- Load additional scripts -->
+    <script src="assets/js/notifications.js"></script>
+    <script src="assets/js/loading.js"></script>
+    <script src="assets/js/theme.js"></script>
+    
+    <!-- Navbar scroll effect -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
     </script>
 </body>
 </html>

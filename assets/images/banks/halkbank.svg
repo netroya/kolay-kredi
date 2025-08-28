@@ -1,24 +1,62 @@
-<svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background -->
-  <rect width="140" height="35" fill="white" rx="4"/>
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
   
-  <!-- Halkbank Logo -->
-  <g transform="translate(5, 5)">
-    <!-- Red circle with sun -->
-    <circle cx="12.5" cy="12.5" r="12" fill="#C41E3A"/>
-    <circle cx="12.5" cy="12.5" r="6" fill="#FFD700"/>
-    <circle cx="12.5" cy="12.5" r="3" fill="#C41E3A"/>
+  <!-- Halkbank Professional Logo -->
+  <defs>
+    <linearGradient id="halkbankRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B71C1C;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="sunGradient" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#FFA000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8F00;stop-opacity:1" />
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+  
+  <!-- Logo Symbol -->
+  <g transform="translate(6, 6)">
+    <!-- Outer red circle -->
+    <circle cx="14" cy="14" r="13" fill="url(#halkbankRed)" filter="url(#shadow)"/>
     
-    <!-- Simple sun rays -->
-    <g stroke="#FFD700" stroke-width="1.5">
-      <line x1="12.5" y1="2" x2="12.5" y2="5"/>
-      <line x1="12.5" y1="20" x2="12.5" y2="23"/>
-      <line x1="2" y1="12.5" x2="5" y2="12.5"/>
-      <line x1="20" y1="12.5" x2="23" y2="12.5"/>
+    <!-- Sun symbol -->
+    <circle cx="14" cy="14" r="9" fill="url(#sunGradient)"/>
+    <circle cx="14" cy="14" r="4.5" fill="#DC143C"/>
+    
+    <!-- Sun rays - more elegant -->
+    <g stroke="#FFD700" stroke-width="2" opacity="0.9">
+      <line x1="14" y1="2" x2="14" y2="6"/>
+      <line x1="14" y1="22" x2="14" y2="26"/>
+      <line x1="2" y1="14" x2="6" y2="14"/>
+      <line x1="22" y1="14" x2="26" y2="14"/>
+      
+      <!-- Diagonal rays -->
+      <line x1="6.1" y1="6.1" x2="8.8" y2="8.8"/>
+      <line x1="21.9" y1="21.9" x2="19.2" y2="19.2"/>
+      <line x1="21.9" y1="6.1" x2="19.2" y2="8.8"/>
+      <line x1="6.1" y1="21.9" x2="8.8" y2="19.2"/>
     </g>
-    
-    <!-- HALKBANK text -->
-    <text x="30" y="12" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#C41E3A">HALKBANK</text>
-    <text x="30" y="22" font-family="Arial, sans-serif" font-size="7" fill="#666">T.C.</text>
   </g>
+  
+  <!-- Typography -->
+  <g transform="translate(36, 12)">
+    <text font-family="Arial, sans-serif" font-size="9.5" font-weight="800" fill="#DC143C">
+      <tspan x="0" y="0">HALKBANK</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="5.5" fill="#666" font-weight="500">
+      <tspan x="0" y="12">T.C.</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="4.5" fill="#999" font-weight="400">
+      <tspan x="0" y="20">EST. 1938</tspan>
+    </text>
+  </g>
+  
+  <!-- Brand accent -->
+  <rect x="5" y="36" width="28" height="1.5" fill="#DC143C" opacity="0.4"/>
 </svg>

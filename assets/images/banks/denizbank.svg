@@ -1,27 +1,57 @@
 <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
+  
+  <!-- Denizbank Professional Logo -->
   <defs>
-    <linearGradient id="denizGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    <linearGradient id="denizBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:1" />
     </linearGradient>
+    <radialGradient id="waveGradient" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E88E5;stop-opacity:1" />
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
   </defs>
   
-  <rect width="120" height="40" fill="url(#denizGrad)" rx="4"/>
+  <!-- Logo Symbol -->
+  <g transform="translate(6, 6)">
+    <!-- Wave circle background -->
+    <circle cx="14" cy="14" r="13" fill="url(#denizBlue)" filter="url(#shadow)"/>
+    
+    <!-- Sea waves pattern -->
+    <g stroke="white" stroke-width="2.5" fill="none" opacity="0.9">
+      <path d="M4 10 Q9 5 14 10 Q19 15 24 10"/>
+      <path d="M4 14 Q9 9 14 14 Q19 19 24 14"/>
+      <path d="M4 18 Q9 13 14 18 Q19 23 24 18"/>
+    </g>
+    
+    <!-- Central wave accent -->
+    <circle cx="14" cy="14" r="4" fill="url(#waveGradient)" opacity="0.7"/>
+    
+    <!-- Corner water drops -->
+    <circle cx="6" cy="6" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="22" cy="22" r="1.5" fill="white" opacity="0.6"/>
+  </g>
   
-  <!-- Deniz harfleri -->
-  <path d="M8 12 L8 28 L14 28 C18 28 18 22 18 20 C18 18 18 12 14 12 L8 12 Z M11 15 L13 15 C15 15 15 17 15 20 C15 23 15 25 13 25 L11 25 Z" fill="white"/>
+  <!-- Typography -->
+  <g transform="translate(36, 10)">
+    <text font-family="Arial, sans-serif" font-size="8.5" font-weight="900" fill="#1E88E5">
+      <tspan x="0" y="0">DENİZBANK</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="5.5" fill="#666" font-weight="500">
+      <tspan x="0" y="12">A.Ş.</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="4.5" fill="#999" font-weight="400">
+      <tspan x="0" y="22">EST. 1997</tspan>
+    </text>
+  </g>
   
-  <rect x="20" y="12" width="6" height="2" fill="white"/>
-  <rect x="20" y="26" width="6" height="2" fill="white"/>
-  <rect x="20" y="12" width="2" height="16" fill="white"/>
-  <rect x="20" y="18" width="4" height="2" fill="white"/>
-  
-  <!-- Yazı -->
-  <text x="30" y="16" fill="white" font-family="Arial, sans-serif" font-size="7" font-weight="bold">DENİZBANK</text>
-  <text x="30" y="26" fill="white" font-family="Arial, sans-serif" font-size="5">A.Ş.</text>
-  
-  <!-- Dalga logosu -->
-  <path d="M90 15 Q95 10 100 15 Q105 20 110 15" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M90 20 Q95 15 100 20 Q105 25 110 20" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M90 25 Q95 20 100 25 Q105 30 110 25" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Brand accent -->
+  <rect x="5" y="36" width="26" height="1.5" fill="#1E88E5" opacity="0.4"/>
 </svg>

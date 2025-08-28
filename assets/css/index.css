@@ -1,0 +1,784 @@
+/* Index Page Specific Styles with Professional Bank Colors */
+:root {
+    /* Primary - Ziraat Bank inspired green */
+    --primary-color: #22C55E;
+    --primary-dark: #16A34A;
+    --primary-light: #86EFAC;
+    
+    /* Secondary - Banking blue inspired */
+    --secondary-color: #3B82F6;
+    --secondary-dark: #1D4ED8;
+    --secondary-light: #93C5FD;
+    
+    /* Accent - Professional gold */
+    --accent-color: #F59E0B;
+    --accent-dark: #D97706;
+    
+    /* Bank brand colors - Gerçek marka renkleri */
+    --ziraat-red: #DC2626;
+    --garanti-blue: #004483;
+    --garanti-green: #237939;
+    --isbank-blue: #084888;
+    --vakifbank-gold: #fcbd00;
+    --vakifbank-yellow: #ffd166;
+    --vakifbank-lime: #a4d309;
+    --halkbank-red: #DC143C;
+    --akbank-red: #E0362A;
+    --yapikredi-navy: #004990;
+    --yapikredi-red: #D9322D;
+    --teb-blue: #0066CC;
+    --ing-orange: #FF6200;
+    --qnb-purple: #7B1FA2;
+    --denizbank-blue: #1E88E5;
+    
+    /* UI colors */
+    --text-dark: #1a1a1a;
+    --text-gray: #666666;
+    --bg-light: #f8faf9;
+    --bg-white: #ffffff;
+    --border-gray: #e8f0ed;
+    --shadow: 0 8px 32px rgba(34, 197, 94, 0.08);
+    --shadow-hover: 0 16px 48px rgba(34, 197, 94, 0.12);
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-gray);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.nav-brand:hover {
+    transform: scale(1.02);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 140px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ffffff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    max-width: 600px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-primary {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    color: var(--primary-dark);
+}
+
+.cta-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Quick Tools */
+.quick-tools {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tool-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+}
+
+.tool-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.tool-card:hover .tool-icon::before {
+    left: 100%;
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.tool-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.quick-calc {
+    margin: 1.5rem 0;
+}
+
+.quick-calc input, .quick-calc select {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border: 2px solid var(--border-gray);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.quick-calc input:focus, .quick-calc select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(45, 196, 77, 0.1);
+    transform: translateY(-1px);
+}
+
+.quick-calc button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-calc button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(45, 196, 77, 0.3);
+}
+
+.quick-calc button:active {
+    transform: translateY(0);
+}
+
+.quick-result {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-radius: var(--border-radius-sm);
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 135, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: gap 0.3s;
+}
+
+.tool-link:hover {
+    gap: 1rem;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: white;
+    margin: 0 auto 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 135, 255, 0.3);
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* Bank Rates */
+.bank-rates {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.rates-table {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 3rem;
+    border: 1px solid var(--border-gray);
+}
+
+.table-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.table-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.table-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.rate-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    border-bottom: 1px solid var(--border-gray);
+    align-items: center;
+    min-height: 160px;
+}
+
+.rate-row:last-child {
+    border-bottom: none;
+}
+
+.rate-row.header {
+    background: var(--bg-light);
+    font-weight: 600;
+}
+
+.bank-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.bank-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.bank-logo-real {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid #f0f0f0;
+}
+
+.bank-logo-full {
+    height: 120px;
+    max-width: 320px;
+    min-width: 180px;
+    object-fit: contain;
+    background: white;
+    border-radius: 16px;
+    padding: 15px;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    overflow: visible;
+}
+
+.bank-logo-full:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
+/* Tüm logolar için standart boyutlandırma */
+.bank-logo-full {
+    width: 280px !important;
+    height: 120px !important;
+    object-fit: fill !important;
+    object-position: center !important;
+}
+
+/* Tüm logoları tam eşit boyutta göster - yükseklik zorlaması */
+.bank-logo-full img,
+img.bank-logo-full {
+    width: 280px !important;
+    height: 120px !important;
+    object-fit: fill !important;
+    transform: none !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+}
+
+/* Best rate highlighting */
+.best-rate {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+.best-rate::after {
+    content: '✨';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    animation: sparkle 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateY(-50%) scale(1.2); }
+}
+
+.bank-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Banka-specific styling */
+.bank-name.ziraat {
+    color: #228B22;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.vakifbank {
+    color: #E30613;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.halkbank {
+    color: #0066CC;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.is-bank {
+    color: #003366;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.garanti-bbva {
+    color: #004C97;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.akbank {
+    color: #E30613;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.yapi-kredi {
+    color: #FDB71C;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.teb {
+    color: #0052A3;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.ing {
+    color: #FF6200;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.qnb {
+    color: #522F92;
+    font-family: 'Arial', sans-serif;
+}
+
+.bank-name.denizbank {
+    color: #0066CC;
+    font-family: 'Arial', sans-serif;
+}
+
+.rate-value {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .rate-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}

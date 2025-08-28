@@ -6,7 +6,13 @@
       "WebSearch",
       "WebFetch(domain:www.hangikredi.com)",
       "WebFetch(domain:www.enuygunfinans.com)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(del \"C:\\Web Projelerim\\kolay-kredi\\index-old.html\")",
+      "WebFetch(domain:www.ziraatbank.com.tr)",
+      "WebFetch(domain:brandfetch.com)",
+      "Bash(start index.html)",
+      "Bash(start logo-yukle.html)",
+      "Bash(copy ziraat_bankasi_logo.png ziraat.png)"
     ],
     "deny": [],
     "ask": []

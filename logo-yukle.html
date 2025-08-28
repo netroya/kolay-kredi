@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Yükleme Paneli - Kolay Kredi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #22C55E, #16A34A);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            padding: 3rem;
+        }
+        
+        .info-box {
+            background: #f8f9ff;
+            border: 1px solid #e1e8ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-box h3 {
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .bank-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px dashed #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .bank-card:hover {
+            border-color: #22C55E;
+            transform: translateY(-2px);
+        }
+        
+        .bank-card.has-logo {
+            border-color: #22C55E;
+            background: #f0f9f4;
+        }
+        
+        .bank-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .file-button:hover {
+            background: #4338ca;
+        }
+        
+        .logo-preview {
+            max-width: 100%;
+            max-height: 80px;
+            margin: 1rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .status {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status.error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .action-buttons {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #22C55E;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #16A34A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #64748b;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 Logo Yükleme Paneli</h1>
+            <p>Gerçek banka logolarını yükleyerek web sitenizin görünümünü profesyonelleştirin</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <h3>📋 Yükleme Talimatları</h3>
+                <ul>
+                    <li><strong>Klasör:</strong> <code>assets/images/banks/real-logos/</code></li>
+                    <li><strong>Formatlar:</strong> PNG (şeffaf arka plan önerilir), JPG, JPEG</li>
+                    <li><strong>Boyut:</strong> Minimum 300x100 piksel, yüksek çözünürlük</li>
+                    <li><strong>Kalite:</strong> Net, profesyonel görünüm</li>
+                    <li><strong>Dosya Adları:</strong> Tam olarak aşağıdaki isimlerle kaydedin</li>
+                </ul>
+            </div>
+            
+            <div class="logo-grid">
+                <div class="bank-card" data-bank="ziraat">
+                    <div class="bank-name">🏛️ Ziraat Bankası</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="ziraat">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>ziraat.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="garanti">
+                    <div class="bank-name">🏦 Garanti BBVA</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="garanti">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>garanti.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="isbank">
+                    <div class="bank-name">🏢 İş Bankası</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="isbank">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>isbank.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="vakifbank">
+                    <div class="bank-name">🏪 VakıfBank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="vakifbank">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>vakifbank.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="halkbank">
+                    <div class="bank-name">🌅 Halkbank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="halkbank">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>halkbank.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="akbank">
+                    <div class="bank-name">🔴 Akbank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="akbank">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>akbank.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="yapikredi">
+                    <div class="bank-name">🔷 Yapı Kredi</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="yapikredi">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>yapikredi.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="teb">
+                    <div class="bank-name">💙 TEB</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="teb">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>teb.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="ing">
+                    <div class="bank-name">🦁 ING Bank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="ing">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>ing.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="qnb">
+                    <div class="bank-name">💜 QNB Finansbank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="qnb">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>qnb.png</code></p>
+                </div>
+                
+                <div class="bank-card" data-bank="denizbank">
+                    <div class="bank-name">🌊 Denizbank</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" class="file-input" accept=".png,.jpg,.jpeg" data-bank="denizbank">
+                        <button class="file-button">Logo Seç</button>
+                    </div>
+                    <div class="status" style="display:none;"></div>
+                    <p><code>denizbank.png</code></p>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">🏠 Ana Sayfaya Dön</a>
+                <button class="btn btn-secondary" onclick="window.location.reload()">🔄 Sayfayı Yenile</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Bu sayfa logo yükleme talimatları için hazırlanmıştır
+        // Gerçek dosya yükleme işlevi tarayıcı güvenliği nedeniyle mümkün değildir
+        // Lütfen dosyaları manuel olarak klasöre kopyalayın
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInputs = document.querySelectorAll('.file-input');
+            
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    const bankName = this.dataset.bank;
+                    const card = this.closest('.bank-card');
+                    const status = card.querySelector('.status');
+                    
+                    if (file) {
+                        // Dosya önizlemesi
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            let preview = card.querySelector('.logo-preview');
+                            if (!preview) {
+                                preview = document.createElement('img');
+                                preview.className = 'logo-preview';
+                                card.insertBefore(preview, status);
+                            }
+                            preview.src = e.target.result;
+                            card.classList.add('has-logo');
+                        };
+                        reader.readAsDataURL(file);
+                        
+                        // Durum mesajı
+                        status.textContent = `✅ ${file.name} seçildi - Manuel olarak klasöre kopyalayın`;
+                        status.className = 'status success';
+                        status.style.display = 'block';
+                        
+                        // Dosya bilgileri
+                        console.log(`${bankName} logosu seçildi:`, file.name, file.size + ' bytes');
+                    }
+                });
+            });
+            
+            // Klasör yolunu göster
+            console.log('📁 Logo klasörü:', 'C:\\Web Projelerim\\kolay-kredi\\assets\\images\\banks\\real-logos\\');
+        });
+    </script>
+</body>
+</html>

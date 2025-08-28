@@ -1,26 +1,60 @@
 <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
+  
+  <!-- Yapı Kredi Professional Logo -->
   <defs>
-    <linearGradient id="ykGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    <linearGradient id="ykNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#004990;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003d7a;stop-opacity:1" />
     </linearGradient>
+    <linearGradient id="ykRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D9322D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B52620;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
   </defs>
   
-  <rect width="120" height="40" fill="url(#ykGrad)" rx="4"/>
+  <!-- Logo Symbol -->
+  <g transform="translate(6, 6)">
+    <!-- Navy shield background -->
+    <path d="M3 6 L14 3 L25 6 L25 20 L14 25 L3 20 Z" fill="url(#ykNavy)" filter="url(#shadow)"/>
+    
+    <!-- YK monogram in red -->
+    <g fill="url(#ykRed)" transform="translate(14, 14)">
+      <!-- Y -->
+      <path d="M-8 -6 L-5 -6 L-2.5 -1 L0 -6 L3 -6 L-1 2 L-1 4 L-4 4 L-4 2 Z"/>
+      
+      <!-- K -->
+      <path d="M4 -6 L7 -6 L7 -1 L9 -6 L12 -6 L9 -1 L12 4 L9 4 L7 1 L7 4 L4 4 Z"/>
+    </g>
+    
+    <!-- Red accent lines -->
+    <rect x="5" y="22" width="18" height="1" fill="url(#ykRed)" opacity="0.8"/>
+    <rect x="7" y="24" width="14" height="0.5" fill="url(#ykRed)" opacity="0.6"/>
+  </g>
   
-  <!-- YK harfleri -->
-  <path d="M8 12 L10 12 L12 18 L14 12 L16 12 L13 20 L13 28 L11 28 L11 20 Z" fill="#fbbf24"/>
-  <rect x="18" y="12" width="3" height="16" fill="#fbbf24"/>
-  <rect x="18" y="18" width="8" height="3" fill="#fbbf24"/>
-  <path d="M22 12 L26 12 L22 18 L26 18" fill="#fbbf24"/>
+  <!-- Typography -->
+  <g transform="translate(36, 9)">
+    <text font-family="Arial, sans-serif" font-size="7.5" font-weight="900" fill="#004990">
+      <tspan x="0" y="0">YAPI KREDİ</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="6" fill="#004990" font-weight="700">
+      <tspan x="0" y="10">BANKASI</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="5" fill="#666" font-weight="500">
+      <tspan x="0" y="18">A.Ş.</tspan>
+    </text>
+    
+    <text font-family="Arial, sans-serif" font-size="4" fill="#999" font-weight="400">
+      <tspan x="0" y="24">EST. 1944</tspan>
+    </text>
+  </g>
   
-  <!-- Yazı -->
-  <text x="30" y="14" fill="#fbbf24" font-family="Arial, sans-serif" font-size="6" font-weight="bold">YAPI KREDİ</text>
-  <text x="30" y="22" fill="white" font-family="Arial, sans-serif" font-size="5">BANKASI</text>
-  <text x="30" y="28" fill="white" font-family="Arial, sans-serif" font-size="4">A.Ş.</text>
-  
-  <!-- Logo -->
-  <rect x="90" y="10" width="20" height="20" fill="#fbbf24" rx="2"/>
-  <rect x="92" y="12" width="16" height="16" fill="url(#ykGrad)" rx="1"/>
-  <text x="100" y="22" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="6" font-weight="bold">YK</text>
+  <!-- Brand accent -->
+  <rect x="5" y="36" width="28" height="1.5" fill="#004990" opacity="0.4"/>
 </svg>

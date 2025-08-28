@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/</loc>
-        <lastmod>2025-08-21</lastmod>
+        <loc>https://kolay-kredi.com/</loc>
+        <lastmod>2025-08-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/og-image.jpg</image:loc>
-            <image:caption>Kolay Kredi - Finansal Hesaplama ve Banka Karşılaştırma Platformu</image:caption>
-        </image:image>
     </url>
     <url>
-        <loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/#giris</loc>
-        <lastmod>2025-08-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://kolay-kredi.com/kredi-hesaplama.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://kolay-kredi.com/kredi-kartlari.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://kolay-kredi.com/mevduat.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://kolay-kredi.com/doviz-cevirici.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/#uygulama</loc>
-        <lastmod>2025-08-21</lastmod>
+        <loc>https://kolay-kredi.com/hakkimizda.html</loc>
+        <lastmod>2025-08-23</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/#ipuclari</loc>
-        <lastmod>2025-08-21</lastmod>
+        <loc>https://kolay-kredi.com/iletisim.html</loc>
+        <lastmod>2025-08-23</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://netroya.github.io/kolay-kredi-finansal-hesaplama-ve-banka-karsilastirma-platformu/#gelismis</loc>
-        <lastmod>2025-08-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://kolay-kredi.com/gizlilik-politikasi.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://kolay-kredi.com/kullanim-sartlari.html</loc>
+        <lastmod>2025-08-23</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
     </url>
 </urlset>

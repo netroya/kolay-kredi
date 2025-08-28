@@ -1,30 +1,52 @@
-<svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background -->
-  <rect width="140" height="35" fill="white" rx="4"/>
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
   
-  <!-- Ziraat Bankası Logo with Wheat Symbol -->
-  <g transform="translate(5, 5)">
-    <!-- Simplified wheat symbol inspired by the original -->
-    <g transform="translate(0, 0)">
-      <!-- Main wheat stem -->
-      <rect x="10" y="2" width="3" height="23" fill="#C8102E"/>
+  <!-- Ziraat Bankası Professional Logo -->
+  <defs>
+    <linearGradient id="ziראatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d32f2f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b71c1c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+  </defs>
+  
+  <!-- Brand Shield -->
+  <g transform="translate(5, 6)">
+    <path d="M2 4 L12 0 L22 4 L22 18 L12 28 L2 18 Z" fill="url(#ziראatGrad)" filter="url(#shadow)"/>
+    
+    <!-- Stylized Wheat Symbol -->
+    <g transform="translate(12, 14)" fill="white">
+      <!-- Central stem -->
+      <rect x="-0.8" y="-10" width="1.6" height="16" rx="0.8"/>
       
-      <!-- Wheat grains on left -->
-      <polygon points="10,5 5,8 5,12 10,9" fill="#C8102E"/>
-      <polygon points="10,10 5,13 5,17 10,14" fill="#C8102E"/>
-      <polygon points="10,15 5,18 5,22 10,19" fill="#C8102E"/>
+      <!-- Wheat grains - elegant geometric pattern -->
+      <ellipse cx="-4" cy="-8" rx="2" ry="1.2" transform="rotate(-15)"/>
+      <ellipse cx="4" cy="-8" rx="2" ry="1.2" transform="rotate(15)"/>
+      <ellipse cx="-3.5" cy="-5" rx="1.8" ry="1" transform="rotate(-10)"/>
+      <ellipse cx="3.5" cy="-5" rx="1.8" ry="1" transform="rotate(10)"/>
+      <ellipse cx="-3" cy="-2" rx="1.6" ry="0.8" transform="rotate(-5)"/>
+      <ellipse cx="3" cy="-2" rx="1.6" ry="0.8" transform="rotate(5)"/>
       
-      <!-- Wheat grains on right -->
-      <polygon points="13,5 18,8 18,12 13,9" fill="#C8102E"/>
-      <polygon points="13,10 18,13 18,17 13,14" fill="#C8102E"/>
-      <polygon points="13,15 18,18 18,22 13,19" fill="#C8102E"/>
+      <!-- Small decorative leaves -->
+      <path d="M-2 1 Q-4 3 -2 4 Q0 3 -2 1" opacity="0.8"/>
+      <path d="M2 1 Q4 3 2 4 Q0 3 2 1" opacity="0.8"/>
     </g>
-    
-    <!-- ZİRAAT BANKASI text -->
-    <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#C8102E">ZİRAAT</text>
-    <text x="25" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#C8102E">BANKASI</text>
-    
-    <!-- T.C. smaller text -->
-    <text x="90" y="22" font-family="Arial, sans-serif" font-size="7" fill="#666">T.C.</text>
   </g>
+  
+  <!-- Typography -->
+  <g transform="translate(30, 12)">
+    <text font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#d32f2f">
+      <tspan x="0" y="0">ZİRAAT</tspan>
+      <tspan x="0" y="11">BANKASI</tspan>
+    </text>
+    <text font-family="Arial, sans-serif" font-size="5.5" fill="#666" font-weight="500">
+      <tspan x="0" y="20">T.C.</tspan>
+    </text>
+  </g>
+  
+  <!-- Subtle accent line -->
+  <rect x="5" y="35" width="110" height="1" fill="#d32f2f" opacity="0.3"/>
 </svg>

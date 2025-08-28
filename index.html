@@ -6,11 +6,46 @@
     <title>Kolay Kredi - Türkiye'nin En Kapsamlı Finansal Platform</title>
     <meta name="description" content="Kredi, kredi kartı, mevduat ve yatırım hesaplama araçları. 50+ banka karşılaştırması, güncel faiz oranları ve profesyonel finansal analiz.">
     
-    <!-- Favicon -->
+    <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2DC44D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Kolay Kredi">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#2DC44D">
+    <meta name="msapplication-navbutton-color" content="#2DC44D">
+    
+    <!-- Content Security Policy - Güvenlik -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://api.exchangerate-api.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
+    
+    <!-- Critical CSS - Inline for Performance -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary-color:#2563eb;--secondary-color:#1e40af;--accent-color:#f59e0b;--text-primary:#1f2937;--text-secondary:#6b7280;--background:#ffffff;--background-secondary:#f9fafb;--border-color:#e5e7eb;--shadow:0 4px 6px -1px rgba(0,0,0,0.1);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);--border-radius:8px;--transition:all 0.3s ease}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:var(--text-primary);background-color:var(--background)}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .header{background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;padding:60px 0;text-align:center}
+        .header-content{max-width:800px;margin:0 auto}
+        .main-title{font-size:3rem;font-weight:700;margin-bottom:20px}
+        .main-subtitle{font-size:1.2rem;margin-bottom:40px;opacity:0.9}
+        .nav-container{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--primary-color)}
+        .nav-menu{display:flex;list-style:none;gap:2rem}
+        .nav-link{color:var(--text-primary);text-decoration:none;font-weight:500;transition:color 0.3s ease}
+        .nav-link:hover{color:var(--primary-color)}
+        .hero-section{padding:4rem 0;text-align:center}
+        .hero-title{font-size:3.5rem;font-weight:700;color:var(--text-primary);margin-bottom:1.5rem}
+        .hero-subtitle{font-size:1.25rem;color:var(--text-secondary);margin-bottom:2rem}
+    </style>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
@@ -28,6 +63,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-9023802833968711" crossorigin="anonymous"></script>
@@ -39,750 +75,652 @@
         });
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Async CSS Loading for Performance -->
+    <link rel="preload" href="assets/css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/notifications.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/loading.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/dark-mode.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/premium-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="assets/css/notifications.css">
+        <link rel="stylesheet" href="assets/css/loading.css">
+        <link rel="stylesheet" href="assets/css/dark-mode.css">
+        <link rel="stylesheet" href="assets/css/premium-enhancements.css">
+    </noscript>
     
-    <style>
-        :root {
-            --primary-color: #2DC44D;
-            --primary-dark: #259639;
-            --secondary-color: #0087FF;
-            --accent-color: #f59e0b;
-            --text-dark: #1a1a1a;
-            --text-gray: #666666;
-            --bg-light: #f8faf9;
-            --bg-white: #ffffff;
-            --border-gray: #e8f0ed;
-            --shadow: 0 8px 32px rgba(45, 196, 77, 0.08);
-            --shadow-hover: 0 16px 48px rgba(45, 196, 77, 0.12);
-            --border-radius: 16px;
-            --border-radius-sm: 8px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-white);
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-gray);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .nav-brand {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-brand:hover {
-            transform: scale(1.02);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary-color);
-        }
-
-        .nav-menu a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 140px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-            max-width: 600px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item strong {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item span {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-primary, .cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2.5rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-primary {
-            background: white;
-            color: var(--primary-color);
-            box-shadow: var(--shadow);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            color: var(--primary-dark);
-        }
-
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-3px);
-        }
-
-        /* Quick Tools */
-        .quick-tools {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-gray);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-color);
-        }
-
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tool-card:hover::before {
-            opacity: 1;
-        }
-
-        .tool-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-        }
-
-        .tool-card:hover .tool-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .tool-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .quick-calc {
-            margin: 1.5rem 0;
-        }
-
-        .quick-calc input, .quick-calc select {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.25rem;
-            border: 2px solid var(--border-gray);
-            border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: white;
-        }
-
-        .quick-calc input:focus, .quick-calc select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(45, 196, 77, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .quick-calc button {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: var(--border-radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-calc button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(45, 196, 77, 0.3);
-        }
-
-        .quick-calc button:active {
-            transform: translateY(0);
-        }
-
-        .quick-result {
-            margin-top: 1.5rem;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            border-radius: var(--border-radius-sm);
-            font-weight: 700;
-            color: var(--secondary-color);
-            text-align: center;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(0, 135, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .tool-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: gap 0.3s;
-        }
-
-        .tool-link:hover {
-            gap: 1rem;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .feature-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            color: white;
-            margin: 0 auto 2rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(0, 135, 255, 0.3);
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        /* Bank Rates */
-        .bank-rates {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .rates-table {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-top: 3rem;
-            border: 1px solid var(--border-gray);
-        }
-
-        .table-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .table-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .table-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .rate-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 1rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-gray);
-            align-items: center;
-        }
-
-        .rate-row:last-child {
-            border-bottom: none;
-        }
-
-        .rate-row.header {
-            background: var(--bg-light);
-            font-weight: 600;
-        }
-
-        .bank-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .bank-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .bank-logo-real {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-            background: white;
-            border-radius: 8px;
-            padding: 4px;
-            border: 1px solid #f0f0f0;
-        }
-        
-        .bank-logo-full {
-            height: 35px;
-            max-width: 140px;
-            object-fit: contain;
-            background: white;
-            border-radius: 8px;
-            padding: 6px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .bank-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        /* Banka-specific styling */
-        .bank-name.ziraat {
-            color: #228B22;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.vakifbank {
-            color: #E30613;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.halkbank {
-            color: #0066CC;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.is-bank {
-            color: #003366;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.garanti-bbva {
-            color: #004C97;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.akbank {
-            color: #E30613;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.yapi-kredi {
-            color: #FDB71C;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.teb {
-            color: #0052A3;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.ing {
-            color: #FF6200;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.qnb {
-            color: #522F92;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .bank-name.denizbank {
-            color: #0066CC;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .rate-value {
-            font-weight: 700;
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+    <!-- Modern HesapKurdu.com Style CSS -->
+    <link rel="stylesheet" href="modern-styles.css">
+    
+    <!-- Enhanced JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://kolay-kredi.com/#website",
+                "url": "https://kolay-kredi.com/",
+                "name": "Kolay Kredi - Finansal Hesaplama Platformu",
+                "description": "Türkiye'nin en kapsamlı finansal hesaplama ve banka karşılaştırma platformu. Kredi, kredi kartı, mevduat hesaplamaları.",
+                "publisher": {
+                    "@id": "https://kolay-kredi.com/#organization"
+                },
+                "potentialAction": [
+                    {
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://kolay-kredi.com/?q={search_term_string}"
+                        },
+                        "query-input": "required name=search_term_string"
+                    }
+                ],
+                "inLanguage": "tr-TR",
+                "copyrightYear": 2025,
+                "genre": ["Finance", "Banking", "Loans", "Investment"]
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://kolay-kredi.com/#organization",
+                "name": "Kolay Kredi",
+                "url": "https://kolay-kredi.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://kolay-kredi.com/favicon.svg",
+                    "width": 512,
+                    "height": 512
+                },
+                "description": "Türkiye'nin en güvenilir finansal hesaplama ve danışmanlık platformu",
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "contactType": "customer service",
+                        "availableLanguage": ["Turkish"],
+                        "url": "https://kolay-kredi.com/iletisim.html"
+                    }
+                ],
+                "sameAs": [
+                    "https://www.linkedin.com/company/kolay-kredi",
+                    "https://twitter.com/kolaykredi"
+                ],
+                "foundingDate": "2025",
+                "founder": {
+                    "@type": "Person",
+                    "name": "Kolay Kredi Kurucuları"
+                },
+                "area Served": {
+                    "@type": "Country",
+                    "name": "Turkey"
+                }
+            },
+            {
+                "@type": "WebApplication",
+                "@id": "https://kolay-kredi.com/#webapp",
+                "name": "Kolay Kredi Finansal Hesaplayıcı",
+                "url": "https://kolay-kredi.com/",
+                "description": "Kredi, mevduat, kredi kartı hesaplamaları için profesyonel araçlar",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": ["Web Browser", "Android", "iOS"],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "TRY",
+                    "availability": "https://schema.org/InStock"
+                },
+                "featureList": [
+                    "Kredi Hesaplama",
+                    "Mevduat Hesaplama", 
+                    "Kredi Kartı Taksit Hesaplama",
+                    "Banka Karşılaştırma",
+                    "Döviz Çevirici",
+                    "Faiz Hesaplama"
+                ],
+                "screenshot": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://kolay-kredi.com/assets/images/screenshots/desktop.png",
+                        "width": 1280,
+                        "height": 720
+                    },
+                    {
+                        "@type": "ImageObject", 
+                        "url": "https://kolay-kredi.com/assets/images/screenshots/mobile.png",
+                        "width": 375,
+                        "height": 812
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "@id": "https://kolay-kredi.com/#service",
+                "name": "Finansal Hesaplama Hizmetleri",
+                "provider": {
+                    "@id": "https://kolay-kredi.com/#organization"
+                },
+                "description": "Kredi, mevduat ve yatırım hesaplama hizmetleri",
+                "serviceType": "Financial Calculator",
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "Turkey"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Finansal Araçlar",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Konut Kredisi Hesaplama"
+                            }
+                        },
+                        {
+                            "@type": "Offer", 
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "İhtiyaç Kredisi Hesaplama"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service", 
+                                "name": "Mevduat Getiri Hesaplama"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Kredi Kartı Taksit Hesaplama"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://kolay-kredi.com/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Kolay Kredi nasıl kullanılır?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Kolay Kredi'yi kullanmak çok basit. İstediğiniz finansal hesaplama aracını seçin, gerekli bilgileri girin ve anında sonuçları görün. Tüm hesaplamalar ücretsizdir."
+                        }
+                    },
+                    {
+                        "@type": "Question", 
+                        "name": "Hesaplamalar güvenli mi?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Evet, tüm hesaplamalar tamamen güvenlidir. Kişisel verileriniz saklanmaz veya üçüncü taraflarla paylaşılmaz. SSL şifrelemesi ile korunursunuz."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Hangi bankalar destekleniyor?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Türkiye'nin önde gelen 50+ bankasının güncel faiz oranları ve ürünleri platformumuzda yer alıyor. Ziraat, Vakıfbank, Halkbank, İş Bankası, Garanti BBVA ve daha fazlası."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://kolay-kredi.com/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Ana Sayfa",
+                        "item": "https://kolay-kredi.com/"
+                    }
+                ]
             }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .nav-menu {
-                gap: 1rem;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .rate-row {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-                text-align: center;
-            }
-        }
-    </style>
+        ]
+    }
+    </script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kolay Kredi - Türkiye'nin En Kapsamlı Finansal Platform">
+    <meta property="og:description" content="Kredi, kredi kartı, mevduat ve yatırım hesaplama araçları. 50+ banka karşılaştırması, güncel faiz oranları ve profesyonel finansal analiz.">
+    <meta property="og:url" content="https://kolay-kredi.com/">
+    <meta property="og:site_name" content="Kolay Kredi">
+    <meta property="og:image" content="https://kolay-kredi.com/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kolay Kredi - Finansal Hesaplama Platformu">
+    <meta property="og:locale" content="tr_TR">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kolaykredi">
+    <meta name="twitter:creator" content="@kolaykredi">
+    <meta name="twitter:title" content="Kolay Kredi - Finansal Hesaplama Platformu">
+    <meta name="twitter:description" content="Kredi, kredi kartı, mevduat hesaplamaları. 50+ banka karşılaştırması.">
+    <meta name="twitter:image" content="https://kolay-kredi.com/assets/images/twitter-card.png">
+    <meta name="twitter:image:alt" content="Kolay Kredi Logo">
+    
+    <!-- Article Tags -->
+    <meta property="article:author" content="Kolay Kredi">
+    <meta property="article:publisher" content="https://kolay-kredi.com/">
+    <meta property="article:section" content="Finance">
+    <meta property="article:tag" content="kredi, banka, finansal hesaplama, mevduat, kredi kartı">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
-                    <defs>
-                        <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
-                        </linearGradient>
-                        <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="16" cy="16" r="15" fill="url(#navGradient)"/>
-                    <rect x="6" y="10" width="20" height="12" rx="2" fill="url(#cardGradient)" opacity="0.95"/>
-                    <rect x="6" y="13" width="20" height="2" fill="#ffffff" opacity="0.3"/>
-                    <rect x="8" y="15" width="3" height="2.5" rx="0.3" fill="#ffffff" opacity="0.8"/>
-                    <circle cx="14" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
-                    <circle cx="16" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
-                    <circle cx="18" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
-                    <circle cx="20" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
-                    <text x="22.5" y="19" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="3" font-weight="bold">₺</text>
-                    <circle cx="8" cy="8" r="0.8" fill="#fbbf24" opacity="0.8"/>
-                    <circle cx="24" cy="24" r="0.8" fill="#fbbf24" opacity="0.8"/>
-                    <circle cx="26" cy="10" r="0.6" fill="#ffffff" opacity="0.6"/>
-                </svg>
+    <!-- Modern Navigation -->
+    <nav class="modern-nav" role="navigation" aria-label="Ana navigasyon">
+        <div class="modern-nav-container">
+            <a href="index.html" class="modern-logo" aria-label="Kolay Kredi ana sayfa">
+                <div class="modern-logo-icon">
+                    ₺
+                </div>
                 Kolay Kredi
             </a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
-                <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
-                <li><a href="mevduat.html">Mevduat</a></li>
-            </ul>
+            <div class="modern-nav-menu">
+                <a href="#" class="modern-nav-item active">Ana Sayfa</a>
+                <a href="#hesaplama" class="modern-nav-item">Hesaplama</a>
+                <a href="#karsilastirma" class="modern-nav-item">Karşılaştır</a>
+                <a href="#rehber" class="modern-nav-item">Rehber</a>
+                <a href="#hakkimizda" class="modern-nav-item">Hakkımızda</a>
+                <a href="#iletisim" class="modern-nav-item">İletişim</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-shield-alt"></i>
-                Türkiye'nin En Güvenilir Finansal Platformu
+    <!-- Modern Hero Section -->
+    <section class="modern-hero">
+        <div class="modern-hero-container">
+            <div class="modern-hero-content">
+                <div class="modern-hero-text">
+                    <h1>Türkiye'nin En <span class="highlight">Kapsamlı</span> Finansal Platformu</h1>
+                    <p>50+ bankadan en uygun kredi, mevduat ve kredi kartı seçeneklerini karşılaştırın. Profesyonel hesaplama araçlarımızla finansal kararlarınızı güvenle alın.</p>
+                    
+                    <div class="modern-hero-stats">
+                        <div class="modern-stat">
+                            <span class="modern-stat-number">50+</span>
+                            <span class="modern-stat-label">Banka</span>
+                        </div>
+                        <div class="modern-stat">
+                            <span class="modern-stat-number">15+</span>
+                            <span class="modern-stat-label">Hesaplama Aracı</span>
+                        </div>
+                        <div class="modern-stat">
+                            <span class="modern-stat-number">100K+</span>
+                            <span class="modern-stat-label">Kullanıcı</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modern-hero-cta">
+                        <a href="#hesaplama" class="modern-btn-primary">
+                            <i class="fas fa-calculator"></i>
+                            Hesaplamaya Başla
+                        </a>
+                        <a href="#karsilastirma" class="modern-btn-secondary">
+                            Bankaları Karşılaştır
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="modern-hero-widget">
+                    <div class="widget-tabs">
+                        <button class="widget-tab active" data-tab="kredi">İhtiyaç Kredisi</button>
+                        <button class="widget-tab" data-tab="konut">Konut Kredisi</button>
+                        <button class="widget-tab" data-tab="tasit">Taşıt Kredisi</button>
+                    </div>
+                    
+                    <div class="widget-form active" id="kredi-form">
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Kredi Tutarı (₺)</label>
+                            <input type="number" class="modern-input" placeholder="100.000" min="10000" max="1000000">
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Vade (Ay)</label>
+                            <select class="modern-select">
+                                <option value="12">12 Ay</option>
+                                <option value="24">24 Ay</option>
+                                <option value="36" selected>36 Ay</option>
+                                <option value="48">48 Ay</option>
+                                <option value="60">60 Ay</option>
+                            </select>
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Aylık Geliriniz (₺)</label>
+                            <input type="number" class="modern-input" placeholder="15.000" min="5000">
+                        </div>
+                        
+                        <button class="widget-calculate-btn" onclick="modernCalculateKredi()">
+                            <i class="fas fa-calculator"></i>
+                            Hesapla
+                        </button>
+                        
+                        <div class="widget-result" id="kredi-result">
+                            <h4>Hesaplama Sonucu</h4>
+                            <p><strong>Aylık Ödeme:</strong> <span id="aylik-odeme">-</span></p>
+                            <p><strong>Toplam Ödeme:</strong> <span id="toplam-odeme">-</span></p>
+                            <p><strong>Toplam Faiz:</strong> <span id="toplam-faiz">-</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-form" id="konut-form">
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Konut Değeri (₺)</label>
+                            <input type="number" class="modern-input" placeholder="1.500.000" min="100000">
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Peşinat Oranı (%)</label>
+                            <select class="modern-select">
+                                <option value="20" selected>%20</option>
+                                <option value="25">%25</option>
+                                <option value="30">%30</option>
+                                <option value="35">%35</option>
+                                <option value="40">%40</option>
+                            </select>
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Vade (Yıl)</label>
+                            <select class="modern-select">
+                                <option value="10">10 Yıl</option>
+                                <option value="15" selected>15 Yıl</option>
+                                <option value="20">20 Yıl</option>
+                            </select>
+                        </div>
+                        
+                        <button class="widget-calculate-btn" onclick="modernCalculateKonut()">
+                            <i class="fas fa-home"></i>
+                            Hesapla
+                        </button>
+                        
+                        <div class="widget-result" id="konut-result">
+                            <h4>Konut Kredisi Hesaplama</h4>
+                            <p><strong>Kredi Tutarı:</strong> <span id="konut-kredi-tutari">-</span></p>
+                            <p><strong>Aylık Ödeme:</strong> <span id="konut-aylik-odeme">-</span></p>
+                            <p><strong>Toplam Ödeme:</strong> <span id="konut-toplam-odeme">-</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-form" id="tasit-form">
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Araç Değeri (₺)</label>
+                            <input type="number" class="modern-input" placeholder="800.000" min="50000">
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Peşinat (₺)</label>
+                            <input type="number" class="modern-input" placeholder="200.000" min="0">
+                        </div>
+                        
+                        <div class="modern-input-group">
+                            <label class="modern-input-label">Vade (Ay)</label>
+                            <select class="modern-select">
+                                <option value="12">12 Ay</option>
+                                <option value="24">24 Ay</option>
+                                <option value="36" selected>36 Ay</option>
+                                <option value="48">48 Ay</option>
+                            </select>
+                        </div>
+                        
+                        <button class="widget-calculate-btn" onclick="modernCalculateTasit()">
+                            <i class="fas fa-car"></i>
+                            Hesapla
+                        </button>
+                        
+                        <div class="widget-result" id="tasit-result">
+                            <h4>Taşıt Kredisi Hesaplama</h4>
+                            <p><strong>Kredi Tutarı:</strong> <span id="tasit-kredi-tutari">-</span></p>
+                            <p><strong>Aylık Ödeme:</strong> <span id="tasit-aylik-odeme">-</span></p>
+                            <p><strong>Toplam Faiz:</strong> <span id="tasit-toplam-faiz">-</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>Kolay Kredi</h1>
-            <h2>Finansal Kararlarınızı Doğru Verin</h2>
-            <p>Kredi, kredi kartı, mevduat ve yatırım seçeneklerini karşılaştırın. Profesyonel hesaplama araçlarıyla en uygun finansal ürünü bulun.</p>
+        </div>
+    </section>
+
+    <!-- Modern Features Section -->
+    <section class="modern-features" id="hesaplama">
+        <div class="modern-features-container">
+            <div class="modern-features-header">
+                <h2>Türkiye'nin En Kapsamlı Finansal Araçları</h2>
+                <p>15+ profesyonel hesaplama aracı ile finansal kararlarınızı doğru verin. 50+ banka ve finansal kurumun ürünlerini karşılaştırın.</p>
+            </div>
             
+            <div class="modern-features-grid">
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="feature-title">Kredi Hesaplama</h3>
+                    <p class="feature-description">İhtiyaç, konut ve taşıt kredisi hesaplamaları. Aylık ödeme, toplam faiz ve karşılaştırmalı analiz.</p>
+                </div>
+                
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="feature-title">Kredi Kartı Analizi</h3>
+                    <p class="feature-description">Taksit hesaplamaları, kart karşılaştırması ve en uygun kredi kartı önerileri.</p>
+                </div>
+                
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="feature-title">Mevduat Hesaplama</h3>
+                    <p class="feature-description">Vadeli mevduat getiri hesaplaması, banka mevduat oranları karşılaştırması.</p>
+                </div>
+                
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Yatırım Planlama</h3>
+                    <p class="feature-description">Birikim planları, getiri hesaplamaları ve uzun vadeli yatırım stratejileri.</p>
+                </div>
+                
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Döviz Çevirici</h3>
+                    <p class="feature-description">Gerçek zamanlı döviz kurları, çapraz kurlar ve döviz yatırım analizi.</p>
+                </div>
+                
+                <div class="modern-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Sigorta Hesaplama</h3>
+                    <p class="feature-description">Kasko, trafik, sağlık sigortası prim hesaplamaları ve karşılaştırması.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Bank Comparison Section -->
+    <section class="modern-comparison" id="karsilastirma">
+        <div class="modern-comparison-container">
+            <div class="comparison-header">
+                <h2>Türkiye'nin En Güncel Banka Faiz Oranları</h2>
+                <p>50+ bankanın kredi faiz oranlarını anlık olarak karşılaştırın. En uygun krediyi bulun.</p>
+            </div>
             
-            <div class="hero-actions">
-                <a href="#hizli-hesaplama" class="cta-primary">
-                    <i class="fas fa-calculator"></i>
-                    Hızlı Hesaplama
-                </a>
-                <a href="#banka-oranlar" class="cta-secondary">
-                    <i class="fas fa-balance-scale"></i>
-                    Bankaları Karşılaştır
-                </a>
+            <div class="comparison-table">
+                <div class="comparison-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Kredi Türü:</label>
+                        <select class="filter-select" id="kredi-turu-filter">
+                            <option value="ihtiyac">İhtiyaç Kredisi</option>
+                            <option value="konut">Konut Kredisi</option>
+                            <option value="tasit">Taşıt Kredisi</option>
+                            <option value="ticari">Ticari Kredi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Tutar:</label>
+                        <select class="filter-select" id="tutar-filter">
+                            <option value="100000">100.000₺</option>
+                            <option value="250000">250.000₺</option>
+                            <option value="500000">500.000₺</option>
+                            <option value="1000000">1.000.000₺</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Vade:</label>
+                        <select class="filter-select" id="vade-filter">
+                            <option value="12">12 Ay</option>
+                            <option value="24">24 Ay</option>
+                            <option value="36" selected>36 Ay</option>
+                            <option value="48">48 Ay</option>
+                            <option value="60">60 Ay</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Sıralama:</label>
+                        <select class="filter-select" id="sort-filter">
+                            <option value="faiz-asc">En Düşük Faiz</option>
+                            <option value="faiz-desc">En Yüksek Faiz</option>
+                            <option value="banka-asc">Banka Adı (A-Z)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="modern-btn-primary" onclick="updateBankComparison()">
+                        <i class="fas fa-sync"></i>
+                        Güncelle
+                    </button>
+                </div>
+                
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-rates-table">
+                        <thead>
+                            <tr>
+                                <th>Banka</th>
+                                <th>Faiz Oranı</th>
+                                <th>Aylık Ödeme</th>
+                                <th>Toplam Ödeme</th>
+                                <th>Toplam Faiz</th>
+                                <th>Başvur</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-table-body">
+                            <!-- Dinamik olarak doldurulacak -->
+                            <tr class="bank-row best-rate">
+                                <td class="bank-info">
+                                    <img src="assets/images/banks/ziraat.png" alt="Ziraat Bankası" class="bank-logo-small" loading="lazy">
+                                    <div>
+                                        <strong>Ziraat Bankası</strong>
+                                        <div class="bank-rating">⭐⭐⭐⭐⭐ 4.2</div>
+                                    </div>
+                                </td>
+                                <td class="rate-cell">
+                                    <span class="rate-value">%2.49</span>
+                                    <span class="rate-badge">EN İYİ</span>
+                                </td>
+                                <td class="amount-cell">3.128₺</td>
+                                <td class="amount-cell">112.608₺</td>
+                                <td class="amount-cell">12.608₺</td>
+                                <td class="action-cell">
+                                    <button class="apply-btn">Başvur</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="bank-row">
+                                <td class="bank-info">
+                                    <img src="assets/images/banks/vakifbank.svg" alt="Vakıfbank" class="bank-logo-small" loading="lazy">
+                                    <div>
+                                        <strong>Vakıfbank</strong>
+                                        <div class="bank-rating">⭐⭐⭐⭐⭐ 4.0</div>
+                                    </div>
+                                </td>
+                                <td class="rate-cell">
+                                    <span class="rate-value">%2.59</span>
+                                </td>
+                                <td class="amount-cell">3.158₺</td>
+                                <td class="amount-cell">113.688₺</td>
+                                <td class="amount-cell">13.688₺</td>
+                                <td class="action-cell">
+                                    <button class="apply-btn">Başvur</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="bank-row">
+                                <td class="bank-info">
+                                    <img src="assets/images/banks/halkbank.svg" alt="Halkbank" class="bank-logo-small" loading="lazy">
+                                    <div>
+                                        <strong>Halkbank</strong>
+                                        <div class="bank-rating">⭐⭐⭐⭐☆ 3.9</div>
+                                    </div>
+                                </td>
+                                <td class="rate-cell">
+                                    <span class="rate-value">%2.69</span>
+                                </td>
+                                <td class="amount-cell">3.187₺</td>
+                                <td class="amount-cell">114.732₺</td>
+                                <td class="amount-cell">14.732₺</td>
+                                <td class="action-cell">
+                                    <button class="apply-btn">Başvur</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="bank-row">
+                                <td class="bank-info">
+                                    <img src="assets/images/banks/isbank.svg" alt="İş Bankası" class="bank-logo-small" loading="lazy">
+                                    <div>
+                                        <strong>İş Bankası</strong>
+                                        <div class="bank-rating">⭐⭐⭐⭐⭐ 4.3</div>
+                                    </div>
+                                </td>
+                                <td class="rate-cell">
+                                    <span class="rate-value">%2.79</span>
+                                </td>
+                                <td class="amount-cell">3.216₺</td>
+                                <td class="amount-cell">115.776₺</td>
+                                <td class="amount-cell">15.776₺</td>
+                                <td class="action-cell">
+                                    <button class="apply-btn">Başvur</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="bank-row">
+                                <td class="bank-info">
+                                    <img src="assets/images/banks/garanti.svg" alt="Garanti BBVA" class="bank-logo-small" loading="lazy">
+                                    <div>
+                                        <strong>Garanti BBVA</strong>
+                                        <div class="bank-rating">⭐⭐⭐⭐⭐ 4.1</div>
+                                    </div>
+                                </td>
+                                <td class="rate-cell">
+                                    <span class="rate-value">%2.89</span>
+                                </td>
+                                <td class="amount-cell">3.245₺</td>
+                                <td class="amount-cell">116.820₺</td>
+                                <td class="amount-cell">16.820₺</td>
+                                <td class="action-cell">
+                                    <button class="apply-btn">Başvur</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="comparison-footer">
+                    <p><small>* Oranlar günlük güncellenmektedir. Son güncelleme: <span id="last-update">28.08.2025 10:30</span></small></p>
+                    <p><small>** Hesaplamalar örnek niteliktedir. Kesin sonuçlar için bankalara başvurunuz.</small></p>
+                </div>
             </div>
         </div>
     </section>
@@ -802,14 +740,14 @@
                     </div>
                     <h3>Konut Kredisi</h3>
                     <div class="quick-calc">
-                        <input type="number" placeholder="Kredi tutarı (TL)" id="quick-konut-tutar">
-                        <select id="quick-konut-vade">
+                        <input type="number" placeholder="Kredi tutarı (TL)" id="quick-konut-tutar" aria-label="Konut kredisi tutarı" required>
+                        <select id="quick-konut-vade" aria-label="Konut kredisi vade seçimi">
                             <option value="120">10 Yıl</option>
                             <option value="180">15 Yıl</option>
                             <option value="240">20 Yıl</option>
                         </select>
-                        <button onclick="quickCalculate('konut')">Hesapla</button>
-                        <div class="quick-result" id="quick-konut-result">Kredi tutarını girin</div>
+                        <button onclick="quickCalculate('konut')" aria-describedby="quick-konut-result">Hesapla</button>
+                        <div class="quick-result" id="quick-konut-result" aria-live="polite" aria-atomic="true">Kredi tutarını girin</div>
                     </div>
                     <a href="kredi-hesaplama.html" class="tool-link">
                         Detaylı Hesaplama <i class="fas fa-arrow-right"></i>
@@ -822,14 +760,14 @@
                     </div>
                     <h3>İhtiyaç Kredisi</h3>
                     <div class="quick-calc">
-                        <input type="number" placeholder="Kredi tutarı (TL)" id="quick-ihtiyac-tutar">
-                        <select id="quick-ihtiyac-vade">
+                        <input type="number" placeholder="Kredi tutarı (TL)" id="quick-ihtiyac-tutar" aria-label="İhtiyaç kredisi tutarı" required>
+                        <select id="quick-ihtiyac-vade" aria-label="İhtiyaç kredisi vade seçimi">
                             <option value="12">12 Ay</option>
                             <option value="24">24 Ay</option>
                             <option value="36">36 Ay</option>
                         </select>
-                        <button onclick="quickCalculate('ihtiyac')">Hesapla</button>
-                        <div class="quick-result" id="quick-ihtiyac-result">Kredi tutarını girin</div>
+                        <button onclick="quickCalculate('ihtiyac')" aria-describedby="quick-ihtiyac-result">Hesapla</button>
+                        <div class="quick-result" id="quick-ihtiyac-result" aria-live="polite" aria-atomic="true">Kredi tutarını girin</div>
                     </div>
                     <a href="kredi-hesaplama.html" class="tool-link">
                         Detaylı Hesaplama <i class="fas fa-arrow-right"></i>
@@ -874,6 +812,90 @@
                     <a href="mevduat.html" class="tool-link">
                         Detaylı Hesaplama <i class="fas fa-arrow-right"></i>
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Tools Section -->
+    <section class="quick-tools-section">
+        <div class="modern-features-container">
+            <div class="modern-features-header">
+                <h2>Hızlı Hesaplama Araçları</h2>
+                <p>En çok kullanılan finansal hesaplama araçlarımızla hemen başlayın</p>
+            </div>
+            
+            <div class="quick-tools-grid">
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-blue">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Kredi Hesaplama</h3>
+                    <p>İhtiyaç, konut ve taşıt kredisi hesaplayın</p>
+                    <button class="tool-btn" onclick="scrollToSection('hesaplama')">
+                        <i class="fas fa-arrow-right"></i>
+                        Hesapla
+                    </button>
+                </div>
+                
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-green">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Mevduat Hesaplama</h3>
+                    <p>Vadeli mevduat getiri hesaplaması yapın</p>
+                    <button class="tool-btn" onclick="openMevduatCalculator()">
+                        <i class="fas fa-arrow-right"></i>
+                        Hesapla
+                    </button>
+                </div>
+                
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-purple">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Kredi Kartı Karşılaştır</h3>
+                    <p>En uygun kredi kartını bulun</p>
+                    <button class="tool-btn" onclick="openKartComparison()">
+                        <i class="fas fa-arrow-right"></i>
+                        Karşılaştır
+                    </button>
+                </div>
+                
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-orange">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Yatırım Hesaplama</h3>
+                    <p>Altın, döviz ve hisse senedi karlılığı</p>
+                    <button class="tool-btn" onclick="openInvestmentCalculator()">
+                        <i class="fas fa-arrow-right"></i>
+                        Hesapla
+                    </button>
+                </div>
+                
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-red">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sigorta Hesaplama</h3>
+                    <p>Kasko, trafik ve sağlık sigortası</p>
+                    <button class="tool-btn" onclick="openInsuranceCalculator()">
+                        <i class="fas fa-arrow-right"></i>
+                        Hesapla
+                    </button>
+                </div>
+                
+                <div class="quick-tool-card">
+                    <div class="tool-icon gradient-teal">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Emlak Değerleme</h3>
+                    <p>Emlak değeri ve kira getirisi hesabı</p>
+                    <button class="tool-btn" onclick="openRealEstateCalculator()">
+                        <i class="fas fa-arrow-right"></i>
+                        Hesapla
+                    </button>
                 </div>
             </div>
         </div>
@@ -936,23 +958,58 @@
                 <p>En güncel faiz oranları ve karşılaştırma imkanı</p>
             </div>
             
+            <!-- Filtreleme ve Arama -->
+            <div class="filter-controls" style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: end;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Kredi Türü:</label>
+                        <select id="loanType" class="form-control" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                            <option value="ihtiyac">İhtiyaç Kredisi</option>
+                            <option value="konut">Konut Kredisi</option>
+                            <option value="tasit">Taşıt Kredisi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Vade:</label>
+                        <select id="termFilter" class="form-control" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                            <option value="12">12 Ay</option>
+                            <option value="24">24 Ay</option>
+                            <option value="36">36 Ay</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Sıralama:</label>
+                        <select id="sortBy" class="form-control" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                            <option value="rate-asc">Faiz Oranı (Düşük → Yüksek)</option>
+                            <option value="rate-desc">Faiz Oranı (Yüksek → Düşük)</option>
+                            <option value="bank">Banka Adı (A → Z)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button onclick="updateRatesTable()" style="background: var(--primary-color); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; width: 100%;">
+                            <i class="fas fa-sync-alt"></i> Güncelle
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <div class="rates-table">
                 <div class="table-header">
-                    <h3>İhtiyaç Kredisi Faiz Oranları</h3>
-                    <p>Aylık faiz oranları - Güncel</p>
+                    <h3 id="tableTitle">İhtiyaç Kredisi Faiz Oranları</h3>
+                    <p>Aylık faiz oranları - <span id="lastUpdated">Son güncelleme: Bugün 14:30</span></p>
                 </div>
                 
                 <div class="rate-row header">
                     <div>Banka</div>
-                    <div>12 Ay</div>
-                    <div>24 Ay</div>
-                    <div>36 Ay</div>
+                    <div id="term12">12 Ay</div>
+                    <div id="term24">24 Ay</div>
+                    <div id="term36">36 Ay</div>
                     <div>Başvur</div>
                 </div>
                 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/ziraat.svg" alt="Ziraat Bankası" class="bank-logo-full">
+                        <img src="assets/images/banks/real-logos/ziraat.png" alt="Ziraat Bankası - Resmi Logo" class="bank-logo-full real-logo-loaded" loading="lazy">
                     </div>
                     <div class="rate-value">%2.49</div>
                     <div class="rate-value">%2.59</div>
@@ -962,7 +1019,7 @@
                 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/vakifbank.svg" alt="Vakıfbank" class="bank-logo-full">
+                        <img src="assets/images/banks/vakifbank.svg" alt="Vakıfbank" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.55</div>
                     <div class="rate-value">%2.65</div>
@@ -972,7 +1029,7 @@
                 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/halkbank.svg" alt="Halkbank" class="bank-logo-full">
+                        <img src="assets/images/banks/halkbank.svg" alt="Halkbank" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.45</div>
                     <div class="rate-value">%2.55</div>
@@ -982,7 +1039,7 @@
                 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/isbank.svg" alt="İş Bankası" class="bank-logo-full">
+                        <img src="assets/images/banks/isbank.svg" alt="İş Bankası" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.65</div>
                     <div class="rate-value">%2.75</div>
@@ -992,7 +1049,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/garanti.svg" alt="Garanti BBVA" class="bank-logo-full">
+                        <img src="assets/images/banks/garanti.svg" alt="Garanti BBVA" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.39</div>
                     <div class="rate-value">%2.49</div>
@@ -1002,7 +1059,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/akbank.svg" alt="Akbank" class="bank-logo-full">
+                        <img src="assets/images/banks/akbank.svg" alt="Akbank" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.52</div>
                     <div class="rate-value">%2.62</div>
@@ -1012,7 +1069,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/yapikredi.svg" alt="Yapı Kredi" class="bank-logo-full">
+                        <img src="assets/images/banks/yapikredi.svg" alt="Yapı Kredi" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.58</div>
                     <div class="rate-value">%2.68</div>
@@ -1022,7 +1079,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/teb.svg" alt="TEB" class="bank-logo-full">
+                        <img src="assets/images/banks/teb.svg" alt="TEB" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.47</div>
                     <div class="rate-value">%2.57</div>
@@ -1032,7 +1089,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/ing.svg" alt="ING" class="bank-logo-full">
+                        <img src="assets/images/banks/ing.svg" alt="ING" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.35</div>
                     <div class="rate-value">%2.45</div>
@@ -1042,7 +1099,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/qnb.svg" alt="QNB Finansbank" class="bank-logo-full">
+                        <img src="assets/images/banks/qnb.svg" alt="QNB Finansbank" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.54</div>
                     <div class="rate-value">%2.64</div>
@@ -1052,7 +1109,7 @@
 
                 <div class="rate-row">
                     <div class="bank-info">
-                        <img src="assets/images/banks/denizbank.svg" alt="Denizbank" class="bank-logo-full">
+                        <img src="assets/images/banks/denizbank.svg" alt="Denizbank" class="bank-logo-full" loading="lazy">
                     </div>
                     <div class="rate-value">%2.51</div>
                     <div class="rate-value">%2.61</div>
@@ -1063,44 +1120,137 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Kolay Kredi</h4>
-                    <p>Türkiye'nin en kapsamlı finansal hesaplama ve karşılaştırma platformu. Güvenilir ve profesyonel hizmet.</p>
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="modern-footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">₺</div>
+                        <h3>Kolay Kredi</h3>
+                    </div>
+                    <p class="footer-description">Türkiye'nin en kapsamlı finansal hesaplama ve karşılaştırma platformu. 50+ bankadan güncel verilerle güvenilir hesaplamalar.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Hızlı Erişim</h4>
-                    <ul>
-                        <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
-                        <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
-                        <li><a href="mevduat.html">Mevduat Hesaplama</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Araçlar</h4>
-                    <ul>
-                        <li><a href="doviz-cevirici.html">Döviz Çevirici</a></li>
-                        <li><a href="#">Altın Fiyatları (Yakında)</a></li>
-                        <li><a href="#hizli-hesaplama">Faiz Hesaplama</a></li>
-                        <li><a href="#banka-oranlar">Banka Karşılaştırma</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>İletişim</h4>
-                    <ul>
-                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
-                        <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
-                        <li><a href="kullanim-sartlari.html">Kullanım Şartları</a></li>
-                    </ul>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Hesaplama Araçları</h4>
+                        <ul>
+                            <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                            <li><a href="konut-kredisi.html">Konut Kredisi</a></li>
+                            <li><a href="tasit-kredisi.html">Taşıt Kredisi</a></li>
+                            <li><a href="mevduat-hesaplama.html">Mevduat Hesaplama</a></li>
+                            <li><a href="kredi-karti.html">Kredi Kartı</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Banka İşlemleri</h4>
+                        <ul>
+                            <li><a href="banka-karsilastirma.html">Banka Karşılaştırma</a></li>
+                            <li><a href="faiz-oranlari.html">Faiz Oranları</a></li>
+                            <li><a href="doviz-kurlari.html">Döviz Kurları</a></li>
+                            <li><a href="altin-fiyatlari.html">Altın Fiyatları</a></li>
+                            <li><a href="borsa-istanbul.html">Borsa İstanbul</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Rehberler</h4>
+                        <ul>
+                            <li><a href="kredi-basvuru-rehberi.html">Kredi Başvuru Rehberi</a></li>
+                            <li><a href="finansal-rehber.html">Finansal Rehber</a></li>
+                            <li><a href="yatirim-rehberi.html">Yatırım Rehberi</a></li>
+                            <li><a href="sigorta-rehberi.html">Sigorta Rehberi</a></li>
+                            <li><a href="emeklilik-planlama.html">Emeklilik Planlama</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Kurumsal</h4>
+                        <ul>
+                            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                            <li><a href="iletisim.html">İletişim</a></li>
+                            <li><a href="kariyer.html">Kariyer</a></li>
+                            <li><a href="basin-odasi.html">Basın Odası</a></li>
+                            <li><a href="is-ortaklari.html">İş Ortakları</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Yasal</h4>
+                        <ul>
+                            <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+                            <li><a href="kullanim-sartlari.html">Kullanım Şartları</a></li>
+                            <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
+                            <li><a href="kvkk.html">KVKK</a></li>
+                            <li><a href="sitemap.html">Site Haritası</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
+            <!-- Newsletter Section -->
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h4>Güncel Faiz Oranları ve Finansal Haberler</h4>
+                        <p>Güncel faiz oranları, kredi fırsatları ve finansal haberleri e-postanızdan takip edin.</p>
+                    </div>
+                    <div class="newsletter-form">
+                        <form class="newsletter-input-group" onsubmit="subscribeNewsletter(event)">
+                            <input type="email" placeholder="E-posta adresinizi girin" required class="newsletter-input">
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Abone Ol
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır. | Finansal kararlarınızı alırken dikkatli olun.</p>
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır.</p>
+                        <p class="footer-disclaimer">Bu sitedeki hesaplamalar bilgilendirme amaçlıdır. Kesin sonuçlar için bankanızla görüşün.</p>
+                    </div>
+                    
+                    <div class="footer-certificates">
+                        <div class="certificate-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SSL Güvenlik</span>
+                        </div>
+                        <div class="certificate-badge">
+                            <i class="fas fa-award"></i>
+                            <span>Güvenilir Site</span>
+                        </div>
+                        <div class="certificate-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>KVKK Uyumlu</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -1208,6 +1358,124 @@
             }
         });
 
+        // Banka oranları veritabanı
+        const bankRatesData = {
+            ihtiyac: [
+                { bank: 'Garanti BBVA', logo: 'garanti.svg', rates: { 12: 2.39, 24: 2.49, 36: 2.59 } },
+                { bank: 'Halkbank', logo: 'halkbank.svg', rates: { 12: 2.45, 24: 2.55, 36: 2.65 } },
+                { bank: 'Ziraat Bankası', logo: 'real-logos/ziraat.png', rates: { 12: 2.49, 24: 2.59, 36: 2.69 } },
+                { bank: 'Akbank', logo: 'akbank.svg', rates: { 12: 2.52, 24: 2.62, 36: 2.72 } },
+                { bank: 'Vakıfbank', logo: 'vakifbank.svg', rates: { 12: 2.55, 24: 2.65, 36: 2.75 } },
+                { bank: 'Yapı Kredi', logo: 'yapikredi.svg', rates: { 12: 2.58, 24: 2.68, 36: 2.78 } },
+                { bank: 'İş Bankası', logo: 'isbank.svg', rates: { 12: 2.65, 24: 2.75, 36: 2.85 } },
+                { bank: 'TEB', logo: 'teb.svg', rates: { 12: 2.47, 24: 2.57, 36: 2.67 } },
+                { bank: 'ING', logo: 'ing.svg', rates: { 12: 2.35, 24: 2.45, 36: 2.55 } },
+                { bank: 'QNB Finansbank', logo: 'qnb.svg', rates: { 12: 2.54, 24: 2.64, 36: 2.74 } },
+                { bank: 'Denizbank', logo: 'denizbank.svg', rates: { 12: 2.51, 24: 2.61, 36: 2.71 } }
+            ],
+            konut: [
+                { bank: 'ING', logo: 'ing.svg', rates: { 12: 1.25, 24: 1.35, 36: 1.45 } },
+                { bank: 'Garanti BBVA', logo: 'garanti.svg', rates: { 12: 1.29, 24: 1.39, 36: 1.49 } },
+                { bank: 'Halkbank', logo: 'halkbank.svg', rates: { 12: 1.35, 24: 1.45, 36: 1.55 } },
+                { bank: 'Ziraat Bankası', logo: 'real-logos/ziraat.png', rates: { 12: 1.39, 24: 1.49, 36: 1.59 } },
+                { bank: 'Vakıfbank', logo: 'vakifbank.svg', rates: { 12: 1.45, 24: 1.55, 36: 1.65 } },
+                { bank: 'Akbank', logo: 'akbank.svg', rates: { 12: 1.42, 24: 1.52, 36: 1.62 } },
+                { bank: 'İş Bankası', logo: 'isbank.svg', rates: { 12: 1.55, 24: 1.65, 36: 1.75 } },
+                { bank: 'TEB', logo: 'teb.svg', rates: { 12: 1.37, 24: 1.47, 36: 1.57 } }
+            ],
+            tasit: [
+                { bank: 'ING', logo: 'ing.svg', rates: { 12: 1.85, 24: 1.95, 36: 2.05 } },
+                { bank: 'Garanti BBVA', logo: 'garanti.svg', rates: { 12: 1.89, 24: 1.99, 36: 2.09 } },
+                { bank: 'Halkbank', logo: 'halkbank.svg', rates: { 12: 1.95, 24: 2.05, 36: 2.15 } },
+                { bank: 'Ziraat Bankası', logo: 'real-logos/ziraat.png', rates: { 12: 1.99, 24: 2.09, 36: 2.19 } },
+                { bank: 'Vakıfbank', logo: 'vakifbank.svg', rates: { 12: 2.05, 24: 2.15, 36: 2.25 } },
+                { bank: 'Akbank', logo: 'akbank.svg', rates: { 12: 2.02, 24: 2.12, 36: 2.22 } },
+                { bank: 'İş Bankası', logo: 'isbank.svg', rates: { 12: 2.15, 24: 2.25, 36: 2.35 } }
+            ]
+        };
+
+        function updateRatesTable() {
+            const loanType = document.getElementById('loanType').value;
+            const termFilter = parseInt(document.getElementById('termFilter').value);
+            const sortBy = document.getElementById('sortBy').value;
+            
+            // Başlığı güncelle
+            const titles = {
+                ihtiyac: 'İhtiyaç Kredisi Faiz Oranları',
+                konut: 'Konut Kredisi Faiz Oranları', 
+                tasit: 'Taşıt Kredisi Faiz Oranları'
+            };
+            document.getElementById('tableTitle').textContent = titles[loanType];
+            
+            // Son güncelleme zamanını göster
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('lastUpdated').textContent = `Son güncelleme: Bugün ${timeString}`;
+            
+            // Verileri al ve sırala
+            let data = [...bankRatesData[loanType]];
+            
+            if (sortBy === 'rate-asc') {
+                data.sort((a, b) => a.rates[termFilter] - b.rates[termFilter]);
+            } else if (sortBy === 'rate-desc') {
+                data.sort((a, b) => b.rates[termFilter] - a.rates[termFilter]);
+            } else if (sortBy === 'bank') {
+                data.sort((a, b) => a.bank.localeCompare(b.bank, 'tr'));
+            }
+            
+            // Tabloyu güncelle
+            const ratesTable = document.querySelector('.rates-table');
+            const existingRows = ratesTable.querySelectorAll('.rate-row:not(.header)');
+            existingRows.forEach(row => row.remove());
+            
+            data.forEach((bank, index) => {
+                const row = document.createElement('div');
+                row.className = 'rate-row';
+                
+                // En iyi oran vurgusu
+                const bestRate = Math.min(...data.map(b => b.rates[termFilter]));
+                const isLowestRate = bank.rates[termFilter] === bestRate;
+                
+                row.innerHTML = `
+                    <div class="bank-info">
+                        <img src="assets/images/banks/${bank.logo}" alt="${bank.bank}" class="bank-logo-full">
+                        ${isLowestRate ? '<div style="background: #10b981; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 12px; margin-top: 4px; display: inline-block;">EN İYİ</div>' : ''}
+                    </div>
+                    <div class="rate-value ${isLowestRate ? 'best-rate' : ''}">${bank.rates[12] ? '%' + bank.rates[12] : '-'}</div>
+                    <div class="rate-value ${isLowestRate ? 'best-rate' : ''}">${bank.rates[24] ? '%' + bank.rates[24] : '-'}</div>
+                    <div class="rate-value ${isLowestRate ? 'best-rate' : ''}">${bank.rates[36] ? '%' + bank.rates[36] : '-'}</div>
+                    <div><button style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Başvur</button></div>
+                `;
+                
+                ratesTable.appendChild(row);
+            });
+            
+            // Animasyon ekle
+            const newRows = ratesTable.querySelectorAll('.rate-row:not(.header)');
+            newRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    row.style.transition = 'all 0.3s ease';
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        }
+
+        // Best rate styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .best-rate {
+                background: linear-gradient(135deg, #10b981, #059669) !important;
+                color: white !important;
+                font-weight: 600 !important;
+                border-radius: 6px !important;
+                padding: 0.25rem 0.5rem !important;
+            }
+        `;
+        document.head.appendChild(style);
+
         // Initialize quick calculations
         document.addEventListener('DOMContentLoaded', function() {
             // Set default values
@@ -1222,8 +1490,169 @@
                 quickCalculate('ihtiyac');
                 quickCalculate('kart');
                 quickCalculate('mevduat');
+                updateRatesTable(); // Banka oranları tablosunu başlat
             }, 100);
         });
+    </script>
+    
+    <!-- Load additional scripts -->
+    <script src="assets/js/notifications.js"></script>
+    <script src="assets/js/loading.js"></script>
+    <script src="assets/js/theme.js"></script>
+    
+    <!-- Modern HesapKurdu.com Style JavaScript -->
+    <script src="modern-scripts.js"></script>
+    <script src="assets/js/logo-updater.js"></script>
+    
+    <!-- PWA Installation Script -->
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Show update notification
+                                    if (typeof toast !== 'undefined') {
+                                        toast.info('Yeni sürüm hazır! Sayfayı yenileyerek güncelleyin.');
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+        
+        // PWA Install Prompt
+        let deferredPrompt;
+        let installButton;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('PWA install prompt triggered');
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button
+            showInstallButton();
+        });
+        
+        function showInstallButton() {
+            // Create install banner if it doesn't exist
+            if (!document.getElementById('pwa-install-banner')) {
+                const banner = document.createElement('div');
+                banner.id = 'pwa-install-banner';
+                banner.innerHTML = `
+                    <div style="
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                        color: white;
+                        padding: 1rem 1.5rem;
+                        border-radius: 12px;
+                        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        z-index: 1000;
+                        animation: slideInUp 0.3s ease;
+                        max-width: 300px;
+                    ">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">📱 Uygulamayı Yükle</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Kolay Kredi'yi cihazınıza kurun</div>
+                        </div>
+                        <button id="pwa-install-btn" style="
+                            background: rgba(255,255,255,0.2);
+                            border: none;
+                            color: white;
+                            padding: 0.5rem 1rem;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 500;
+                        ">Yükle</button>
+                        <button id="pwa-dismiss-btn" style="
+                            background: none;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            padding: 0.5rem;
+                            border-radius: 4px;
+                            opacity: 0.7;
+                        ">✕</button>
+                    </div>
+                `;
+                document.body.appendChild(banner);
+                
+                // Install button click
+                document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log('PWA install outcome:', outcome);
+                        
+                        if (outcome === 'accepted') {
+                            if (typeof toast !== 'undefined') {
+                                toast.success('Uygulama başarıyla yüklendi!');
+                            }
+                        }
+                        
+                        deferredPrompt = null;
+                        banner.remove();
+                    }
+                });
+                
+                // Dismiss button click
+                document.getElementById('pwa-dismiss-btn').addEventListener('click', () => {
+                    banner.remove();
+                    localStorage.setItem('pwa-install-dismissed', Date.now());
+                });
+                
+                // Auto dismiss after 30 seconds
+                setTimeout(() => {
+                    if (banner.parentNode) {
+                        banner.remove();
+                    }
+                }, 30000);
+            }
+        }
+        
+        // Check if PWA was installed
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            if (typeof toast !== 'undefined') {
+                toast.success('🎉 Kolay Kredi başarıyla yüklendi!');
+            }
+            
+            // Hide install banner if visible
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.remove();
+        });
+        
+        // Add slide-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInUp {
+                from {
+                    transform: translateY(100px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

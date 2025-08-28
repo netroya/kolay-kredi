@@ -1,0 +1,233 @@
+/* Dark Mode Styles */
+:root[data-theme="dark"] {
+    --primary-color: #34D058;
+    --primary-dark: #28A745;
+    --secondary-color: #1E90FF;
+    --accent-color: #FFA500;
+    --text-dark: #f8f9fa;
+    --text-gray: #adb5bd;
+    --bg-light: #1a1d23;
+    --bg-white: #0d1117;
+    --border-gray: #30363d;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode specific overrides */
+[data-theme="dark"] body {
+    background: var(--bg-white);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(13, 17, 23, 0.98);
+    border-bottom-color: var(--border-gray);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+[data-theme="dark"] .hero::before {
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+}
+
+[data-theme="dark"] .tool-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .rates-table,
+[data-theme="dark"] .calculator-card {
+    background: #161b22;
+    border-color: var(--border-gray);
+}
+
+[data-theme="dark"] .tool-card:hover {
+    box-shadow: 0 16px 48px rgba(52, 208, 88, 0.1);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .quick-calc input,
+[data-theme="dark"] .quick-calc select,
+[data-theme="dark"] .form-input {
+    background: #0d1117;
+    border-color: var(--border-gray);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .quick-calc input:focus,
+[data-theme="dark"] .quick-calc select:focus,
+[data-theme="dark"] .form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 208, 88, 0.1);
+}
+
+[data-theme="dark"] .quick-result,
+[data-theme="dark"] .result-panel {
+    background: linear-gradient(135deg, #0f1419, #161b22);
+    border-color: var(--border-gray);
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .rate-row {
+    border-bottom-color: var(--border-gray);
+}
+
+[data-theme="dark"] .rate-row.header {
+    background: #161b22;
+}
+
+[data-theme="dark"] .bank-logo-full,
+[data-theme="dark"] .bank-logo-real {
+    background: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+[data-theme="dark"] .footer {
+    background: #010409;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top-color: var(--border-gray);
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.9;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.theme-toggle .icon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle.rotating .icon {
+    transform: rotate(360deg);
+}
+
+/* Navigation theme toggle */
+.nav-theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    opacity: 0.7;
+}
+
+.nav-theme-toggle:hover {
+    opacity: 1;
+    background: rgba(45, 196, 77, 0.1);
+    color: var(--primary-color);
+}
+
+/* Toast notifications in dark mode */
+[data-theme="dark"] .toast {
+    background: #161b22;
+    border-left-color: var(--primary-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .toast-message {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .toast-close:hover {
+    background: #30363d;
+    color: var(--text-dark);
+}
+
+/* Loading overlay in dark mode */
+[data-theme="dark"] .loading-overlay {
+    background: rgba(13, 17, 23, 0.95);
+}
+
+[data-theme="dark"] .loading-text {
+    color: var(--text-dark);
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.tool-card,
+.feature-card,
+.rates-table,
+.quick-calc input,
+.quick-calc select,
+.quick-result {
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .theme-toggle {
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --system-theme: dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --system-theme: light;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle .icon,
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.nav-theme-toggle:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}

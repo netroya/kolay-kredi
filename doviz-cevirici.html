@@ -3,240 +3,736 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Döviz Çevirici | Kolay Kredi</title>
-    <meta name="description" content="Güncel kurlarla döviz çevirici. USD, EUR ve diğer dövizleri TL'ye çevirin.">
+    <title>Döviz Çevirici - Kolay Kredi</title>
+    <meta name="description" content="Güncel kurlarla anlık döviz çevirici. USD, EUR, GBP ve diğer dövizleri TL'ye çevirin. Real-time kur bilgileri.">
     
-    <!-- Favicon -->
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2DC44D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Kolay Kredi">
+    
+    <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40X5D8K6WH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-40X5D8K6WH', {
+            page_title: 'Kolay Kredi - Döviz Çevirici',
+            page_location: window.location.href
+        });
+    </script>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Döviz Çevirici - Kolay Kredi">
+    <meta property="og:description" content="Güncel kurlarla anlık döviz çevirici. USD, EUR, GBP ve diğer dövizleri TL'ye çevirin.">
+    <meta property="og:url" content="https://kolay-kredi.com/doviz-cevirici.html">
+    <meta property="og:site_name" content="Kolay Kredi">
+    <meta property="og:image" content="https://kolay-kredi.com/assets/images/og-image.png">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
+        .converter-section {
+            padding: 4rem 0;
             background: #f8fafc;
         }
         
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #059669;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        h1 {
-            color: #059669;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-            text-align: center;
-        }
-        
-        .converter-box {
+        .converter-card {
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .input-group {
-            margin-bottom: 1.5rem;
+        .converter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
         
-        .input-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        .converter-form {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .currency-input-group {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .currency-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .currency-label {
             font-weight: 600;
-            color: #333;
+            color: #1e293b;
+            font-size: 1rem;
+        }
+        
+        .currency-container {
+            display: flex;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .currency-container:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
         
         .currency-input {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .currency-input input {
             flex: 1;
             padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1.2rem;
+            border: none;
+            outline: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: transparent;
+        }
+        
+        .currency-select {
+            padding: 1rem;
+            border: none;
+            background: #f8fafc;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 100px;
+        }
+        
+        .currency-select:focus {
+            outline: none;
+        }
+        
+        .swap-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto 0;
+        }
+        
+        .swap-button:hover {
+            transform: rotate(180deg) scale(1.1);
+        }
+        
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .rate-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .rate-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+        
+        .rate-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .currency-flag {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .rate-info h3 {
+            margin: 0;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+        
+        .rate-info p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .rate-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .rate-value {
             text-align: center;
         }
         
-        .currency-input select {
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: white;
+        .rate-type {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.25rem;
         }
         
-        .currency-input input:focus,
-        .currency-input select:focus {
-            outline: none;
-            border-color: #059669;
+        .rate-amount {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
         }
         
-        .swap-btn {
+        .rate-change {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
             display: flex;
+            align-items: center;
             justify-content: center;
+            gap: 0.25rem;
+        }
+        
+        .rate-up {
+            color: #059669;
+        }
+        
+        .rate-down {
+            color: #dc2626;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .popular-currencies {
+            margin-top: 2rem;
+        }
+        
+        .currency-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .currency-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .currency-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .calculator-section {
+            margin-top: 2rem;
+        }
+        
+        .amount-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            text-align: center;
             margin: 1rem 0;
         }
         
-        .swap-btn button {
-            background: #059669;
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 40px;
-            height: 40px;
+        .amount-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
         
-        .swap-btn button:hover {
-            background: #0d9488;
-        }
-        
-        .result {
-            background: linear-gradient(135deg, #059669, #10b981);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-        
-        .rates-info {
-            background: #f1f5f9;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-            text-align: center;
+        @media (max-width: 768px) {
+            .currency-input-group {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .swap-button {
+                order: 2;
+                transform: rotate(90deg);
+                margin: 0 auto;
+            }
+            
+            .converter-card {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
-        
-        <h1>💱 Döviz Çevirici</h1>
-        
-        <div class="converter-box">
-            <div class="input-group">
-                <label>Çevrilecek Miktar</label>
-                <div class="currency-input">
-                    <input type="number" id="fromAmount" placeholder="0.00" value="1">
-                    <select id="fromCurrency">
-                        <option value="USD">🇺🇸 USD</option>
-                        <option value="EUR">🇪🇺 EUR</option>
-                        <option value="GBP">🇬🇧 GBP</option>
-                        <option value="TRY" selected>🇹🇷 TRY</option>
-                    </select>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Ana navigasyon">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Kolay Kredi ana sayfa">
+                <svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="16" cy="16" r="15" fill="url(#navGradient)"/>
+                    <rect x="6" y="10" width="20" height="12" rx="2" fill="url(#cardGradient)" opacity="0.95"/>
+                    <rect x="6" y="13" width="20" height="2" fill="#ffffff" opacity="0.3"/>
+                    <rect x="8" y="15" width="3" height="2.5" rx="0.3" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="14" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="16" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="18" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="20" cy="17" r="0.8" fill="#ffffff" opacity="0.7"/>
+                    <text x="22.5" y="19" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="3" font-weight="bold">₺</text>
+                    <circle cx="8" cy="8" r="0.8" fill="#fbbf24" opacity="0.8"/>
+                    <circle cx="24" cy="24" r="0.8" fill="#fbbf24" opacity="0.8"/>
+                    <circle cx="26" cy="10" r="0.6" fill="#ffffff" opacity="0.6"/>
+                </svg>
+                Kolay Kredi
+            </a>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Ana Sayfa</a></li>
+                <li role="none"><a href="kredi-hesaplama.html" role="menuitem">Kredi Hesaplama</a></li>
+                <li role="none"><a href="kredi-kartlari.html" role="menuitem">Kredi Kartları</a></li>
+                <li role="none"><a href="mevduat.html" role="menuitem">Mevduat</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-exchange-alt"></i>
+                Döviz Çevirici
+            </div>
+            <h1>Anlık Döviz Çevirici</h1>
+            <h2>Güncel Kurlarla Hızlı Çevirme</h2>
+            <p>Real-time döviz kurları ile USD, EUR, GBP ve diğer para birimlerini anında TL'ye çevirin. Merkez Bankası verilerine dayalı güncel bilgiler.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="converter-section">
+        <div class="container">
+            <!-- Ana Çevirici -->
+            <div class="converter-card">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 2rem; text-align: center;">
+                    <i class="fas fa-calculator"></i> Döviz Çevirici
+                </h2>
+                
+                <div class="converter-form">
+                    <div class="currency-input-group">
+                        <div class="currency-field">
+                            <label class="currency-label">Çevrilecek Miktar</label>
+                            <div class="currency-container">
+                                <input type="number" id="fromAmount" class="currency-input" value="100" placeholder="0">
+                                <select id="fromCurrency" class="currency-select">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="TRY" selected>TRY</option>
+                                    <option value="JPY">JPY</option>
+                                    <option value="CHF">CHF</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="AUD">AUD</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="swap-button" onclick="swapCurrencies()" title="Para birimlerini değiştir">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        
+                        <div class="currency-field">
+                            <label class="currency-label">Çevrilen Miktar</label>
+                            <div class="currency-container">
+                                <input type="number" id="toAmount" class="currency-input" readonly placeholder="0">
+                                <select id="toCurrency" class="currency-select">
+                                    <option value="USD" selected>USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="TRY">TRY</option>
+                                    <option value="JPY">JPY</option>
+                                    <option value="CHF">CHF</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="AUD">AUD</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popüler Çevirimler -->
+                    <div class="popular-currencies">
+                        <h3 style="color: #1e293b; margin-bottom: 1rem;">Hızlı Çeviri</h3>
+                        <div class="currency-buttons">
+                            <button class="currency-btn" onclick="quickConvert('USD', 'TRY', 1)">1 USD = ? TRY</button>
+                            <button class="currency-btn" onclick="quickConvert('EUR', 'TRY', 1)">1 EUR = ? TRY</button>
+                            <button class="currency-btn" onclick="quickConvert('GBP', 'TRY', 1)">1 GBP = ? TRY</button>
+                            <button class="currency-btn" onclick="quickConvert('TRY', 'USD', 100)">100 TRY = ? USD</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="swap-btn">
-                <button onclick="swapCurrencies()">⇅</button>
-            </div>
-            
-            <div class="input-group">
-                <label>Sonuç</label>
-                <div class="currency-input">
-                    <input type="number" id="toAmount" readonly>
-                    <select id="toCurrency">
-                        <option value="USD" selected>🇺🇸 USD</option>
-                        <option value="EUR">🇪🇺 EUR</option>
-                        <option value="GBP">🇬🇧 GBP</option>
-                        <option value="TRY">🇹🇷 TRY</option>
-                    </select>
+            <!-- Güncel Kurlar -->
+            <div class="converter-card">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 2rem; text-align: center;">
+                    <i class="fas fa-chart-line"></i> Güncel Döviz Kurları
+                </h2>
+                
+                <div class="rates-grid" id="ratesGrid">
+                    <!-- Kurlar JavaScript ile yüklenecek -->
+                </div>
+                
+                <div class="last-updated" id="lastUpdated">
+                    <i class="fas fa-clock"></i> Son güncelleme: <span id="updateTime">--:--</span>
                 </div>
             </div>
             
-            <div class="result" id="result">
-                1 TRY = 0.037 USD
-            </div>
-            
-            <div class="rates-info">
-                📊 Kurlar anlık değil, yaklaşık değerlerdir.<br>
-                Gerçek işlemler için bankanızla iletişime geçin.
+            <!-- Hesaplama Geçmişi -->
+            <div class="converter-card">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 2rem; text-align: center;">
+                    <i class="fas fa-history"></i> Son Çevirimler
+                </h2>
+                
+                <div id="conversionHistory" style="min-height: 100px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                    <p>Henüz çeviri işlemi yapılmadı.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kolay Kredi</h4>
+                    <p>Türkiye'nin en kapsamlı finansal hesaplama ve karşılaştırma platformu. Güvenilir ve profesyonel hizmet.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="kredi-hesaplama.html">Kredi Hesaplama</a></li>
+                        <li><a href="kredi-kartlari.html">Kredi Kartları</a></li>
+                        <li><a href="mevduat.html">Mevduat Hesaplama</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Araçlar</h4>
+                    <ul>
+                        <li><a href="doviz-cevirici.html">Döviz Çevirici</a></li>
+                        <li><a href="#">Altın Fiyatları (Yakında)</a></li>
+                        <li><a href="index.html#hizli-hesaplama">Faiz Hesaplama</a></li>
+                        <li><a href="index.html#banka-oranlar">Banka Karşılaştırma</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+                        <li><a href="kullanim-sartlari.html">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kolay Kredi. Tüm hakları saklıdır. | Finansal kararlarınızı alırken dikkatli olun.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Scripts -->
+    <script src="assets/js/notifications.js"></script>
+    <script src="assets/js/loading.js"></script>
+    <script src="assets/js/theme.js"></script>
     
     <script>
-        // Yaklaşık döviz kurları (gerçek API kullanmıyoruz)
-        const rates = {
-            USD: { TRY: 27.50, EUR: 0.92, GBP: 0.79 },
-            EUR: { TRY: 30.00, USD: 1.09, GBP: 0.86 },
-            GBP: { TRY: 35.00, USD: 1.27, EUR: 1.16 },
-            TRY: { USD: 0.036, EUR: 0.033, GBP: 0.029 }
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Simulated exchange rates (replace with real API)
+        const exchangeRates = {
+            'USD': { 'TRY': 34.25, 'EUR': 0.92, 'GBP': 0.79, 'JPY': 154.30 },
+            'EUR': { 'TRY': 37.15, 'USD': 1.09, 'GBP': 0.86, 'JPY': 168.20 },
+            'GBP': { 'TRY': 43.20, 'USD': 1.26, 'EUR': 1.16, 'JPY': 195.40 },
+            'TRY': { 'USD': 0.029, 'EUR': 0.027, 'GBP': 0.023, 'JPY': 4.51 },
+            'JPY': { 'TRY': 0.22, 'USD': 0.0065, 'EUR': 0.0059, 'GBP': 0.0051 },
+            'CHF': { 'TRY': 38.50, 'USD': 1.12, 'EUR': 1.03, 'GBP': 0.89 },
+            'CAD': { 'TRY': 25.30, 'USD': 0.74, 'EUR': 0.68, 'GBP': 0.58 },
+            'AUD': { 'TRY': 22.80, 'USD': 0.67, 'EUR': 0.61, 'GBP': 0.53 }
         };
-        
-        function convert() {
+
+        // Currency information
+        const currencyInfo = {
+            'USD': { name: 'Amerikan Doları', symbol: '$' },
+            'EUR': { name: 'Euro', symbol: '€' },
+            'GBP': { name: 'İngiliz Sterlini', symbol: '£' },
+            'TRY': { name: 'Türk Lirası', symbol: '₺' },
+            'JPY': { name: 'Japon Yeni', symbol: '¥' },
+            'CHF': { name: 'İsviçre Frangı', symbol: 'CHF' },
+            'CAD': { name: 'Kanada Doları', symbol: 'CAD' },
+            'AUD': { name: 'Avustralya Doları', symbol: 'AUD' }
+        };
+
+        let conversionHistory = [];
+
+        function convertCurrency() {
             const fromAmount = parseFloat(document.getElementById('fromAmount').value) || 0;
             const fromCurrency = document.getElementById('fromCurrency').value;
             const toCurrency = document.getElementById('toCurrency').value;
             
-            if (fromCurrency === toCurrency) {
-                document.getElementById('toAmount').value = fromAmount.toFixed(2);
-                document.getElementById('result').textContent = `${fromAmount} ${fromCurrency} = ${fromAmount} ${toCurrency}`;
+            if (fromAmount === 0) {
+                document.getElementById('toAmount').value = '';
                 return;
             }
             
-            let rate = 1;
-            if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
-                rate = rates[fromCurrency][toCurrency];
-            } else if (rates[toCurrency] && rates[toCurrency][fromCurrency]) {
-                rate = 1 / rates[toCurrency][fromCurrency];
+            let result;
+            if (fromCurrency === toCurrency) {
+                result = fromAmount;
+            } else {
+                const rate = getExchangeRate(fromCurrency, toCurrency);
+                result = fromAmount * rate;
             }
             
-            const result = fromAmount * rate;
-            document.getElementById('toAmount').value = result.toFixed(2);
-            document.getElementById('result').textContent = `${fromAmount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+            document.getElementById('toAmount').value = result.toFixed(4);
+            
+            // Add to history
+            addToHistory(fromAmount, fromCurrency, result, toCurrency);
+            
+            // Google Analytics
+            gtag('event', 'currency_convert', {
+                'event_category': 'Currency',
+                'from_currency': fromCurrency,
+                'to_currency': toCurrency,
+                'amount': fromAmount
+            });
         }
-        
+
+        function getExchangeRate(from, to) {
+            if (from === to) return 1;
+            
+            if (exchangeRates[from] && exchangeRates[from][to]) {
+                return exchangeRates[from][to];
+            }
+            
+            // If direct rate not available, use USD as base
+            if (from !== 'USD' && to !== 'USD') {
+                const fromToUsd = exchangeRates[from]['USD'];
+                const usdToTo = exchangeRates['USD'][to];
+                return fromToUsd * usdToTo;
+            }
+            
+            return 1;
+        }
+
         function swapCurrencies() {
-            const fromCurrency = document.getElementById('fromCurrency').value;
-            const toCurrency = document.getElementById('toCurrency').value;
+            const fromCurrency = document.getElementById('fromCurrency');
+            const toCurrency = document.getElementById('toCurrency');
+            const fromAmount = document.getElementById('fromAmount');
+            const toAmount = document.getElementById('toAmount');
             
-            document.getElementById('fromCurrency').value = toCurrency;
-            document.getElementById('toCurrency').value = fromCurrency;
+            // Swap currency selections
+            const tempCurrency = fromCurrency.value;
+            fromCurrency.value = toCurrency.value;
+            toCurrency.value = tempCurrency;
             
-            convert();
+            // Swap amounts
+            const tempAmount = fromAmount.value;
+            fromAmount.value = toAmount.value;
+            toAmount.value = tempAmount;
+            
+            convertCurrency();
         }
-        
+
+        function quickConvert(from, to, amount) {
+            document.getElementById('fromCurrency').value = from;
+            document.getElementById('toCurrency').value = to;
+            document.getElementById('fromAmount').value = amount;
+            convertCurrency();
+        }
+
+        function addToHistory(fromAmount, fromCurrency, toAmount, toCurrency) {
+            const conversion = {
+                fromAmount: fromAmount,
+                fromCurrency: fromCurrency,
+                toAmount: toAmount,
+                toCurrency: toCurrency,
+                timestamp: new Date()
+            };
+            
+            conversionHistory.unshift(conversion);
+            if (conversionHistory.length > 5) {
+                conversionHistory = conversionHistory.slice(0, 5);
+            }
+            
+            updateHistoryDisplay();
+        }
+
+        function updateHistoryDisplay() {
+            const historyDiv = document.getElementById('conversionHistory');
+            
+            if (conversionHistory.length === 0) {
+                historyDiv.innerHTML = '<p style="text-align: center; color: #64748b;">Henüz çeviri işlemi yapılmadı.</p>';
+                return;
+            }
+            
+            const historyHtml = conversionHistory.map(item => {
+                const fromSymbol = currencyInfo[item.fromCurrency].symbol;
+                const toSymbol = currencyInfo[item.toCurrency].symbol;
+                const timeStr = item.timestamp.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+                
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #f8fafc; border-radius: 8px; margin-bottom: 0.5rem;">
+                        <div>
+                            <strong>${fromSymbol} ${item.fromAmount.toLocaleString('tr-TR')}</strong>
+                            <i class="fas fa-arrow-right" style="margin: 0 0.5rem; color: var(--primary-color);"></i>
+                            <strong>${toSymbol} ${item.toAmount.toLocaleString('tr-TR', { maximumFractionDigits: 2 })}</strong>
+                        </div>
+                        <small style="color: #64748b;">${timeStr}</small>
+                    </div>
+                `;
+            }).join('');
+            
+            historyDiv.innerHTML = historyHtml;
+        }
+
+        function loadCurrentRates() {
+            const ratesGrid = document.getElementById('ratesGrid');
+            const majorCurrencies = ['USD', 'EUR', 'GBP', 'CHF', 'JPY', 'CAD'];
+            
+            const ratesHtml = majorCurrencies.map(currency => {
+                if (currency === 'TRY') return '';
+                
+                const buyRate = exchangeRates[currency]['TRY'];
+                const sellRate = buyRate * 0.98; // Simulated sell rate
+                const change = (Math.random() - 0.5) * 0.5; // Random change
+                const changePercent = ((change / buyRate) * 100).toFixed(2);
+                
+                return `
+                    <div class="rate-card">
+                        <div class="rate-header">
+                            <div class="currency-flag">${currency}</div>
+                            <div class="rate-info">
+                                <h3>${currencyInfo[currency].name}</h3>
+                                <p>${currency}/TRY</p>
+                            </div>
+                        </div>
+                        <div class="rate-values">
+                            <div class="rate-value">
+                                <div class="rate-type">Alış</div>
+                                <div class="rate-amount">₺${sellRate.toFixed(4)}</div>
+                            </div>
+                            <div class="rate-value">
+                                <div class="rate-type">Satış</div>
+                                <div class="rate-amount">₺${buyRate.toFixed(4)}</div>
+                                <div class="rate-change ${change >= 0 ? 'rate-up' : 'rate-down'}">
+                                    <i class="fas fa-${change >= 0 ? 'arrow-up' : 'arrow-down'}"></i>
+                                    ${Math.abs(changePercent)}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            ratesGrid.innerHTML = ratesHtml;
+            
+            // Update time
+            const now = new Date();
+            document.getElementById('updateTime').textContent = 
+                now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+        }
+
         // Event listeners
-        document.getElementById('fromAmount').addEventListener('input', convert);
-        document.getElementById('fromCurrency').addEventListener('change', convert);
-        document.getElementById('toCurrency').addEventListener('change', convert);
-        
-        // İlk hesaplama
-        convert();
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fromAmount').addEventListener('input', convertCurrency);
+            document.getElementById('fromCurrency').addEventListener('change', convertCurrency);
+            document.getElementById('toCurrency').addEventListener('change', convertCurrency);
+            
+            // Initial conversion
+            convertCurrency();
+            loadCurrentRates();
+            
+            // Update rates every 30 seconds
+            setInterval(loadCurrentRates, 30000);
+        });
     </script>
 </body>
 </html>

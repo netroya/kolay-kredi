@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çevrimdışı - Kolay Kredi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2DC44D 0%, #0087FF 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .offline-container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .offline-features {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .offline-features h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .offline-features ul {
+            list-style: none;
+        }
+        
+        .offline-features li {
+            padding: 0.5rem 0;
+            opacity: 0.9;
+        }
+        
+        .offline-features li::before {
+            content: '✓';
+            color: #00ff88;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .retry-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .retry-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .home-button {
+            background: white;
+            color: #2DC44D;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .connection-status {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .online {
+            color: #00ff88;
+        }
+        
+        .offline {
+            color: #ff6b6b;
+        }
+        
+        @media (max-width: 768px) {
+            .offline-container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .retry-button, .home-button {
+                display: block;
+                margin: 0.5rem auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📱</div>
+        <h1>İnternet Bağlantısı Yok</h1>
+        <p>Şu anda çevrimdışısınız, ancak Kolay Kredi'nin bazı özelliklerini kullanmaya devam edebilirsiniz.</p>
+        
+        <div class="offline-features">
+            <h3>Çevrimdışı Kullanılabilir Özellikler:</h3>
+            <ul>
+                <li>Kredi hesaplama araçları</li>
+                <li>Faiz hesaplamaları</li>
+                <li>Kayıtlı banka oranları</li>
+                <li>Geçmiş hesaplamalarınız</li>
+                <li>Temel bilgiler ve yardım</li>
+            </ul>
+        </div>
+        
+        <button class="retry-button" onclick="location.reload()">
+            🔄 Tekrar Dene
+        </button>
+        
+        <a href="/" class="home-button">
+            🏠 Ana Sayfa
+        </a>
+        
+        <div class="connection-status">
+            Durum: <span id="status" class="offline">Çevrimdışı</span>
+        </div>
+    </div>
+    
+    <script>
+        // Connection status monitoring
+        function updateConnectionStatus() {
+            const status = document.getElementById('status');
+            if (navigator.onLine) {
+                status.textContent = 'Çevrimiçi';
+                status.className = 'online';
+            } else {
+                status.textContent = 'Çevrimdışı';
+                status.className = 'offline';
+            }
+        }
+        
+        // Listen for connection changes
+        window.addEventListener('online', () => {
+            updateConnectionStatus();
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        });
+        
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial status check
+        updateConnectionStatus();
+        
+        // Auto-retry when back online
+        if (navigator.onLine) {
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }
+        
+        // Service Worker communication
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then(registration => {
+                // Send message to SW that we're on offline page
+                registration.active?.postMessage({
+                    type: 'OFFLINE_PAGE_LOADED'
+                });
+            });
+        }
+    </script>
+</body>
+</html>

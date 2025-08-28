@@ -1,11 +1,56 @@
-<svg width="140" height="35" viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background -->
-  <rect width="140" height="35" fill="white" rx="4"/>
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="white" rx="6"/>
   
-  <!-- Garanti BBVA Logo -->
+  <!-- Garanti BBVA Professional Logo -->
+  <defs>
+    <linearGradient id="garantiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#004483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003366;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bbvaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#004483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#002244;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+  </defs>
+  
+  <!-- BBVA Hexagonal Symbol -->
   <g transform="translate(8, 8)">
-    <!-- garantibbva text in their official style -->
-    <text x="0" y="12" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#000">garanti</text>
-    <text x="60" y="12" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#072146">bbva</text>
+    <!-- Hexagon base -->
+    <path d="M12 2 L20 6 L20 14 L12 18 L4 14 L4 6 Z" fill="url(#bbvaGrad)" filter="url(#shadow)"/>
+    
+    <!-- Internal geometric pattern -->
+    <g fill="white" opacity="0.9">
+      <polygon points="12,4 16,6.5 16,9.5 12,12 8,9.5 8,6.5"/>
+      <circle cx="12" cy="8" r="2" fill="url(#garantiGrad)"/>
+    </g>
+    
+    <!-- Modern accent -->
+    <rect x="4" y="10" width="16" height="1.5" fill="white" opacity="0.4"/>
   </g>
+  
+  <!-- Typography -->
+  <g transform="translate(32, 10)">
+    <!-- Garanti text -->
+    <text font-family="Arial, sans-serif" font-size="8.5" font-weight="800" fill="#004483">
+      <tspan x="0" y="0">GARANTİ</tspan>
+    </text>
+    
+    <!-- BBVA text -->
+    <text font-family="Arial, sans-serif" font-size="9" font-weight="900" fill="#004483">
+      <tspan x="0" y="12">BBVA</tspan>
+    </text>
+    
+    <!-- Subtitle -->
+    <text font-family="Arial, sans-serif" font-size="5" fill="#666" font-weight="400">
+      <tspan x="0" y="22">TURKEY</tspan>
+    </text>
+  </g>
+  
+  <!-- Brand accent -->
+  <circle cx="105" cy="32" r="3" fill="#004483" opacity="0.3"/>
+  <circle cx="110" cy="28" r="2" fill="#237939" opacity="0.3"/>
 </svg>

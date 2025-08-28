@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunucu Hatası (500) - Kolay Kredi</title>
+    <meta name="description" content="Üzgünüz, sunucumuzda geçici bir sorun yaşanıyor. Kolay Kredi takımı sorunu çözmek için çalışıyor.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+        }
+        
+        .error-container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .error-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #fecaca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .status-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-label {
+            opacity: 0.8;
+        }
+        
+        .status-value {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+        
+        .status-checking { background: #fbbf24; }
+        .status-working { background: #10b981; }
+        .status-error { background: #ef4444; }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary, .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #ef4444;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
+        
+        .retry-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .retry-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .auto-retry {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+        
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 2rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-description {
+                font-size: 1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Animation */
+        .error-container {
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">⚙️</div>
+        <div class="error-code">500</div>
+        <h1 class="error-title">Sunucu Hatası</h1>
+        <p class="error-description">
+            Üzgünüz, sunucumuzda geçici bir sorun yaşanıyor. Teknik ekibimiz sorunu çözmek için çalışıyor.
+        </p>
+        
+        <div class="status-info">
+            <h3>🔧 Sistem Durumu</h3>
+            <div class="status-item">
+                <span class="status-label">Sunucu Durumu</span>
+                <span class="status-value">
+                    <span class="status-indicator status-checking"></span>
+                    Kontrol Ediliyor
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Veritabanı</span>
+                <span class="status-value">
+                    <span class="status-indicator status-working"></span>
+                    Çalışıyor
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Hizmetler</span>
+                <span class="status-value">
+                    <span class="status-indicator status-error"></span>
+                    Sorunlu
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Tahmini Çözüm</span>
+                <span class="status-value">5-15 dakika</span>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn-primary" onclick="retryPage()">
+                🔄 Tekrar Dene
+            </button>
+            <a href="/" class="btn-secondary">
+                🏠 Ana Sayfa
+            </a>
+        </div>
+        
+        <div class="retry-info">
+            <h4>⏱️ Otomatik Yenileme</h4>
+            <div class="auto-retry">
+                Sayfa otomatik olarak yeniden denenecek:
+            </div>
+            <div class="countdown" id="countdown">30</div>
+            <div class="contact-info">
+                Sorun devam ederse <a href="iletisim.html">teknik destek</a> ile iletişime geçin.
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/notifications.js"></script>
+    <script>
+        let countdownValue = 30;
+        let countdownInterval;
+        let retryAttempts = 0;
+        const maxRetries = 3;
+        
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                countdownValue--;
+                document.getElementById('countdown').textContent = countdownValue;
+                
+                if (countdownValue <= 0) {
+                    clearInterval(countdownInterval);
+                    retryPage();
+                }
+            }, 1000);
+        }
+        
+        function retryPage() {
+            retryAttempts++;
+            
+            if (retryAttempts <= maxRetries) {
+                if (typeof toast !== 'undefined') {
+                    toast.info(`Yeniden deneniyor... (${retryAttempts}/${maxRetries})`);
+                }
+                
+                // Simulate server check
+                setTimeout(() => {
+                    // In a real scenario, you'd check server status
+                    const isFixed = Math.random() > 0.7; // 30% chance of being fixed
+                    
+                    if (isFixed || retryAttempts >= maxRetries) {
+                        window.location.reload();
+                    } else {
+                        if (typeof toast !== 'undefined') {
+                            toast.warning('Sunucu henüz hazır değil. Tekrar deneniyor...');
+                        }
+                        
+                        // Reset countdown for next attempt
+                        countdownValue = 30;
+                        startCountdown();
+                    }
+                }, 2000);
+            } else {
+                if (typeof toast !== 'undefined') {
+                    toast.error('Maksimum deneme sayısına ulaşıldı. Lütfen daha sonra tekrar deneyin.');
+                }
+                
+                // Redirect to homepage after max retries
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 3000);
+            }
+        }
+        
+        // Update system status simulation
+        function updateSystemStatus() {
+            const statusItems = document.querySelectorAll('.status-indicator');
+            const statuses = ['status-checking', 'status-working', 'status-error'];
+            
+            setInterval(() => {
+                statusItems.forEach((item, index) => {
+                    if (index === 0) { // Server status
+                        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                        item.className = `status-indicator ${randomStatus}`;
+                        
+                        const statusText = item.parentElement.lastChild;
+                        const statusTexts = ['Kontrol Ediliyor', 'Çalışıyor', 'Sorunlu'];
+                        const statusIndex = statuses.indexOf(randomStatus);
+                        if (statusIndex !== -1) {
+                            statusText.childNodes[1].textContent = statusTexts[statusIndex];
+                        }
+                    }
+                });
+            }, 3000);
+        }
+        
+        // Track 500 error for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'server_error', {
+                'event_category': 'Error',
+                'event_label': window.location.pathname,
+                'value': 500
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+            updateSystemStatus();
+            
+            // Show initial notification
+            setTimeout(() => {
+                if (typeof toast !== 'undefined') {
+                    toast.warning('Sunucu geçici olarak kullanılamıyor. Otomatik yenileme aktif.');
+                }
+            }, 1000);
+        });
+        
+        // Prevent multiple rapid retries
+        let isRetrying = false;
+        const originalRetry = retryPage;
+        retryPage = function() {
+            if (!isRetrying) {
+                isRetrying = true;
+                originalRetry();
+                setTimeout(() => { isRetrying = false; }, 5000);
+            }
+        };
+    </script>
+</body>
+</html>
