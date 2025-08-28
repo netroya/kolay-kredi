@@ -84,13 +84,17 @@ This document contains official download links for all bank logos used in the Ko
 - **Status**: TODO - Manual download required
 
 #### QNB Finansbank A.Ş.
-- **Official Download**: https://www.qnbfinansbank.com/hakkimizda/basin-odasi/gorsel-arsiv
+- **Official Download**: https://www.qnb.com.tr/qnbyi-taniyin/basin-odasi/logolar-ve-diger-gorseller ✅ VERIFIED
 - **Press Room**: https://www.qnbfinansbank.com/hakkimizda/basin-odasi
-- **Brand Guidelines**: QNB Group brand standards
-- **Usage Notes**: International bank - respect global brand guidelines
-- **Variants**: QNB Finansbank full logo, QNB logo, compact versions
-- **File Name**: `qnb-finansbank.svg`
-- **Status**: TODO - Manual download required
+- **Available Formats**: JPG (high resolution)
+- **Logo Variants**: 
+  - Main QNB logo: `GalleryImage-Image-465-2x.vsf`
+  - Branch logo: `GalleryImage-Image-482-2x.vsf`
+  - Crystal Tower logos: `GalleryImage-Image-476/484-2x.vsf`
+- **Brand Symbolism**: Plus + multiplication signs overlay (growth symbolism)
+- **Usage Notes**: International bank - respect QNB Group brand guidelines
+- **File Name**: `qnb-finansbank.svg` (to be converted from JPG)
+- **Status**: ✅ OFFICIAL SOURCE VERIFIED - Ready for download
 
 #### ING Bank A.Ş.
 - **Official Download**: https://www.ing.com.tr/hakkimizda/basin-odasi/gorsel-arsiv
