@@ -1,0 +1,181 @@
+# Bank Logo Sources & Download Links
+
+This document contains official download links for all bank logos used in the Kolay Kredi platform. All logos must be downloaded manually from official sources to ensure compliance with brand guidelines and copyright requirements.
+
+## Download Guidelines
+
+- **ONLY** download from official bank websites, press rooms, or brand centers
+- Prefer SVG format over PNG for scalability
+- Ensure transparent background
+- Maintain original aspect ratios
+- Check for any usage restrictions or attribution requirements
+
+## Bank Logo Sources
+
+### Public Banks
+
+#### T.C. Ziraat Bankası A.Ş.
+- **Official Download**: https://www.ziraatbank.com.tr/tr/kurumsal/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.ziraatbank.com.tr/tr/kurumsal/basin-odasi
+- **Brand Guidelines**: Request from press contact
+- **Usage Notes**: Government bank - official logo usage allowed for informational purposes
+- **Variants**: Standard horizontal logo, vertical logo, monochrome versions
+- **File Name**: `ziraat.svg`
+- **Status**: TODO - Manual download required
+
+#### Türkiye Vakıflar Bankası T.A.O.
+- **Official Download**: https://www.vakifbank.com.tr/kurumsal/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.vakifbank.com.tr/kurumsal/basin-odasi
+- **Brand Guidelines**: Available in press room
+- **Usage Notes**: Public bank - logo usage for comparative purposes allowed
+- **Variants**: Full logo with text, symbol only, different color versions
+- **File Name**: `vakifbank.svg`
+- **Status**: TODO - Manual download required
+
+#### Türkiye Halk Bankası A.Ş.
+- **Official Download**: https://www.halkbank.com.tr/kurumsal/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.halkbank.com.tr/kurumsal/basin-odasi
+- **Brand Guidelines**: Contact corporate communications
+- **Usage Notes**: State bank - informational usage permitted
+- **Variants**: Horizontal logo, square logo, monogram
+- **File Name**: `halkbank.svg`
+- **Status**: TODO - Manual download required
+
+### Private Banks
+
+#### Türkiye İş Bankası A.Ş.
+- **Official Download**: https://www.isbank.com.tr/TR/hakkimizda/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.isbank.com.tr/TR/hakkimizda/basin-odasi
+- **Brand Guidelines**: Available for media use
+- **Usage Notes**: Turkey's first national bank - respectful usage required
+- **Variants**: Full logo, abbreviated "İşbank", English versions
+- **File Name**: `isbank.svg`
+- **Status**: TODO - Manual download required
+
+#### Yapı ve Kredi Bankası A.Ş.
+- **Official Download**: https://www.yapikredi.com.tr/yapi-kredi-hakkinda/basin-merkezi/gorsel-arsiv
+- **Press Room**: https://www.yapikredi.com.tr/yapi-kredi-hakkinda/basin-merkezi
+- **Brand Guidelines**: Contact press office for guidelines
+- **Usage Notes**: Koç Holding subsidiary - corporate standards apply
+- **Variants**: Full name logo, "Yapı Kredi" short version, symbol mark
+- **File Name**: `yapikredi.svg`
+- **Status**: TODO - Manual download required
+
+#### Garanti BBVA
+- **Official Download**: https://www.garantibbva.com.tr/tr/sosyal_sorumluluk/basin_odasi/gorsel_arsiv
+- **Press Room**: https://www.garantibbva.com.tr/tr/sosyal_sorumluluk/basin_odasi
+- **Brand Guidelines**: BBVA global brand guidelines apply
+- **Usage Notes**: International brand standards - careful usage required
+- **Variants**: Garanti BBVA combined logo, separate Garanti logo, BBVA logo
+- **File Name**: `garanti-bbva.svg`
+- **Status**: TODO - Manual download required
+
+#### Akbank T.A.Ş.
+- **Official Download**: https://www.akbank.com/tr-tr/kurumsal/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.akbank.com/tr-tr/kurumsal/basin-odasi
+- **Brand Guidelines**: Corporate identity guidelines available
+- **Usage Notes**: Sabancı Holding standards - professional usage only
+- **Variants**: Full logo, compact logo, English versions
+- **File Name**: `akbank.svg`
+- **Status**: TODO - Manual download required
+
+#### QNB Finansbank A.Ş.
+- **Official Download**: https://www.qnbfinansbank.com/hakkimizda/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.qnbfinansbank.com/hakkimizda/basin-odasi
+- **Brand Guidelines**: QNB Group brand standards
+- **Usage Notes**: International bank - respect global brand guidelines
+- **Variants**: QNB Finansbank full logo, QNB logo, compact versions
+- **File Name**: `qnb-finansbank.svg`
+- **Status**: TODO - Manual download required
+
+#### ING Bank A.Ş.
+- **Official Download**: https://www.ing.com.tr/hakkimizda/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.ing.com.tr/hakkimizda/basin-odasi
+- **Brand Guidelines**: ING global brand guidelines
+- **Usage Notes**: International brand - follow ING worldwide standards
+- **Variants**: ING logo with lion, text-only versions, color variations
+- **File Name**: `ing.svg`
+- **Status**: TODO - Manual download required
+
+### Digital Banks
+
+#### Enpara.com (QNB Finansbank)
+- **Official Download**: https://www.enpara.com/hakkimizda/basin-odasi
+- **Parent Bank**: QNB Finansbank press room
+- **Brand Guidelines**: Digital bank specific guidelines
+- **Usage Notes**: Digital-first brand - modern usage contexts preferred
+- **Variants**: Full Enpara.com logo, compact logo, app icon versions
+- **File Name**: `enpara.svg`
+- **Status**: TODO - Manual download required
+
+#### Türk Ekonomi Bankası A.Ş. (TEB)
+- **Official Download**: https://www.teb.com.tr/hakkimizda/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.teb.com.tr/hakkimizda/basin-odasi
+- **Brand Guidelines**: BNP Paribas group standards apply
+- **Usage Notes**: International partnership - respect BNP Paribas guidelines
+- **Variants**: TEB full logo, abbreviated logo, BNP Paribas co-branding
+- **File Name**: `teb.svg`
+- **Status**: TODO - Manual download required
+
+#### CEPTETEB
+- **Official Download**: https://www.cepteteb.com.tr/hakkimizda
+- **Parent**: TEB press room materials
+- **Brand Guidelines**: Mobile-first brand guidelines
+- **Usage Notes**: Mobile banking brand - digital context preferred
+- **Variants**: CEPTETEB full logo, app icon, simplified versions
+- **File Name**: `cepteteb.svg`
+- **Status**: TODO - Manual download required
+
+#### Fibabanka A.Ş.
+- **Official Download**: https://www.fibabanka.com.tr/hakkimizda/basin-odasi/gorsel-arsiv
+- **Press Room**: https://www.fibabanka.com.tr/hakkimizda/basin-odasi
+- **Brand Guidelines**: Contact corporate communications
+- **Usage Notes**: Premium banking brand - upscale presentation required
+- **Variants**: Fibabanka full logo, "Fiba" short version, monogram
+- **File Name**: `fibabanka.svg`
+- **Status**: TODO - Manual download required
+
+## Legal Disclaimer
+
+- All logos remain the intellectual property of their respective banks
+- Logos are used for informational and comparative purposes only
+- No endorsement or partnership is implied
+- Banks retain all trademark and copyright rights
+- Logos will be removed immediately upon request from rights holders
+- Usage complies with fair use provisions for comparative advertising
+
+## File Requirements
+
+### Technical Specifications
+- **Format**: SVG preferred (scalable), PNG acceptable (min 480×176 for 3:1 ratio)
+- **Background**: Transparent required
+- **Colors**: Original brand colors only
+- **Quality**: Vector format or high-resolution raster
+- **Size**: Optimized for web (under 50KB)
+
+### Naming Convention
+- Use bank slug as defined in `src/data/banks.ts`
+- Format: `{slug}.svg` or `{slug}.png`
+- No spaces, use hyphens for multi-word names
+- Lowercase preferred for consistency
+
+## Manual Download Process
+
+1. **Verification**: Confirm source is official bank website/press room
+2. **Selection**: Choose highest quality, transparent background version
+3. **Download**: Save with correct filename in `/public/logos/`
+4. **Validation**: Run `npm run logo-qa` to validate quality
+5. **Testing**: Run `npm test` to verify all logos load correctly
+6. **Documentation**: Update this file with download date and version
+
+## Contact Information
+
+For questions about logo usage or to report copyright concerns:
+- **Email**: legal@kolaykredi.com
+- **Subject**: Logo Usage Inquiry - [Bank Name]
+
+---
+
+**Last Updated**: August 28, 2024
+**Review Schedule**: Monthly verification of download links
+**Compliance**: All logos pending manual verification and download

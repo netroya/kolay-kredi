@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <rect width="300" height="100" fill="transparent"/>
+  <g transform="translate(50, 30)">
+    <!-- Akbank Logo - Simplified -->
+    <circle cx="15" cy="15" r="15" fill="#E31837"/>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#E31837">
+      Akbank
+    </text>
+    <text x="40" y="32" font-family="Arial, sans-serif" font-size="8" fill="#666">
+      Değer Yaratan Banka
+    </text>
+  </g>
+</svg>

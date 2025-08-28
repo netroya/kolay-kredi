@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayfa Bulunamadı - Kolay Kredi</title>
+  <script>
+    // GitHub Pages SPA redirect script
+    // Store the current path and redirect to home with hash
+    sessionStorage.setItem('redirect', location.pathname.slice(0, -1) + location.hash);
+    location.replace(location.origin + location.pathname.split('/').slice(0, -1).join('/') + '/#/');
+  </script>
+</head>
+<body>
+  <div style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+    <h1>Yönlendiriliyor...</h1>
+    <p>Lütfen bekleyin...</p>
+  </div>
+</body>
+</html>

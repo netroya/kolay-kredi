@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <rect width="300" height="100" fill="transparent"/>
+  <g transform="translate(45, 25)">
+    <!-- İş Bankası Logo - Simplified -->
+    <rect x="0" y="0" width="30" height="30" fill="#B22222" rx="4"/>
+    <text x="2" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">İŞ</text>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#B22222">
+      İş Bankası
+    </text>
+    <text x="40" y="35" font-family="Arial, sans-serif" font-size="8" fill="#666">
+      1924'ten Beri
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+# Robots.txt for Kolay Kredi - https://netroya.github.io/kolay-kredi/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://netroya.github.io/kolay-kredi/sitemap.xml
+
+# Main application pages
+Allow: /kredi
+Allow: /kredi-karti  
+Allow: /emekli-promosyonu
+Allow: /ucretler
+Allow: /hakkimizda
+Allow: /iletisim
+
+# Bank detail pages
+Allow: /banka/
+
+# Static pages
+Allow: /gizlilik-politikasi
+Allow: /kullanim-sartlari
+
+# Disallow system and build files
+Disallow: /static/
+Disallow: /assets/
+Disallow: /_/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.map$
+Disallow: /vite.config.*
+Disallow: /tsconfig.*
+Disallow: /package*
+
+# Crawl delays
+Crawl-delay: 1
+
+# Search engine specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block aggressive crawlers
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Block AI training bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
