@@ -75,13 +75,13 @@ This document contains official download links for all bank logos used in the Ko
 - **Status**: TODO - Manual download required
 
 #### Akbank T.A.Ş.
-- **Official Download**: https://www.akbank.com/tr-tr/kurumsal/basin-odasi/gorsel-arsiv
-- **Press Room**: https://www.akbank.com/tr-tr/kurumsal/basin-odasi
-- **Brand Guidelines**: Corporate identity guidelines available
+- **Official Download**: https://www.akbank.com (logo asset located) 🔍 CHECKING
+- **Logo Asset Found**: `/SiteAssets/img/logo.svg` (site header)
+- **Press Room**: Corporate communication to be contacted
+- **Available Formats**: SVG confirmed (site asset)
 - **Usage Notes**: Sabancı Holding standards - professional usage only
-- **Variants**: Full logo, compact logo, English versions
 - **File Name**: `akbank.svg`
-- **Status**: TODO - Manual download required
+- **Status**: 🔍 PARTIAL VERIFICATION - SVG asset located on main site
 
 #### QNB Finansbank A.Ş.
 - **Official Download**: https://www.qnb.com.tr/qnbyi-taniyin/basin-odasi/logolar-ve-diger-gorseller ✅ VERIFIED
