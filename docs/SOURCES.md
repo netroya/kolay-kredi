@@ -15,13 +15,16 @@ This document contains official download links for all bank logos used in the Ko
 ### Public Banks
 
 #### T.C. Ziraat Bankası A.Ş.
-- **Official Download**: https://www.ziraatbank.com.tr/tr/kurumsal/basin-odasi/gorsel-arsiv
+- **Official Download**: https://www.ziraatbank.com.tr/tr/bankamiz/basin-odasi/bankamiz-gorselleri ✅ VERIFIED
 - **Press Room**: https://www.ziraatbank.com.tr/tr/kurumsal/basin-odasi
-- **Brand Guidelines**: Request from press contact
-- **Usage Notes**: Government bank - official logo usage allowed for informational purposes
-- **Variants**: Standard horizontal logo, vertical logo, monochrome versions
-- **File Name**: `ziraat.svg`
-- **Status**: TODO - Manual download required
+- **Available Formats**: JPG, PDF (vector)
+- **Logo Variants**: 
+  - Basic emblem: `zb_amblem.jpg`, `zb_amblem_vek.pdf` 
+  - With slogan: `ziraat-sloganli-logo.pdf`
+- **Usage Notes**: State bank - official logo usage allowed for informational purposes
+- **Recommended**: PDF vector format for best quality
+- **File Name**: `ziraat.svg` (to be converted from PDF)
+- **Status**: ✅ OFFICIAL SOURCE VERIFIED - Ready for download
 
 #### Türkiye Vakıflar Bankası T.A.O.
 - **Official Download**: https://www.vakifbank.com.tr/tr/bankamiz/hakkimizda/logolarimiz ✅ VERIFIED
