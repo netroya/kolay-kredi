@@ -97,13 +97,17 @@ This document contains official download links for all bank logos used in the Ko
 - **Status**: ✅ OFFICIAL SOURCE VERIFIED - Ready for download
 
 #### ING Bank A.Ş.
-- **Official Download**: https://www.ing.com.tr/hakkimizda/basin-odasi/gorsel-arsiv
+- **Official Download**: https://www.ing.com.tr/tr/ing/basin-odasi/gorsel-galeri/kurumsal-logo ✅ VERIFIED
 - **Press Room**: https://www.ing.com.tr/hakkimizda/basin-odasi
-- **Brand Guidelines**: ING global brand guidelines
+- **Available Formats**: PNG (high resolution)
+- **Logo Variants**: 
+  - White background: `ING_Logo_BeyazBG_Big.png`
+  - Orange background: `ING_Logo_TuruncuBG_Big.png`
+- **Brand Guidelines**: ING global brand guidelines (orange is signature color)
 - **Usage Notes**: International brand - follow ING worldwide standards
-- **Variants**: ING logo with lion, text-only versions, color variations
-- **File Name**: `ing.svg`
-- **Status**: TODO - Manual download required
+- **Recommended**: White background for transparency compatibility
+- **File Name**: `ing.svg` (to be converted from PNG)
+- **Status**: ✅ OFFICIAL SOURCE VERIFIED - Ready for download
 
 ### Digital Banks
 
