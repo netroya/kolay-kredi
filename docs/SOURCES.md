@@ -1,16 +1,179 @@
-# Bank Logo Sources & Download Links
+# 🏦 Bank Logo Sources (Official)
 
-This document contains official download links for all bank logos used in the Kolay Kredi platform. All logos must be downloaded manually from official sources to ensure compliance with brand guidelines and copyright requirements.
+## Logo Source Registry
 
-## Download Guidelines
+| Bank Name | Slug | Source URL | Access | Last Checked |
+|-----------|------|------------|---------|-------------|
+| Ziraat Bankası | `ziraat` | https://www.ziraatbank.com.tr/tr/kurumsal/hakkimizda/basin-odasi/gorseller | Public | 2025-08-29 |
+| VakıfBank | `vakifbank` | https://www.vakifbank.com.tr/logolarimiz.aspx | Public | 2025-08-29 |
+| Halkbank | `halkbank` | https://www.halkbank.com.tr/tr/bilgi-toplumu-hizmetleri/banka-bilgileri.html | Public | 2025-08-29 |
+| QNB Finansbank | `qnb-finansbank` | https://www.qnb.com.tr/qnbyi-taniyin/basin-odasi/logolar-ve-diger-gorseller | Public | 2025-08-29 |
+| ING Türkiye | `ing` | https://www.ing.com.tr/en/corporate-identity/corporate-logo-gallery | Public | 2025-08-29 |
+| Fibabanka | `fibabanka` | https://www.fibabanka.com.tr/hakkimizda/kurumsal-iletisim/gorsel-galeri/fibabanka-logo-yeni | Public | 2025-08-29 |
+| Türkiye İş Bankası | `isbank` | https://www.isbank.com.tr/bankamizi-taniyin/basin-aciklamasi | Request Required | 2025-08-29 |
+| Garanti BBVA | `garanti-bbva` | https://www.garantibbva.com.tr/en/corporate-communications | Request Required | 2025-08-29 |
+| Yapı Kredi | `yapikredi` | https://www.yapikredi.com.tr/yapi-kredi-hakkinda/iletisim | Request Required | 2025-08-29 |
+| Akbank | `akbank` | https://www.akbank.com/en/about-us/support-center/contact-information | Request Required | 2025-08-29 |
+| TEB | `teb` | https://www.teb.com.tr/hakkimizda/basin-merkezi | Public | 2025-08-29 |
+| Enpara.com | `enpara` | https://www.enpara.com/hakkimizda | Public | 2025-08-29 |
 
-- **ONLY** download from official bank websites, press rooms, or brand centers
-- Prefer SVG format over PNG for scalability
-- Ensure transparent background
-- Maintain original aspect ratios
-- Check for any usage restrictions or attribution requirements
+## Manual Download Checklist
 
-## Bank Logo Sources
+### Prerequisites
+```bash
+# Create manual logos directory
+mkdir -p manual-logos
+
+# Ensure proper permissions
+chmod 755 manual-logos
+```
+
+### Download Steps
+
+1. **Visit Official Source**: Use the URLs from the table above
+2. **Select Logo Format**: 
+   - **TEB (SVG tercih)**: Prefer vector format from press room
+   - Prefer SVG (vector format)
+   - PNG acceptable (high resolution, transparent background)
+   - Avoid JPG/JPEG (no transparency)
+
+3. **File Naming Convention**:
+   ```
+   manual-logos/{slug}.svg
+   manual-logos/{slug}.png
+   
+   Examples:
+   manual-logos/ziraat.svg
+   manual-logos/vakifbank.png
+   manual-logos/isbank.svg
+   ```
+
+4. **Quality Requirements**:
+   - **SVG**: Must have viewBox, clean markup
+   - **PNG**: Transparent background, min 240×80px, max 960×320px
+   - **Size**: < 50KB per file
+   - **Aspect Ratio**: Approximately 3:1 (width:height)
+
+### Verification Command
+```bash
+# Dry-run check (no changes)
+npm run logo:qa
+
+# Process and optimize logos
+npm run logo:ingest
+
+# Generate detailed report
+npm run logo:report
+```
+
+## Legal & Brand Usage Notes
+
+### ⚠️ Important Disclaimers
+
+1. **No Automated Downloads**: This system does NOT automatically download logos from bank websites. All downloads must be performed manually by authorized personnel.
+
+2. **Brand Guidelines Compliance**: Each bank's logo usage must comply with their official brand guidelines. Check each bank's brand portal for:
+   - Minimum size requirements
+   - Clear space specifications  
+   - Color variations allowed
+   - Prohibited modifications
+
+3. **Fair Use**: Logos are used under fair use provisions for comparative financial service information display.
+
+4. **Attribution**: When required by brand guidelines, proper attribution is provided in the application footer.
+
+### Access Types
+
+- **Public**: Logos available on public brand/press pages
+- **Request Required**: Must contact corporate communications for logo files
+- **Brand Portal**: Requires registration on official brand portal
+
+### Contact Templates
+
+#### For "Request Required" Banks:
+
+**Subject**: Logo Usage Request - Kolay Kredi Comparison Platform
+
+**Template**:
+```
+Dear [Bank] Corporate Communications Team,
+
+We are developing "Kolay Kredi," a consumer financial comparison platform 
+that helps Turkish consumers compare loan and credit products transparently.
+
+We would like to request permission to use [Bank Name]'s official logo in 
+our comparison tables and informational materials. Our usage will be:
+
+- Limited to product comparison contexts
+- Non-commercial/educational purpose
+- Compliant with your brand guidelines
+- Properly attributed as per your requirements
+
+Could you please provide:
+1. Official logo files (SVG preferred, PNG acceptable)
+2. Brand usage guidelines for our use case
+3. Any attribution requirements
+
+Platform: https://netroya.github.io/kolay-kredi/
+Contact: [Your Contact Information]
+
+Thank you for your consideration.
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**❌ Logo too large (>50KB)**
+```bash
+# SVG: Check for embedded images or unoptimized paths
+# PNG: Reduce dimensions or increase compression
+```
+
+**❌ Invalid viewBox (SVG)**
+```bash
+# Must have format: viewBox="0 0 width height"
+# Example: viewBox="0 0 240 80"
+```
+
+**❌ Non-transparent background (PNG)**
+```bash
+# Use PNG with alpha channel
+# Avoid logos with white/colored backgrounds
+```
+
+**❌ Wrong aspect ratio**
+```bash
+# Target: 3:1 ratio (3×width = 1×height)
+# Acceptable range: 2.5:1 to 4:1
+```
+
+### File Structure After Processing
+```
+public/
+  logos/
+    banks/
+      ziraat.svg
+      vakifbank.png
+      isbank.svg
+      ...
+
+src/
+  data/
+    banks.ts (updated with logo paths)
+
+reports/
+  logo-qa.json (quality assurance report)
+```
+
+### Support
+
+For technical issues with logo processing:
+- Check `reports/logo-qa.json` for detailed error messages
+- Run `npm run logo:qa` for validation
+- Ensure Node.js ≥18 and all dependencies installed
+
+## Historical Source Information
 
 ### Public Banks
 

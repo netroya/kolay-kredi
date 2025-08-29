@@ -4,6 +4,9 @@ export type BankLogo = {
   logo: string;
   bgPref: "light" | "dark" | "any";
   homepage?: string;
+  logoVerified?: boolean;
+  logoSourceUrl?: string;
+  logoLastChecked?: string;
 }
 
 export interface Bank {
@@ -21,19 +24,124 @@ export interface Bank {
 }
 
 export const BANKS: BankLogo[] = [
-  {slug: "ziraat", name: "Ziraat Bankası", logo: "/logos/ziraat-placeholder.svg", bgPref: "light", homepage: "https://www.ziraatbank.com.tr"},
-  {slug: "vakifbank", name: "VakıfBank", logo: "/logos/vakifbank-placeholder.svg", bgPref: "light", homepage: "https://www.vakifbank.com.tr"},
-  {slug: "isbank", name: "Türkiye İş Bankası", logo: "/logos/isbank-placeholder.svg", bgPref: "light", homepage: "https://www.isbank.com.tr"},
-  {slug: "yapikredi", name: "Yapı Kredi", logo: "/logos/yapikredi-placeholder.svg", bgPref: "light", homepage: "https://www.yapikredi.com.tr"},
-  {slug: "garanti-bbva", name: "Garanti BBVA", logo: "/logos/garanti-bbva-placeholder.svg", bgPref: "light", homepage: "https://www.garantibbva.com.tr"},
-  {slug: "akbank", name: "Akbank", logo: "/logos/akbank-placeholder.svg", bgPref: "light", homepage: "https://www.akbank.com"},
-  {slug: "qnb-finansbank", name: "QNB Finansbank", logo: "/logos/qnb-finansbank-placeholder.svg", bgPref: "light", homepage: "https://www.qnb.com.tr"},
-  {slug: "halkbank", name: "Halkbank", logo: "/logos/halkbank-placeholder.svg", bgPref: "light", homepage: "https://www.halkbank.com.tr"},
-  {slug: "ing", name: "ING", logo: "/logos/ing-placeholder.svg", bgPref: "light", homepage: "https://www.ing.com.tr"},
-  {slug: "enpara", name: "Enpara.com", logo: "/logos/enpara-placeholder.svg", bgPref: "light", homepage: "https://www.enpara.com"},
-  {slug: "teb", name: "TEB", logo: "/logos/teb-placeholder.svg", bgPref: "light", homepage: "https://www.teb.com.tr"},
-  {slug: "cepteteb", name: "CEPTETEB", logo: "/logos/cepteteb-placeholder.svg", bgPref: "light", homepage: "https://www.cepteteb.com.tr"},
-  {slug: "fibabanka", name: "Fibabanka", logo: "/logos/fibabanka-placeholder.svg", bgPref: "light", homepage: "https://www.fibabanka.com.tr"}
+  {
+    slug: "ziraat", 
+    name: "Ziraat Bankası", 
+    logo: "/logos/ziraat-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.ziraatbank.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.ziraatbank.com.tr/tr/kurumsal/hakkimizda/basin-odasi/gorseller"
+  },
+  {
+    slug: "vakifbank", 
+    name: "VakıfBank", 
+    logo: "/logos/vakifbank-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.vakifbank.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.vakifbank.com.tr/logolarimiz.aspx"
+  },
+  {
+    slug: "isbank", 
+    name: "Türkiye İş Bankası", 
+    logo: "/logos/isbank-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.isbank.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.isbank.com.tr/bankamizi-taniyin/basin-aciklamasi"
+  },
+  {
+    slug: "yapikredi", 
+    name: "Yapı Kredi", 
+    logo: "/logos/yapikredi-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.yapikredi.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.yapikredi.com.tr/yapi-kredi-hakkinda/iletisim"
+  },
+  {
+    slug: "garanti-bbva", 
+    name: "Garanti BBVA", 
+    logo: "/logos/garanti-bbva-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.garantibbva.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.garantibbva.com.tr/en/corporate-communications"
+  },
+  {
+    slug: "akbank", 
+    name: "Akbank", 
+    logo: "/logos/akbank-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.akbank.com",
+    logoVerified: false,
+    logoSourceUrl: "https://www.akbank.com/en/about-us/support-center/contact-information"
+  },
+  {
+    slug: "qnb-finansbank", 
+    name: "QNB Finansbank", 
+    logo: "/logos/qnb-finansbank-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.qnb.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.qnb.com.tr/qnbyi-taniyin/basin-odasi/logolar-ve-diger-gorseller"
+  },
+  {
+    slug: "halkbank", 
+    name: "Halkbank", 
+    logo: "/logos/halkbank-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.halkbank.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.halkbank.com.tr/tr/bilgi-toplumu-hizmetleri/banka-bilgileri.html"
+  },
+  {
+    slug: "ing", 
+    name: "ING", 
+    logo: "/logos/ing-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.ing.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.ing.com.tr/en/corporate-identity/corporate-logo-gallery"
+  },
+  {
+    slug: "enpara", 
+    name: "Enpara.com", 
+    logo: "/logos/enpara-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.enpara.com",
+    logoVerified: false,
+    logoSourceUrl: "https://www.enpara.com/hakkimizda"
+  },
+  {
+    slug: "teb", 
+    name: "TEB", 
+    logo: "/logos/banks/teb.png", 
+    bgPref: "light", 
+    homepage: "https://www.teb.com.tr",
+    logoVerified: true,
+    logoSourceUrl: "https://www.teb.com.tr/hakkimizda/basin-merkezi",
+    logoLastChecked: "2025-08-29"
+  },
+  {
+    slug: "cepteteb", 
+    name: "CEPTETEB", 
+    logo: "/logos/cepteteb-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.cepteteb.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.teb.com.tr/hakkimizda/basin-merkezi"
+  },
+  {
+    slug: "fibabanka", 
+    name: "Fibabanka", 
+    logo: "/logos/fibabanka-placeholder.svg", 
+    bgPref: "light", 
+    homepage: "https://www.fibabanka.com.tr",
+    logoVerified: false,
+    logoSourceUrl: "https://www.fibabanka.com.tr/hakkimizda/kurumsal-iletisim/gorsel-galeri/fibabanka-logo-yeni"
+  }
 ];
 
 export const banks: Bank[] = [
